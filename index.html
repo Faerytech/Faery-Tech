@@ -3,797 +3,176 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Faery Tech – Small Business Websites</title>
-
-  <!-- Google Fonts: Cinzel (headings) + Nunito (body) -->
+  <title>Faery Tech – Magic in Tech</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <!-- Your stylesheet -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- ============================================================
-       STARFIELD CANVAS
-       Sits fixed behind everything. Stars are drawn by JS below.
-       ============================================================ -->
-  <canvas id="starfield"></canvas>
+<canvas id="starfield"></canvas>
 
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">✦ Faery Tech</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
-  <!-- ============================================================
-       NAVBAR
-       Fixed to top. Brand name on left, links on right.
-       To add/remove links: edit the <ul class="nav-links"> list.
-       ============================================================ -->
-  <nav>
-    <div class="nav-inner">
-      <a href="#hero" class="nav-brand">✦ Faery Tech</a>
-      <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+<main>
 
-
-  <main>
-
-    <!-- ============================================================
-         HERO SECTION
-         Full-height intro. Edit headline, subtext, and button labels.
-         ============================================================ -->
-    <section id="hero">
-      <div class="container">
-        <div class="hero-content">
-
-          <!-- Small label above headline — change this to tweak the tagline -->
-          <p class="hero-eyebrow">✦ Small business websites, built with care</p>
-
-          <!-- Main headline -->
-          <h1>Your business deserves a website that works as hard as you do.</h1>
-
-          <!-- Supporting description -->
-          <p>Faery Tech builds clean, fast, mobile-friendly websites for small businesses — custom-coded and crafted to help you grow.</p>
-
-          <!-- CTA buttons -->
-          <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-            <a href="#contact" class="btn-primary">Message Me</a>
-            <a href="#services" class="btn-outline">See Packages</a>
-            <a href="https://calendly.com/faerytech" class="btn-outline" target="_blank">Book a Call</a>
-          </div>
-
-        </div>
-
-        <!-- Decorative glowing orb (purely visual, no content) -->
-        <div class="hero-orb"></div>
-      </div>
-    </section>
-
-
-    <!-- ============================================================
-         SERVICES SECTION
-         Add/remove/edit .service-card blocks to change packages.
-         Icons are just emoji — swap them out freely.
-         ============================================================ -->
-    <section id="services">
-      <div class="container">
-
-        <p class="section-label">What I offer</p>
-        <h2 class="section-title">Packages for every stage</h2>
-        <p class="section-sub">Simple, transparent pricing. No tech jargon. No surprise fees. Just a website your customers will actually find.</p>
-
-        <div class="services-grid">
-
-          <!-- Service Card 1: Starter -->
-          <div class="service-card">
-            <div class="service-icon">🌱</div>
-            <h3>Starter Site</h3>
-            <p>A clean, mobile-friendly single-page site for businesses just getting online. Everything you need, nothing you don't.</p>
-            <span class="service-price">→ Best for: new businesses</span>
-          </div>
-
-          <!-- Service Card 2: Growth -->
-          <div class="service-card">
-            <div class="service-icon">🚀</div>
-            <h3>Growth Package</h3>
-            <p>Multi-page site with a portfolio, contact form, and quote request calendar. Built to convert visitors into customers.</p>
-            <span class="service-price">→ Best for: growing businesses</span>
-          </div>
-
-          <!-- Service Card 3: WordPress -->
-          <div class="service-card">
-            <div class="service-icon">⚡</div>
-            <h3>WordPress Site</h3>
-            <p>A fully managed WordPress site you can update yourself — with your branding, your content, and ongoing support from me.</p>
-            <span class="service-price">→ Best for: content-heavy businesses</span>
-          </div>
-
-          <!-- Service Card 4: Care Plan -->
-          <div class="service-card">
-            <div class="service-icon">✦</div>
-            <h3>Care & Updates</h3>
-            <p>Monthly maintenance so your site stays fresh, secure, and on-brand. Think of it as a retainer for your peace of mind.</p>
-            <span class="service-price">→ Add-on to any package</span>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ============================================================
-         PORTFOLIO SECTION
-         Replace .portfolio-img placeholder divs with real <img> tags
-         when you have screenshots. Update h4 and p with project info.
-
-         To add a real image replace the div.portfolio-img with:
-         <img src="images/project1.png" alt="Project name"
-              style="width:100%; aspect-ratio:16/9; object-fit:cover;">
-         ============================================================ -->
-    <section id="portfolio">
-      <div class="container">
-
-        <p class="section-label">Recent work</p>
-        <h2 class="section-title">Built by Faery Tech</h2>
-        <p class="section-sub">Every site is custom-built for the client. Here's a look at what we've made together.</p>
-
-        <div class="portfolio-grid">
-
-          <!-- Portfolio Card 1 -->
-          <div class="portfolio-card">
-            <div class="portfolio-img">Coming soon</div>
-            <div class="portfolio-info">
-              <h4>Client Site #1</h4>
-              <p>Small business landing page</p>
-            </div>
-          </div>
-
-          <!-- Portfolio Card 2 -->
-          <div class="portfolio-card">
-            <div class="portfolio-img">Coming soon</div>
-            <div class="portfolio-info">
-              <h4>Client Site #2</h4>
-              <p>Service business with booking</p>
-            </div>
-          </div>
-
-          <!-- Portfolio Card 3 — placeholder CTA -->
-          <div class="portfolio-card">
-            <div class="portfolio-img">Your site here?</div>
-            <div class="portfolio-info">
-              <h4>Let's build something</h4>
-              <p>Book a free consult below</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ============================================================
-         ABOUT + CONTACT SECTION
-         Two columns: About on left, Contact form on right.
-         ============================================================ -->
-    <section id="about">
-      <div class="container">
-        <div class="about-grid">
-
-          <!-- LEFT COLUMN: About -->
-          <div>
-            <p class="section-label">About</p>
-            <h2 class="section-title">Hi, I'm the Faery Tech.</h2>
-            <p class="section-sub" style="margin-top:1rem;">
-              I build websites for small business owners who need a strong online presence but don't want to deal with the tech. I handle everything — design, code, launch — so you can focus on running your business.
-            </p>
-
-            <!-- Edit this list to update your selling points -->
-            <ul class="about-list">
-              <li>Custom-coded, no cookie-cutter templates</li>
-              <li>Mobile-friendly on every device</li>
-              <li>Fast turnaround, clear communication</li>
-              <li>Ongoing support when you need it</li>
-              <li>Sliding-scale options for newer businesses</li>
-            </ul>
-          </div>
-
-          <!-- RIGHT COLUMN: Contact Form -->
-          <!-- Formspree endpoint — replace mqeyzaep if you ever create a new form -->
-          <div id="contact">
-            <p class="section-label">Get in touch</p>
-            <h2 class="section-title">Let's talk.</h2>
-
-            <div class="form-wrap" style="margin-top:1.5rem;">
-              <form action="https://formspree.io/f/mqeyzaep" method="POST">
-
-                <!-- Name field -->
-                <div class="form-group">
-                  <label for="name">Name</label>
-                  <input type="text" id="name" name="name" placeholder="Your name" required>
-                </div>
-
-                <!-- Email field -->
-                <div class="form-group">
-                  <label for="email">Email</label>
-                  <input type="email" id="email" name="email" placeholder="you@example.com" required>
-                </div>
-
-                <!-- Package interest dropdown — add/remove options to match your services -->
-                <div class="form-group">
-                  <label for="package">Interested in</label>
-                  <select id="package" name="package">
-                    <option value="">— Select a package —</option>
-                    <option>Starter Site</option>
-                    <option>Growth Package</option>
-                    <option>WordPress Site</option>
-                    <option>Care & Updates</option>
-                    <option>Not sure yet</option>
-                  </select>
-                </div>
-
-                <!-- Message field -->
-                <div class="form-group">
-                  <label for="message">Message</label>
-                  <textarea id="message" name="message" placeholder="Tell me a little about your business and what you need." required></textarea>
-                </div>
-
-                <!-- Submit button -->
-                <button type="submit" class="btn-primary" style="width:100%;">
-                  Send Message ✦
-                </button>
-
-              </form>
-            </div>
-          </div><!-- end contact column -->
-
-        </div><!-- end about-grid -->
-      </div>
-    </section>
-
-  </main>
-
-
-  <!-- ============================================================
-       FOOTER
-       Update the year and tagline as needed.
-       ============================================================ -->
-  <footer>
+  <!-- ── HERO ── -->
+  <section id="hero" style="min-height:calc(100vh - 72px); display:flex; align-items:center; padding:4rem 0; position:relative;">
     <div class="container">
+      <div style="max-width:640px; animation: fadeUp 1s ease both;">
+        <p style="font-size:0.8rem; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:var(--green); margin-bottom:1.2rem;">
+          ✦ Magic in tech — Hattiesburg, MS & beyond
+        </p>
+        <h1 style="font-size:clamp(2rem,5vw,3.6rem); line-height:1.15; margin-bottom:1.5rem; background:linear-gradient(160deg, var(--star-white) 40%, var(--lavender)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">
+          The world is moving fast.<br>We make sure you're ready.
+        </h1>
+        <p style="font-size:1.15rem; color:var(--muted); line-height:1.75; margin-bottom:2.5rem; font-weight:300;">
+          Faery Tech builds websites, digital systems, and online presence for small businesses — 
+          from brand new startups to businesses ready to go fully digital. 
+          No one gets left behind.
+        </p>
+        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+          <a href="services.html" class="btn-primary">See Our Services</a>
+          <a href="contact.html" class="btn-outline">Get in Touch</a>
+          <a href="https://calendly.com/faerytech" class="btn-outline" target="_blank">Book a Call</a>
+        </div>
+      </div>
+      <!-- Decorative orb -->
+      <div style="position:absolute; right:-5%; top:50%; transform:translateY(-50%); width:420px; height:420px; border-radius:50%; background:radial-gradient(circle at 40% 40%, var(--purple) 0%, transparent 70%); filter:blur(60px); opacity:0.35; pointer-events:none; animation:pulse 6s ease-in-out infinite;"></div>
+    </div>
+  </section>
+
+  <!-- ── MISSION ── -->
+  <section id="mission" style="background:rgba(123,47,255,0.04); border-top:1px solid var(--card-border); border-bottom:1px solid var(--card-border);">
+    <div class="container">
+      <div style="max-width:780px; margin:0 auto; text-align:center;">
+        <p class="section-label" style="text-align:center;">Our Mission</p>
+        <h2 class="section-title" style="text-align:center; font-size:clamp(1.4rem,3vw,2rem);">
+          "Technology shouldn't make us lonelier.<br>It can bring community together."
+        </h2>
+        <p style="color:var(--muted); font-size:1.05rem; line-height:1.85; margin-top:1.5rem; font-weight:300;">
+          We chose the name Faery Tech because magic isn't fantasy — it's what happens when the right person 
+          shows up at the right moment with the right tools. Growing up chasing fireflies and believing fairies 
+          lived in the mushroom rings, we learned something true: the world is full of hidden wonder, and 
+          sometimes all it takes is someone who can see it to make it real.
+        </p>
+        <p style="color:var(--muted); font-size:1.05rem; line-height:1.85; margin-top:1rem; font-weight:300;">
+          That's what we do for small businesses. We see what they could become — and we build it.
+          Every site we build joins a growing network where local businesses support each other, 
+          ad revenue funds charitable work, and no one gets priced out of having a digital presence.
+        </p>
+        <p style="color:var(--lavender); font-size:1.1rem; font-family:'Cinzel',serif; margin-top:2rem; letter-spacing:0.05em;">
+          Because profit and purpose were never opposites.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES OVERVIEW ── -->
+  <section id="services-overview">
+    <div class="container">
+      <p class="section-label">What We Do</p>
+      <h2 class="section-title">Everything your business needs online</h2>
+      <p class="section-sub">From a simple starter site to a full digital transformation — we meet you where you are.</p>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:1.5rem; margin-top:3rem;">
+
+        <div class="card">
+          <div style="font-size:2rem; margin-bottom:1rem;">🌱</div>
+          <h3 style="font-size:1rem; color:var(--lavender); margin-bottom:0.75rem;">Website Design</h3>
+          <p style="color:var(--muted); font-size:0.9rem; line-height:1.7; font-weight:300;">Custom-coded sites from single-page starters to full multi-page businesses. Starting at $80.</p>
+          <a href="services.html#websites" style="display:inline-block; margin-top:1rem; font-size:0.8rem; color:var(--green); font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">See packages →</a>
+        </div>
+
+        <div class="card">
+          <div style="font-size:2rem; margin-bottom:1rem;">⚡</div>
+          <h3 style="font-size:1rem; color:var(--lavender); margin-bottom:0.75rem;">Full Digitization</h3>
+          <p style="color:var(--muted); font-size:0.9rem; line-height:1.7; font-weight:300;">Client portals, online payments, autopay, invoicing, booking systems. Take your business fully digital.</p>
+          <a href="services.html#digitization" style="display:inline-block; margin-top:1rem; font-size:0.8rem; color:var(--green); font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">Learn more →</a>
+        </div>
+
+        <div class="card">
+          <div style="font-size:2rem; margin-bottom:1rem;">📱</div>
+          <h3 style="font-size:1rem; color:var(--lavender); margin-bottom:0.75rem;">Social Media & Marketing</h3>
+          <p style="color:var(--muted); font-size:0.9rem; line-height:1.7; font-weight:300;">Scheduled posts, automated responses, content creation, SEO, and email marketing. Starting at $100/mo.</p>
+          <a href="services.html#marketing" style="display:inline-block; margin-top:1rem; font-size:0.8rem; color:var(--green); font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">See options →</a>
+        </div>
+
+        <div class="card">
+          <div style="font-size:2rem; margin-bottom:1rem;">🎨</div>
+          <h3 style="font-size:1rem; color:var(--lavender); margin-bottom:0.75rem;">Branding & Design</h3>
+          <p style="color:var(--muted); font-size:0.9rem; line-height:1.7; font-weight:300;">Logo design, brand identity, graphics, and photography. Make your business look as good as it is.</p>
+          <a href="services.html#branding" style="display:inline-block; margin-top:1rem; font-size:0.8rem; color:var(--green); font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">See options →</a>
+        </div>
+
+        <div class="card">
+          <div style="font-size:2rem; margin-bottom:1rem;">🤝</div>
+          <h3 style="font-size:1rem; color:var(--lavender); margin-bottom:0.75rem;">Hardship & Nonprofit Rate</h3>
+          <p style="color:var(--muted); font-size:0.9rem; line-height:1.7; font-weight:300;">Just getting started? We offer sliding-scale pricing and revenue share options. No one gets left behind.</p>
+          <a href="contact.html" style="display:inline-block; margin-top:1rem; font-size:0.8rem; color:var(--green); font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">Reach out →</a>
+        </div>
+
+        <div class="card">
+          <div style="font-size:2rem; margin-bottom:1rem;">🌿</div>
+          <h3 style="font-size:1rem; color:var(--lavender); margin-bottom:0.75rem;">Eco & Nonprofit Partners</h3>
+          <p style="color:var(--muted); font-size:0.9rem; line-height:1.7; font-weight:300;">Special rates for eco-friendly businesses, animal shelters, and nonprofits. Our mission is yours too.</p>
+          <a href="contact.html" style="display:inline-block; margin-top:1rem; font-size:0.8rem; color:var(--green); font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">Let's talk →</a>
+        </div>
+
+      </div>
+
+      <div style="text-align:center; margin-top:3rem;">
+        <a href="services.html" class="btn-primary">View All Services & Pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── THE NEIGHBORHOOD TEASER ── -->
+  <section id="neighborhood">
+    <div class="container">
+      <div class="neighborhood-teaser">
+        <p style="font-size:0.75rem; font-weight:600; letter-spacing:0.25em; text-transform:uppercase; color:var(--green); margin-bottom:0.75rem;">Coming Soon</p>
+        <h3>✦ The Neighborhood</h3>
+        <p>
+          A digital ecosystem for local businesses — connecting Hattiesburg and beyond. 
+          Think Nextdoor, but built by someone who actually cares. Ethical ads, charitable revenue sharing, 
+          and a network where every business supports every other.
+        </p>
+        <a href="about.html#neighborhood" class="btn-outline">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
       <p class="footer-brand">✦ Faery Tech</p>
-      <p>Clean, modern websites for small businesses.</p>
-      <p style="margin-top:0.75rem;">© 2026 Faery Tech. All rights reserved.</p>
-    </div>
-  </footer>
-
-
-  <!-- ============================================================
-       JAVASCRIPT
-       Three things:
-         1. Starfield    — animated twinkling stars on the canvas
-         2. Sparkle trail — glowing dots follow the mouse cursor
-         3. Scroll fade-in — cards fade up when scrolled into view
-       ============================================================ -->
-  <script>
-
-    /* ── 1. STARFIELD ──────────────────────────────────────────
-       Draws twinkling stars on the background canvas.
-       Change `count` in initStars() to add or remove stars.
-       ──────────────────────────────────────────────────────────── */
-    const canvas = document.getElementById('starfield');
-    const ctx    = canvas.getContext('2d');
-    let stars    = [];
-
-    function resize() {
-      canvas.width  = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-
-    function initStars(count = 180) {
-      stars = Array.from({ length: count }, () => ({
-        x:     Math.random() * canvas.width,
-        y:     Math.random() * canvas.height,
-        r:     Math.random() * 1.4 + 0.3,
-        speed: Math.random() * 0.015 + 0.003,
-        phase: Math.random() * Math.PI * 2,
-        color: Math.random() > 0.85
-               ? `hsl(${260 + Math.random() * 40}, 80%, 75%)`
-               : Math.random() > 0.93
-                 ? '#00ff88'
-                 : '#f0f0ff'
-      }));
-    }
-
-    function drawStars(t) {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      stars.forEach(s => {
-        const alpha = 0.4 + 0.6 * Math.abs(Math.sin(s.phase + t * s.speed));
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-        ctx.fillStyle   = s.color;
-        ctx.globalAlpha = alpha;
-        ctx.fill();
-      });
-      ctx.globalAlpha = 1;
-    }
-
-    let frame = 0;
-    function animate() {
-      drawStars(frame++);
-      requestAnimationFrame(animate);
-    }
-
-    resize();
-    initStars();
-    animate();
-    window.addEventListener('resize', () => { resize(); initStars(); });
-
-
-    /* ── 2. SPARKLE CURSOR TRAIL ───────────────────────────────
-       Tiny glowing dots follow the mouse.
-       Lower the 0.35 threshold to make trail denser.
-       ──────────────────────────────────────────────────────────── */
-    const sparkleColors = ['#7b2fff', '#a259ff', '#00ff88', '#c4b5fd', '#ffffff'];
-
-    document.addEventListener('mousemove', e => {
-      if (Math.random() > 0.35) return;
-
-      const el     = document.createElement('div');
-      el.className = 'sparkle';
-
-      const size  = Math.random() * 7 + 3;
-      const color = sparkleColors[Math.floor(Math.random() * sparkleColors.length)];
-      const glow  = sparkleColors[Math.floor(Math.random() * sparkleColors.length)];
-
-      el.style.cssText = `
-        width:      ${size}px;
-        height:     ${size}px;
-        left:       ${e.clientX - size / 2}px;
-        top:        ${e.clientY - size / 2}px;
-        background: ${color};
-        box-shadow: 0 0 ${size * 2}px ${glow};
-      `;
-
-      document.body.appendChild(el);
-      setTimeout(() => el.remove(), 700);
-    });
-
-
-    /* ── 3. SCROLL FADE-IN ─────────────────────────────────────
-       Cards fade up into view when scrolled to.
-       ──────────────────────────────────────────────────────────── */
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.style.opacity   = '1';
-          e.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.service-card, .portfolio-card').forEach(el => {
-      el.style.opacity    = '0';
-      el.style.transform  = 'translateY(24px)';
-      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-      observer.observe(el);
-    });
-
-  </script>
-<!-- ============================================================
-     FAERY TECH AI CHAT WIDGET
-     Add this block right before the closing </body> tag
-     in your index.html.
-
-     SETUP:
-     1. Get an Anthropic API key at console.anthropic.com
-     2. Replace YOUR_API_KEY_HERE below with your actual key
-     3. Set a spend limit in your Anthropic account to be safe
-     ============================================================ -->
-
-<style>
-  /* ── Chat bubble button (bottom right corner) ── */
-  #chat-toggle {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    width: 58px;
-    height: 58px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #7b2fff, #a259ff);
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 0 30px rgba(123, 47, 255, 0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.4rem;
-    z-index: 1000;
-    transition: transform 0.2s, box-shadow 0.2s;
-    animation: pulse-btn 3s ease-in-out infinite;
-  }
-
-  #chat-toggle:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 50px rgba(123, 47, 255, 0.9);
-  }
-
-  @keyframes pulse-btn {
-    0%, 100% { box-shadow: 0 0 30px rgba(123, 47, 255, 0.6); }
-    50%       { box-shadow: 0 0 50px rgba(162, 89, 255, 0.9); }
-  }
-
-  /* ── Chat window ── */
-  #chat-window {
-    position: fixed;
-    bottom: 6.5rem;
-    right: 2rem;
-    width: 340px;
-    max-height: 480px;
-    background: #0d0d2b;
-    border: 1px solid rgba(123, 47, 255, 0.35);
-    border-radius: 20px;
-    box-shadow: 0 0 60px rgba(123, 47, 255, 0.25);
-    display: flex;
-    flex-direction: column;
-    z-index: 1000;
-    overflow: hidden;
-    /* Hidden by default */
-    opacity: 0;
-    transform: translateY(16px) scale(0.97);
-    pointer-events: none;
-    transition: opacity 0.25s ease, transform 0.25s ease;
-  }
-
-  #chat-window.open {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    pointer-events: all;
-  }
-
-  /* ── Chat header ── */
-  #chat-header {
-    padding: 1rem 1.25rem;
-    background: rgba(123, 47, 255, 0.15);
-    border-bottom: 1px solid rgba(123, 47, 255, 0.2);
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  #chat-header .chat-avatar {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #7b2fff, #00ff88);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.9rem;
-    flex-shrink: 0;
-  }
-
-  #chat-header .chat-title {
-    font-family: 'Cinzel', serif;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #c4b5fd;
-    letter-spacing: 0.05em;
-  }
-
-  #chat-header .chat-subtitle {
-    font-size: 0.72rem;
-    color: #8888aa;
-    margin-top: 0.1rem;
-  }
-
-  /* ── Messages area ── */
-  #chat-messages {
-    flex: 1;
-    overflow-y: auto;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    min-height: 200px;
-    max-height: 300px;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(123, 47, 255, 0.3) transparent;
-  }
-
-  /* Individual message bubbles */
-  .msg {
-    max-width: 85%;
-    padding: 0.65rem 0.9rem;
-    border-radius: 14px;
-    font-size: 0.88rem;
-    line-height: 1.5;
-    animation: fadeUp 0.2s ease both;
-  }
-
-  /* Bot messages — left aligned */
-  .msg.bot {
-    background: rgba(123, 47, 255, 0.15);
-    border: 1px solid rgba(123, 47, 255, 0.2);
-    color: #f0f0ff;
-    align-self: flex-start;
-    border-bottom-left-radius: 4px;
-  }
-
-  /* User messages — right aligned */
-  .msg.user {
-    background: linear-gradient(135deg, #7b2fff, #a259ff);
-    color: #fff;
-    align-self: flex-end;
-    border-bottom-right-radius: 4px;
-  }
-
-  /* Typing indicator dots */
-  .msg.typing {
-    background: rgba(123, 47, 255, 0.15);
-    border: 1px solid rgba(123, 47, 255, 0.2);
-    align-self: flex-start;
-    padding: 0.75rem 1rem;
-  }
-
-  .typing-dots {
-    display: flex;
-    gap: 4px;
-    align-items: center;
-  }
-
-  .typing-dots span {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #a259ff;
-    animation: dot-bounce 1.2s ease-in-out infinite;
-  }
-
-  .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
-  .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
-
-  @keyframes dot-bounce {
-    0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
-    40%            { transform: translateY(-5px); opacity: 1; }
-  }
-
-  /* ── Input area ── */
-  #chat-input-area {
-    padding: 0.75rem;
-    border-top: 1px solid rgba(123, 47, 255, 0.2);
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-  }
-
-  #chat-input {
-    flex: 1;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(123, 47, 255, 0.25);
-    border-radius: 50px;
-    padding: 0.6rem 1rem;
-    color: #f0f0ff;
-    font-family: 'Nunito', sans-serif;
-    font-size: 0.88rem;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-
-  #chat-input:focus {
-    border-color: #a259ff;
-  }
-
-  #chat-input::placeholder {
-    color: #8888aa;
-  }
-
-  #chat-send {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #7b2fff, #a259ff);
-    border: none;
-    cursor: pointer;
-    color: white;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    transition: transform 0.15s, box-shadow 0.15s;
-  }
-
-  #chat-send:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(123, 47, 255, 0.6);
-  }
-
-  #chat-send:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-    transform: none;
-  }
-
-  /* Mobile adjustments */
-  @media (max-width: 400px) {
-    #chat-window {
-      width: calc(100vw - 2rem);
-      right: 1rem;
-      bottom: 5.5rem;
-    }
-    #chat-toggle {
-      right: 1rem;
-      bottom: 1rem;
-    }
-  }
-</style>
-
-<!-- Chat toggle button -->
-<button id="chat-toggle" title="Chat with Faery Tech">✦</button>
-
-<!-- Chat window -->
-<div id="chat-window">
-  <div id="chat-header">
-    <div class="chat-avatar">🧚</div>
-    <div>
-      <div class="chat-title">Faery Tech Assistant</div>
-      <div class="chat-subtitle">Ask me anything about our services</div>
+      <nav class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="copyright">© 2026 Faery Tech by Madyson Moore. All rights reserved. | Hattiesburg, MS</p>
     </div>
   </div>
-  <div id="chat-messages"></div>
-  <div id="chat-input-area">
-    <input id="chat-input" type="text" placeholder="Ask about services, pricing..." maxlength="300">
-    <button id="chat-send">➤</button>
-  </div>
-</div>
+</footer>
 
-<script>
-
-  /* ── SYSTEM PROMPT ─────────────────────────────────────────
-     This tells the AI who it is and what it can talk about.
-     Edit this to update what the bot knows about your business.
-     ──────────────────────────────────────────────────────── */
-  const SYSTEM_PROMPT = `You are a friendly assistant for Faery Tech, a small web design studio run by Madyson Moore. 
-  
-Your job is to answer questions about Faery Tech's services, packages, and how to get started. Keep answers short, warm, and helpful.
-
-Here's what you know about Faery Tech:
-
-SERVICES:
-- Starter Site: Single-page custom-coded site, best for new businesses
-- Growth Package: Multi-page site with portfolio, contact form, and booking calendar — best for growing businesses  
-- WordPress Site: Fully managed WordPress site the client can update themselves — best for content-heavy businesses
-- Care & Updates: Monthly maintenance add-on for any package
-
-BOOKING:
-- Clients can book a free consultation call via Calendly: https://calendly.com/faerytech
-- Or send a message via the contact form on the website
-
-ABOUT:
-- Custom-coded sites, no cookie-cutter templates
-- Mobile-friendly on every device
-- Fast turnaround and clear communication
-- Sliding-scale pricing available for newer businesses
-
-RULES:
-- Only answer questions about Faery Tech's services, pricing, process, or how to get started
-- If someone asks something unrelated, politely redirect them: "I'm only able to help with questions about Faery Tech's services! For anything else, feel free to reach out directly."
-- Keep responses to 2-3 sentences max
-- Be warm, friendly, and encouraging
-- Never make up pricing numbers — say "reach out for a custom quote" instead`;
-
-  /* ── CHAT STATE ────────────────────────────────────────────
-     Keeps track of conversation history so the bot remembers
-     what was said earlier in the conversation.
-     ──────────────────────────────────────────────────────── */
-  const history = [];
-
-  /* ── DOM ELEMENTS ──────────────────────────────────────────── */
-  const toggle   = document.getElementById('chat-toggle');
-  const window_  = document.getElementById('chat-window');
-  const messages = document.getElementById('chat-messages');
-  const input    = document.getElementById('chat-input');
-  const sendBtn  = document.getElementById('chat-send');
-
-  /* ── OPEN / CLOSE CHAT ─────────────────────────────────────── */
-  let isOpen = false;
-
-  toggle.addEventListener('click', () => {
-    isOpen = !isOpen;
-    window_.classList.toggle('open', isOpen);
-    toggle.textContent = isOpen ? '✕' : '✦';
-
-    /* Show welcome message on first open */
-    if (isOpen && messages.children.length === 0) {
-      addMessage('bot', 'Hi! ✦ I\'m the Faery Tech assistant. Ask me about our web design packages, pricing, or how to get started!');
-    }
-
-    if (isOpen) input.focus();
-  });
-
-  /* ── ADD A MESSAGE BUBBLE ──────────────────────────────────── */
-  function addMessage(role, text) {
-    const div = document.createElement('div');
-    div.className = `msg ${role}`;
-    div.textContent = text;
-    messages.appendChild(div);
-    messages.scrollTop = messages.scrollHeight;
-    return div;
-  }
-
-  /* ── TYPING INDICATOR ──────────────────────────────────────── */
-  function showTyping() {
-    const div = document.createElement('div');
-    div.className = 'msg typing';
-    div.id = 'typing-indicator';
-    div.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
-    messages.appendChild(div);
-    messages.scrollTop = messages.scrollHeight;
-  }
-
-  function hideTyping() {
-    const el = document.getElementById('typing-indicator');
-    if (el) el.remove();
-  }
-
-  /* ── SEND MESSAGE ──────────────────────────────────────────── */
-  async function sendMessage() {
-    const text = input.value.trim();
-    if (!text || sendBtn.disabled) return;
-
-    /* Show user message */
-    addMessage('user', text);
-    input.value = '';
-    sendBtn.disabled = true;
-
-    /* Add to history */
-    history.push({ role: 'user', content: text });
-
-    /* Show typing indicator */
-    showTyping();
-
-    try {
-      const response = await fetch('https://faerytech-chat.moore-madyson.workers.dev', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-        body: JSON.stringify({
-          model: 'claude-haiku-4-5-20251001', /* Cheapest/fastest model — good for chat */
-          max_tokens: 300,
-          system: SYSTEM_PROMPT,
-          messages: history
-        })
-      });
-
-      const data = await response.json();
-      const reply = data.content?.[0]?.text || "Sorry, something went wrong! Please try the contact form instead.";
-
-      /* Add bot reply to history */
-      history.push({ role: 'assistant', content: reply });
-
-      hideTyping();
-      addMessage('bot', reply);
-
-    } catch (err) {
-      hideTyping();
-      addMessage('bot', 'Sorry, I\'m having trouble connecting right now. Please use the contact form or book a call instead!');
-    }
-
-    sendBtn.disabled = false;
-    input.focus();
-  }
-
-  /* ── EVENT LISTENERS ───────────────────────────────────────── */
-  sendBtn.addEventListener('click', sendMessage);
-
-  /* Send on Enter key */
-  input.addEventListener('keydown', e => {
-    if (e.key === 'Enter') sendMessage();
-  });
-</script>
+<!-- Chat Widget & Scripts -->
+<script src="chat.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
