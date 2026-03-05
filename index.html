@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!doctype html>
 <html lang="en">
 <head>
@@ -63,7 +62,7 @@
           <!-- CTA buttons -->
           <div style="display:flex; gap:1rem; flex-wrap:wrap;">
             <a href="#contact" class="btn-primary">Message Me</a>
-            <a href="#services" class="btn-outline">See packages</a>
+            <a href="#services" class="btn-outline">See Packages</a>
             <a href="https://calendly.com/faerytech" class="btn-outline" target="_blank">Book a Call</a>
           </div>
 
@@ -203,8 +202,7 @@
           </div>
 
           <!-- RIGHT COLUMN: Contact Form -->
-          <!-- IMPORTANT: Replace YOUR_FORM_ID with your Formspree ID -->
-          <!-- Get it at formspree.io → create account → new form → copy ID from endpoint URL -->
+          <!-- Formspree endpoint — replace mqeyzaep if you ever create a new form -->
           <div id="contact">
             <p class="section-label">Get in touch</p>
             <h2 class="section-title">Let's talk.</h2>
@@ -298,22 +296,20 @@
       stars = Array.from({ length: count }, () => ({
         x:     Math.random() * canvas.width,
         y:     Math.random() * canvas.height,
-        r:     Math.random() * 1.4 + 0.3,      /* Radius 0.3–1.7px */
-        speed: Math.random() * 0.015 + 0.003,  /* Twinkle speed */
-        phase: Math.random() * Math.PI * 2,    /* Offset so stars don't all pulse together */
-        /* Color distribution: mostly white, some lavender, rare green */
+        r:     Math.random() * 1.4 + 0.3,
+        speed: Math.random() * 0.015 + 0.003,
+        phase: Math.random() * Math.PI * 2,
         color: Math.random() > 0.85
-               ? `hsl(${260 + Math.random() * 40}, 80%, 75%)` /* Lavender */
+               ? `hsl(${260 + Math.random() * 40}, 80%, 75%)`
                : Math.random() > 0.93
-                 ? '#00ff88'   /* Green — rare */
-                 : '#f0f0ff'   /* White — most common */
+                 ? '#00ff88'
+                 : '#f0f0ff'
       }));
     }
 
     function drawStars(t) {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       stars.forEach(s => {
-        /* Sine wave creates the twinkle — alpha oscillates between 0.4 and 1.0 */
         const alpha = 0.4 + 0.6 * Math.abs(Math.sin(s.phase + t * s.speed));
         ctx.beginPath();
         ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
@@ -321,7 +317,7 @@
         ctx.globalAlpha = alpha;
         ctx.fill();
       });
-      ctx.globalAlpha = 1; /* Always reset after drawing stars */
+      ctx.globalAlpha = 1;
     }
 
     let frame = 0;
@@ -339,12 +335,11 @@
     /* ── 2. SPARKLE CURSOR TRAIL ───────────────────────────────
        Tiny glowing dots follow the mouse.
        Lower the 0.35 threshold to make trail denser.
-       Edit sparkleColors to change the dot colors.
        ──────────────────────────────────────────────────────────── */
     const sparkleColors = ['#7b2fff', '#a259ff', '#00ff88', '#c4b5fd', '#ffffff'];
 
     document.addEventListener('mousemove', e => {
-      if (Math.random() > 0.35) return; /* Only fires ~65% of moves — keeps it subtle */
+      if (Math.random() > 0.35) return;
 
       const el     = document.createElement('div');
       el.className = 'sparkle';
@@ -363,13 +358,12 @@
       `;
 
       document.body.appendChild(el);
-      setTimeout(() => el.remove(), 700); /* Remove after animation completes */
+      setTimeout(() => el.remove(), 700);
     });
 
 
     /* ── 3. SCROLL FADE-IN ─────────────────────────────────────
-       Cards start invisible and animate in when scrolled into view.
-       Add selectors to the querySelectorAll list to animate more elements.
+       Cards fade up into view when scrolled to.
        ──────────────────────────────────────────────────────────── */
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => {
@@ -378,7 +372,7 @@
           e.target.style.transform = 'translateY(0)';
         }
       });
-    }, { threshold: 0.1 }); /* Fires when 10% of element is visible */
+    }, { threshold: 0.1 });
 
     document.querySelectorAll('.service-card, .portfolio-card').forEach(el => {
       el.style.opacity    = '0';
@@ -390,396 +384,4 @@
   </script>
 
 </body>
-=======
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Faery Tech – Small Business Websites</title>
-
-  <!-- Google Fonts: Cinzel (headings) + Nunito (body) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <!-- Your stylesheet -->
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-  <!-- ============================================================
-       STARFIELD CANVAS
-       Sits fixed behind everything. Stars are drawn by JS below.
-       ============================================================ -->
-  <canvas id="starfield"></canvas>
-
-
-  <!-- ============================================================
-       NAVBAR
-       Fixed to top. Brand name on left, links on right.
-       To add/remove links: edit the <ul class="nav-links"> list.
-       ============================================================ -->
-  <nav>
-    <div class="nav-inner">
-      <a href="#hero" class="nav-brand">✦ Faery Tech</a>
-      <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-
-
-  <main>
-
-    <!-- ============================================================
-         HERO SECTION
-         Full-height intro. Edit headline, subtext, and button labels.
-         ============================================================ -->
-    <section id="hero">
-      <div class="container">
-        <div class="hero-content">
-
-          <!-- Small label above headline — change this to tweak the tagline -->
-          <p class="hero-eyebrow">✦ Small business websites, built with care</p>
-
-          <!-- Main headline -->
-          <h1>Your business deserves a website that works as hard as you do.</h1>
-
-          <!-- Supporting description -->
-          <p>Faery Tech builds clean, fast, mobile-friendly websites for small businesses — custom-coded and crafted to help you grow.</p>
-
-          <!-- CTA buttons -->
-          <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-            <a href="#contact" class="btn-primary">Book a free consult</a>
-            <a href="#services" class="btn-outline">See packages</a>
-          </div>
-
-        </div>
-
-        <!-- Decorative glowing orb (purely visual, no content) -->
-        <div class="hero-orb"></div>
-      </div>
-    </section>
-
-
-    <!-- ============================================================
-         SERVICES SECTION
-         Add/remove/edit .service-card blocks to change packages.
-         Icons are just emoji — swap them out freely.
-         ============================================================ -->
-    <section id="services">
-      <div class="container">
-
-        <p class="section-label">What I offer</p>
-        <h2 class="section-title">Packages for every stage</h2>
-        <p class="section-sub">Simple, transparent pricing. No tech jargon. No surprise fees. Just a website your customers will actually find.</p>
-
-        <div class="services-grid">
-
-          <!-- Service Card 1: Starter -->
-          <div class="service-card">
-            <div class="service-icon">🌱</div>
-            <h3>Starter Site</h3>
-            <p>A clean, mobile-friendly single-page site for businesses just getting online. Everything you need, nothing you don't.</p>
-            <span class="service-price">→ Best for: new businesses</span>
-          </div>
-
-          <!-- Service Card 2: Growth -->
-          <div class="service-card">
-            <div class="service-icon">🚀</div>
-            <h3>Growth Package</h3>
-            <p>Multi-page site with a portfolio, contact form, and quote request calendar. Built to convert visitors into customers.</p>
-            <span class="service-price">→ Best for: growing businesses</span>
-          </div>
-
-          <!-- Service Card 3: WordPress -->
-          <div class="service-card">
-            <div class="service-icon">⚡</div>
-            <h3>WordPress Site</h3>
-            <p>A fully managed WordPress site you can update yourself — with your branding, your content, and ongoing support from me.</p>
-            <span class="service-price">→ Best for: content-heavy businesses</span>
-          </div>
-
-          <!-- Service Card 4: Care Plan -->
-          <div class="service-card">
-            <div class="service-icon">✦</div>
-            <h3>Care & Updates</h3>
-            <p>Monthly maintenance so your site stays fresh, secure, and on-brand. Think of it as a retainer for your peace of mind.</p>
-            <span class="service-price">→ Add-on to any package</span>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ============================================================
-         PORTFOLIO SECTION
-         Replace .portfolio-img placeholder divs with real <img> tags
-         when you have screenshots. Update h4 and p with project info.
-
-         To add a real image replace the div.portfolio-img with:
-         <img src="images/project1.png" alt="Project name"
-              style="width:100%; aspect-ratio:16/9; object-fit:cover;">
-         ============================================================ -->
-    <section id="portfolio">
-      <div class="container">
-
-        <p class="section-label">Recent work</p>
-        <h2 class="section-title">Built by Faery Tech</h2>
-        <p class="section-sub">Every site is custom-built for the client. Here's a look at what we've made together.</p>
-
-        <div class="portfolio-grid">
-
-          <!-- Portfolio Card 1 -->
-          <div class="portfolio-card">
-            <div class="portfolio-img">Coming soon</div>
-            <div class="portfolio-info">
-              <h4>Client Site #1</h4>
-              <p>Small business landing page</p>
-            </div>
-          </div>
-
-          <!-- Portfolio Card 2 -->
-          <div class="portfolio-card">
-            <div class="portfolio-img">Coming soon</div>
-            <div class="portfolio-info">
-              <h4>Client Site #2</h4>
-              <p>Service business with booking</p>
-            </div>
-          </div>
-
-          <!-- Portfolio Card 3 — placeholder CTA -->
-          <div class="portfolio-card">
-            <div class="portfolio-img">Your site here?</div>
-            <div class="portfolio-info">
-              <h4>Let's build something</h4>
-              <p>Book a free consult below</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ============================================================
-         ABOUT + CONTACT SECTION
-         Two columns: About on left, Contact form on right.
-         ============================================================ -->
-    <section id="about">
-      <div class="container">
-        <div class="about-grid">
-
-          <!-- LEFT COLUMN: About -->
-          <div>
-            <p class="section-label">About</p>
-            <h2 class="section-title">Hi, I'm the Faery Tech.</h2>
-            <p class="section-sub" style="margin-top:1rem;">
-              I build websites for small business owners who need a strong online presence but don't want to deal with the tech. I handle everything — design, code, launch — so you can focus on running your business.
-            </p>
-
-            <!-- Edit this list to update your selling points -->
-            <ul class="about-list">
-              <li>Custom-coded, no cookie-cutter templates</li>
-              <li>Mobile-friendly on every device</li>
-              <li>Fast turnaround, clear communication</li>
-              <li>Ongoing support when you need it</li>
-              <li>Sliding-scale options for newer businesses</li>
-            </ul>
-          </div>
-
-          <!-- RIGHT COLUMN: Contact Form -->
-          <!-- IMPORTANT: Replace YOUR_FORM_ID with your Formspree ID -->
-          <!-- Get it at formspree.io → create account → new form → copy ID from endpoint URL -->
-          <div id="contact">
-            <p class="section-label">Get in touch</p>
-            <h2 class="section-title">Let's talk.</h2>
-
-            <div class="form-wrap" style="margin-top:1.5rem;">
-              <form action="https://formspree.io/f/mqeyzaep" method="POST">
-
-                <!-- Name field -->
-                <div class="form-group">
-                  <label for="name">Name</label>
-                  <input type="text" id="name" name="name" placeholder="Your name" required>
-                </div>
-
-                <!-- Email field -->
-                <div class="form-group">
-                  <label for="email">Email</label>
-                  <input type="email" id="email" name="email" placeholder="you@example.com" required>
-                </div>
-
-                <!-- Package interest dropdown — add/remove options to match your services -->
-                <div class="form-group">
-                  <label for="package">Interested in</label>
-                  <select id="package" name="package">
-                    <option value="">— Select a package —</option>
-                    <option>Starter Site</option>
-                    <option>Growth Package</option>
-                    <option>WordPress Site</option>
-                    <option>Care & Updates</option>
-                    <option>Not sure yet</option>
-                  </select>
-                </div>
-
-                <!-- Message field -->
-                <div class="form-group">
-                  <label for="message">Message</label>
-                  <textarea id="message" name="message" placeholder="Tell me a little about your business and what you need." required></textarea>
-                </div>
-
-                <!-- Submit button -->
-                <button type="submit" class="btn-primary" style="width:100%;">
-                  Send Message ✦
-                </button>
-
-              </form>
-            </div>
-          </div><!-- end contact column -->
-
-        </div><!-- end about-grid -->
-      </div>
-    </section>
-
-  </main>
-
-
-  <!-- ============================================================
-       FOOTER
-       Update the year and tagline as needed.
-       ============================================================ -->
-  <footer>
-    <div class="container">
-      <p class="footer-brand">✦ Faery Tech</p>
-      <p>Clean, modern websites for small businesses.</p>
-      <p style="margin-top:0.75rem;">© 2026 Faery Tech. All rights reserved.</p>
-    </div>
-  </footer>
-
-
-  <!-- ============================================================
-       JAVASCRIPT
-       Three things:
-         1. Starfield    — animated twinkling stars on the canvas
-         2. Sparkle trail — glowing dots follow the mouse cursor
-         3. Scroll fade-in — cards fade up when scrolled into view
-       ============================================================ -->
-  <script>
-
-    /* ── 1. STARFIELD ──────────────────────────────────────────
-       Draws twinkling stars on the background canvas.
-       Change `count` in initStars() to add or remove stars.
-       ──────────────────────────────────────────────────────────── */
-    const canvas = document.getElementById('starfield');
-    const ctx    = canvas.getContext('2d');
-    let stars    = [];
-
-    function resize() {
-      canvas.width  = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-
-    function initStars(count = 180) {
-      stars = Array.from({ length: count }, () => ({
-        x:     Math.random() * canvas.width,
-        y:     Math.random() * canvas.height,
-        r:     Math.random() * 1.4 + 0.3,      /* Radius 0.3–1.7px */
-        speed: Math.random() * 0.015 + 0.003,  /* Twinkle speed */
-        phase: Math.random() * Math.PI * 2,    /* Offset so stars don't all pulse together */
-        /* Color distribution: mostly white, some lavender, rare green */
-        color: Math.random() > 0.85
-               ? `hsl(${260 + Math.random() * 40}, 80%, 75%)` /* Lavender */
-               : Math.random() > 0.93
-                 ? '#00ff88'   /* Green — rare */
-                 : '#f0f0ff'   /* White — most common */
-      }));
-    }
-
-    function drawStars(t) {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      stars.forEach(s => {
-        /* Sine wave creates the twinkle — alpha oscillates between 0.4 and 1.0 */
-        const alpha = 0.4 + 0.6 * Math.abs(Math.sin(s.phase + t * s.speed));
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-        ctx.fillStyle   = s.color;
-        ctx.globalAlpha = alpha;
-        ctx.fill();
-      });
-      ctx.globalAlpha = 1; /* Always reset after drawing stars */
-    }
-
-    let frame = 0;
-    function animate() {
-      drawStars(frame++);
-      requestAnimationFrame(animate);
-    }
-
-    resize();
-    initStars();
-    animate();
-    window.addEventListener('resize', () => { resize(); initStars(); });
-
-
-    /* ── 2. SPARKLE CURSOR TRAIL ───────────────────────────────
-       Tiny glowing dots follow the mouse.
-       Lower the 0.35 threshold to make trail denser.
-       Edit sparkleColors to change the dot colors.
-       ──────────────────────────────────────────────────────────── */
-    const sparkleColors = ['#7b2fff', '#a259ff', '#00ff88', '#c4b5fd', '#ffffff'];
-
-    document.addEventListener('mousemove', e => {
-      if (Math.random() > 0.35) return; /* Only fires ~65% of moves — keeps it subtle */
-
-      const el     = document.createElement('div');
-      el.className = 'sparkle';
-
-      const size  = Math.random() * 7 + 3;
-      const color = sparkleColors[Math.floor(Math.random() * sparkleColors.length)];
-      const glow  = sparkleColors[Math.floor(Math.random() * sparkleColors.length)];
-
-      el.style.cssText = `
-        width:      ${size}px;
-        height:     ${size}px;
-        left:       ${e.clientX - size / 2}px;
-        top:        ${e.clientY - size / 2}px;
-        background: ${color};
-        box-shadow: 0 0 ${size * 2}px ${glow};
-      `;
-
-      document.body.appendChild(el);
-      setTimeout(() => el.remove(), 700); /* Remove after animation completes */
-    });
-
-
-    /* ── 3. SCROLL FADE-IN ─────────────────────────────────────
-       Cards start invisible and animate in when scrolled into view.
-       Add selectors to the querySelectorAll list to animate more elements.
-       ──────────────────────────────────────────────────────────── */
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.style.opacity   = '1';
-          e.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.1 }); /* Fires when 10% of element is visible */
-
-    document.querySelectorAll('.service-card, .portfolio-card').forEach(el => {
-      el.style.opacity    = '0';
-      el.style.transform  = 'translateY(24px)';
-      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-      observer.observe(el);
-    });
-
-  </script>
-
-</body>
->>>>>>> 42b79d31811a39818c70ddc47b54a73c1ae1c09c
 </html>
