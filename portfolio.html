@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio – Faery Tech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── Portfolio-page extras ── */
+    .port-hero {
+      padding: 8rem 0 4rem;
+      text-align: center;
+    }
+    .port-hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      background: linear-gradient(135deg, var(--white), var(--lav));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+    }
+    .port-hero p {
+      color: var(--muted); font-size: 1rem; font-weight: 300;
+      max-width: 480px; margin: 0 auto; line-height: 1.75;
+    }
+
+    /* ── Category headings ── */
+    .cat-label {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--green);
+      margin-bottom: 0.6rem; display: block;
+    }
+    .cat-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      background: linear-gradient(135deg, var(--white), var(--lav));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 2rem;
+    }
+    .port-section { padding: 3.5rem 0; border-top: 1px solid var(--bdr); }
+
+    /* ── Web portfolio grid ── */
+    .web-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .web-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--bdr);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+      text-decoration: none; color: inherit;
+      display: block;
+    }
+    .web-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--pg);
+      box-shadow: 0 0 36px rgba(123,47,255,0.2);
+    }
+    .web-card img {
+      width: 100%; aspect-ratio: 16/9;
+      object-fit: cover; display: block;
+      background: rgba(123,47,255,0.1);
+      min-height: 170px;
+    }
+    .web-card-info { padding: 1.25rem; }
+    .web-card-info h3 {
+      font-family: 'Cinzel', serif; font-size: 0.95rem;
+      color: var(--lav); margin-bottom: 0.35rem;
+    }
+    .web-card-info p { color: var(--muted); font-size: 0.82rem; line-height: 1.6; font-weight: 300; }
+    .web-card-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .tag-pill {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 0.2rem 0.6rem;
+      border-radius: 50px; border: 1px solid var(--bdr);
+      color: var(--muted);
+    }
+    .tag-pill.green { border-color: var(--green); color: var(--green); }
+    .tag-pill.purple { border-color: var(--pg); color: var(--pg); }
+
+    /* ── Link cards (resume, itch.io, etc) ── */
+    .link-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+    .link-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--bdr);
+      border-radius: 14px;
+      padding: 1.75rem;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+      text-decoration: none; color: inherit;
+      display: flex; flex-direction: column; gap: 0.75rem;
+    }
+    .link-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--pg);
+      box-shadow: 0 0 28px rgba(123,47,255,0.18);
+    }
+    .link-card .lc-icon { font-size: 2rem; }
+    .link-card h3 {
+      font-family: 'Cinzel', serif; font-size: 0.95rem; color: var(--lav);
+    }
+    .link-card p { color: var(--muted); font-size: 0.83rem; line-height: 1.65; font-weight: 300; }
+    .link-card .lc-arrow {
+      margin-top: auto; font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--green);
+    }
+
+    /* ── Coming Soon cards ── */
+    .coming-soon {
+      background: rgba(255,255,255,0.02);
+      border: 1px dashed rgba(123,47,255,0.3);
+      border-radius: 14px;
+      padding: 2rem;
+      text-align: center;
+      color: var(--muted);
+    }
+    .coming-soon .cs-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
+    .coming-soon h3 {
+      font-family: 'Cinzel', serif; font-size: 0.92rem;
+      color: rgba(196,181,253,0.5); margin-bottom: 0.4rem;
+    }
+    .coming-soon p { font-size: 0.78rem; line-height: 1.6; font-weight: 300; color: rgba(136,136,170,0.6); }
+  </style>
+</head>
+<body>
+
+<canvas id="starfield"></canvas>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">✦ Faery Tech</a>
+    <ul class="nav-links">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="portfolio.html" style="color:var(--green)">Portfolio</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <div class="port-hero">
+    <div class="container">
+      <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--green);margin-bottom:1rem;">✦ The Work</p>
+      <h1>Portfolio & Samples</h1>
+      <p>Web projects, templates, and tools — built with care. More added as clients go live.</p>
+    </div>
+  </div>
+
+  <!-- ═══ WEB PROJECTS ═══ -->
+  <section class="port-section">
+    <div class="container">
+      <span class="cat-label">Web Development</span>
+      <h2 class="cat-title">Sites & Templates</h2>
+
+      <div class="web-grid">
+
+        <!-- Sample 1 -->
+        <a href="https://faerytech.github.io/sample-1/" target="_blank" class="web-card">
+          <img
+            src="https://image.thum.io/get/width/600/crop/800/https://faerytech.github.io/sample-1/"
+            alt="Clean Business Template"
+            loading="lazy"
+          >
+          <div class="web-card-info">
+            <h3>Clean Business Template</h3>
+            <p>Minimal single-pager for service businesses getting online. Services, about, and contact — nothing extra.</p>
+            <div class="web-card-tags">
+              <span class="tag-pill green">HTML</span>
+              <span class="tag-pill">CSS</span>
+              <span class="tag-pill purple">Sample</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Sample 2 -->
+        <a href="https://faerytech.github.io/sample-2/" target="_blank" class="web-card">
+          <img
+            src="https://image.thum.io/get/width/600/crop/800/https://faerytech.github.io/sample-2/"
+            alt="Full-Featured Business Template"
+            loading="lazy"
+          >
+          <div class="web-card-info">
+            <h3>Full-Featured Template</h3>
+            <p>Services, pricing tiers, about, contact form, and a coming-soon community section. Built for growing businesses.</p>
+            <div class="web-card-tags">
+              <span class="tag-pill green">HTML</span>
+              <span class="tag-pill">CSS</span>
+              <span class="tag-pill purple">Sample</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Game Night -->
+        <a href="https://faerytech.github.io/Game-Night-Website/" target="_blank" class="web-card">
+          <img
+            src="https://image.thum.io/get/width/600/crop/800/https://faerytech.github.io/Game-Night-Website/"
+            alt="Game Night Website"
+            loading="lazy"
+          >
+          <div class="web-card-info">
+            <h3>Game Night Website</h3>
+            <p>Event landing page with a playful layout. Shows range beyond business templates into entertainment and community events.</p>
+            <div class="web-card-tags">
+              <span class="tag-pill green">HTML</span>
+              <span class="tag-pill">CSS</span>
+              <span class="tag-pill">JS</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Client sites coming soon -->
+        <div class="coming-soon">
+          <div class="cs-icon">🔒</div>
+          <h3>Client Sites — Coming Soon</h3>
+          <p>Live client work being added as projects go live. Check back soon.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══ ELSEWHERE ═══ -->
+  <section class="port-section">
+    <div class="container">
+      <span class="cat-label">Elsewhere</span>
+      <h2 class="cat-title">More of My Work</h2>
+
+      <div class="link-grid">
+
+        <!-- Resume -->
+        <a href="#" class="link-card">
+          <!-- Replace # with your actual resume link or PDF path -->
+          <div class="lc-icon">📄</div>
+          <h3>Résumé</h3>
+          <p>Web developer with 8+ years in tech support, admin, and customer experience. Currently focused on frontend development and small business digital services.</p>
+          <span class="lc-arrow">View Résumé →</span>
+        </a>
+
+        <!-- Itch.io -->
+        <a href="https://itch.io" target="_blank" class="link-card">
+          <!-- Replace with your actual itch.io URL when ready -->
+          <div class="lc-icon">🎮</div>
+          <h3>Itch.io</h3>
+          <p>Game projects and interactive experiments. Separate from client work — just for fun and learning.</p>
+          <span class="lc-arrow">Visit Itch.io →</span>
+        </a>
+
+        <!-- Art / Design — placeholder -->
+        <div class="coming-soon" style="text-align:left; padding:1.75rem;">
+          <div class="cs-icon">🎨</div>
+          <h3>Art & Logo Design</h3>
+          <p>Graphic design samples and logo work added here as the portfolio grows. Coming soon.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="padding:3rem 0 5rem;">
+    <div class="container" style="text-align:center;">
+      <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--green);margin-bottom:0.75rem;">✦ Ready to work together?</p>
+      <h2 style="font-family:'Cinzel',serif;font-size:clamp(1.5rem,3vw,2.2rem);background:linear-gradient(135deg,var(--white),var(--lav));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:1.5rem;">Let's build something.</h2>
+      <a href="contact.html" class="btn-primary">Get in Touch ✦</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <p class="footer-brand">✦ Faery Tech</p>
+    <p>Clean, modern websites for small businesses.</p>
+    <p style="margin-top:0.75rem;">© 2026 Faery Tech. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script src="chat.js"></script>
+
+</body>
+</html>
