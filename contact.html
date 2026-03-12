@@ -15,7 +15,10 @@
 
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="nav-brand">✦ Faery Tech</a>
+    <a href="index.html" class="nav-brand">
+      <img src="faerytech-logo.png" alt="Faery Tech">
+      ✦ Faery Tech
+    </a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="services.html">Services</a></li>
@@ -28,57 +31,55 @@
 
 <main>
 
-  <section style="padding:4rem 0 2rem;">
+  <section class="page-hero">
     <div class="container">
       <p class="section-label">Get In Touch</p>
-      <h1 class="section-title" style="font-size:clamp(2rem,4vw,3rem);">Let's build something.</h1>
+      <h1 class="section-title section-title--lg">Let's build something.</h1>
       <p class="section-sub">Fill out the form below and I'll get back to you within 24-48 hours. Not sure what you need? Just say hi — we'll figure it out together.</p>
     </div>
   </section>
 
-  <section style="padding-top:0;">
+  <section>
     <div class="container">
-      <div style="display:grid; grid-template-columns:1fr 1.4fr; gap:4rem; align-items:start;">
+      <div class="contact-grid">
 
         <!-- LEFT: Contact info -->
         <div>
           <p class="section-label">Other Ways to Reach Me</p>
+          <div class="contact-cards">
 
-          <div style="display:flex; flex-direction:column; gap:1.5rem; margin-top:1.5rem;">
-
-            <a href="https://calendly.com/faerytech" target="_blank" class="card" style="display:block; text-decoration:none; border-color:rgba(0,255,136,0.3);">
-              <div style="font-size:1.5rem; margin-bottom:0.5rem;">📅</div>
-              <h3 style="font-size:0.95rem; color:var(--green); margin-bottom:0.4rem;">Book a Free Call</h3>
-              <p style="color:var(--muted); font-size:0.85rem; font-weight:300;">15-minute intro call — no commitment, just a conversation about your business.</p>
+            <a href="https://calendly.com/faerytech" target="_blank" class="card card--green-border">
+              <div class="card-icon--lg">📅</div>
+              <h3 class="card-heading--green">Book a Free Call</h3>
+              <p class="card-body--sm">15-minute intro call — no commitment, just a conversation about your business.</p>
             </a>
 
-            <!-- Pay Invoice Card -->
-            <div class="card" style="border-color:rgba(123,47,255,0.3);">
-              <div style="font-size:1.5rem; margin-bottom:0.5rem;">💳</div>
-              <h3 style="font-size:0.95rem; color:var(--lavender); margin-bottom:0.4rem;">Pay an Invoice</h3>
-              <p style="color:var(--muted); font-size:0.85rem; font-weight:300; margin-bottom:1rem;">Already working together? Pay for one-time or recurring services below.</p>
-              <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-                <a href="https://book.stripe.com/eVq7sN6Zz93a3LR8TygMw00" target="_blank" class="btn-primary" style="font-size:0.8rem; padding:0.5rem 1rem;">One-Time Services</a>
-                <a href="https://buy.stripe.com/9B6cN71Ff4MUdmr5HmgMw01" target="_blank" class="btn-outline" style="font-size:0.8rem; padding:0.5rem 1rem;">Monthly Services</a>
+            <div class="card">
+              <div class="card-icon--lg">💳</div>
+              <h3 class="card-heading--lavender">Pay an Invoice</h3>
+              <p class="card-body--sm">Already working together? Pay for one-time or recurring services below.</p>
+              <div class="btn-group mt-1">
+                <a href="https://book.stripe.com/eVq7sN6Zz93a3LR8TygMw00" target="_blank" class="btn-primary btn-sm">One-Time Services</a>
+                <a href="https://buy.stripe.com/9B6cN71Ff4MUdmr5HmgMw01" target="_blank" class="btn-outline btn-sm">Monthly Services</a>
               </div>
             </div>
 
             <div class="card">
-              <div style="font-size:1.5rem; margin-bottom:0.5rem;">💜</div>
-              <h3 style="font-size:0.95rem; color:var(--lavender); margin-bottom:0.4rem;">Hardship Inquiries</h3>
-              <p style="color:var(--muted); font-size:0.85rem; font-weight:300;">Can't afford standard pricing? Just say so in the form. We mean it — no one gets left behind.</p>
+              <div class="card-icon--lg">💜</div>
+              <h3 class="card-heading--lavender">Hardship Inquiries</h3>
+              <p class="card-body--sm">Can't afford standard pricing? Just say so in the form. We mean it — no one gets left behind.</p>
             </div>
 
             <div class="card">
-              <div style="font-size:1.5rem; margin-bottom:0.5rem;">🌿</div>
-              <h3 style="font-size:0.95rem; color:var(--lavender); margin-bottom:0.4rem;">Nonprofits & Eco Orgs</h3>
-              <p style="color:var(--muted); font-size:0.85rem; font-weight:300;">Special rates available for animal shelters, environmental nonprofits, and charitable organizations.</p>
+              <div class="card-icon--lg">🌿</div>
+              <h3 class="card-heading--lavender">Nonprofits & Eco Orgs</h3>
+              <p class="card-body--sm">Special rates available for animal shelters, environmental nonprofits, and charitable organizations.</p>
             </div>
 
             <div class="card">
-              <div style="font-size:1.5rem; margin-bottom:0.5rem;">✦</div>
-              <h3 style="font-size:0.95rem; color:var(--lavender); margin-bottom:0.4rem;">The Neighborhood</h3>
-              <p style="color:var(--muted); font-size:0.85rem; font-weight:300;">Interested in joining our community network when it launches? Mention it in your message!</p>
+              <div class="card-icon--lg">✦</div>
+              <h3 class="card-heading--lavender">The Neighborhood</h3>
+              <p class="card-body--sm">Interested in joining our community network when it launches? Mention it in your message!</p>
             </div>
 
           </div>
@@ -89,7 +90,7 @@
           <div class="form-wrap">
             <form action="https://formspree.io/f/mqeyzaep" method="POST">
 
-              <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+              <div class="form-row">
                 <div class="form-group">
                   <label for="name">Your Name</label>
                   <input type="text" id="name" name="name" placeholder="Jane Smith" required>
@@ -152,7 +153,7 @@
 
               <div class="form-group">
                 <label for="message">Tell me about your business</label>
-                <textarea id="message" name="message" placeholder="What does your business do? What do you need? What's your timeline? Feel free to share as much or as little as you'd like." required style="min-height:150px;"></textarea>
+                <textarea id="message" name="message" class="form-group textarea--lg" placeholder="What does your business do? What do you need? What's your timeline? Feel free to share as much or as little as you'd like." required></textarea>
               </div>
 
               <div class="form-group">
@@ -160,9 +161,7 @@
                 <input type="text" id="referral" name="referral" placeholder="Word of mouth, Google, social media...">
               </div>
 
-              <button type="submit" class="btn-primary" style="width:100%; font-size:1rem; padding:1rem;">
-                Send Message ✦
-              </button>
+              <button type="submit" class="btn-primary form-submit">Send Message ✦</button>
 
             </form>
           </div>
@@ -177,7 +176,10 @@
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <p class="footer-brand">✦ Faery Tech</p>
+      <div class="footer-logo-wrap">
+        <img src="faerytech-logo.png" alt="Faery Tech">
+        <p class="footer-brand">✦ Faery Tech</p>
+      </div>
       <nav class="footer-links">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>

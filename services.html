@@ -9,145 +9,55 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* ── Pricing Cards ── */
+    /* ── Services page styles ── */
     .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 3rem;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem; margin-top: 3rem;
     }
-
     .pricing-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 20px;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
+      background: var(--card-bg); border: 1px solid var(--card-border);
+      border-radius: 20px; padding: 2rem;
+      display: flex; flex-direction: column;
       transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
     }
+    .pricing-card:hover       { transform: translateY(-6px); border-color: var(--purple-glow); box-shadow: 0 0 40px rgba(123,47,255,0.2); }
+    .pricing-card.featured    { border-color: var(--green); background: rgba(0,255,136,0.04); box-shadow: 0 0 40px rgba(0,255,136,0.1); }
+    .pricing-card.featured:hover { border-color: var(--green); box-shadow: 0 0 60px rgba(0,255,136,0.2); }
+    .pricing-card.featured-wide { grid-column: span 2; display: block; }
 
-    .pricing-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--purple-glow);
-      box-shadow: 0 0 40px rgba(123, 47, 255, 0.2);
-    }
+    .featured-badge { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--space); background: var(--green); padding: 0.25rem 0.75rem; border-radius: 50px; margin-bottom: 1rem; }
+    .pricing-icon   { font-size: 2rem; margin-bottom: 1rem; }
+    .pricing-icon--mt { margin-top: 1rem; }
+    .pricing-card h3 { font-size: 1.1rem; color: var(--lavender); margin-bottom: 0.5rem; }
+    .price          { font-family: 'Cinzel', serif; font-size: 2rem; font-weight: 900; color: var(--star-white); margin: 0.75rem 0; }
+    .price span     { font-size: 1rem; color: var(--muted); font-family: 'Nunito', sans-serif; font-weight: 300; }
+    .description    { color: var(--muted); font-size: 0.9rem; line-height: 1.7; font-weight: 300; margin-bottom: 1.5rem; }
 
-    .pricing-card.featured {
-      border-color: var(--green);
-      background: rgba(0, 255, 136, 0.04);
-      box-shadow: 0 0 40px rgba(0, 255, 136, 0.1);
-    }
+    .feature-list   { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2rem; flex: 1; }
+    .feature-list li { font-size: 0.88rem; color: var(--muted); display: flex; align-items: flex-start; gap: 0.6rem; font-weight: 300; }
+    .feature-list li::before { content: '✦'; color: var(--green); font-size: 0.65rem; flex-shrink: 0; margin-top: 0.2rem; }
 
-    .pricing-card.featured:hover {
-      border-color: var(--green);
-      box-shadow: 0 0 60px rgba(0, 255, 136, 0.2);
-    }
+    .service-section         { padding-top: 4rem; border-top: 1px solid var(--card-border); margin-top: 4rem; }
+    .service-section--first  { border-top: none; margin-top: 0; padding-top: 0; }
 
-    .featured-badge {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--space);
-      background: var(--green);
-      padding: 0.25rem 0.75rem;
-      border-radius: 50px;
-      margin-bottom: 1rem;
-    }
-
-    .pricing-icon { font-size: 2rem; margin-bottom: 1rem; }
-
-    .pricing-card h3 {
-      font-size: 1.1rem;
-      color: var(--lavender);
-      margin-bottom: 0.5rem;
-    }
-
-    .pricing-card .price {
-      font-family: 'Cinzel', serif;
-      font-size: 2rem;
-      font-weight: 900;
-      color: var(--star-white);
-      margin: 0.75rem 0;
-    }
-
-    .pricing-card .price span {
-      font-size: 1rem;
-      color: var(--muted);
-      font-family: 'Nunito', sans-serif;
-      font-weight: 300;
-    }
-
-    .pricing-card .description {
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.7;
-      font-weight: 300;
-      margin-bottom: 1.5rem;
-    }
-
-    .feature-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-      margin-bottom: 2rem;
-      flex: 1;
-    }
-
-    .feature-list li {
-      font-size: 0.88rem;
-      color: var(--muted);
-      display: flex;
-      align-items: flex-start;
-      gap: 0.6rem;
-      font-weight: 300;
-    }
-
-    .feature-list li::before {
-      content: '✦';
-      color: var(--green);
-      font-size: 0.65rem;
-      flex-shrink: 0;
-      margin-top: 0.2rem;
-    }
-
-    .service-section {
-      padding-top: 4rem;
-      border-top: 1px solid var(--card-border);
-      margin-top: 4rem;
-    }
-    .service-section:first-child { border-top: none; margin-top: 0; padding-top: 0; }
+    .wide-card-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+    .wide-card-cta   { margin-top: 1rem; }
 
     .hardship-box {
-      background: rgba(0, 255, 136, 0.04);
-      border: 1px solid rgba(0, 255, 136, 0.2);
-      border-radius: 20px;
-      padding: 2.5rem;
-      margin-top: 3rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      align-items: center;
+      background: rgba(0,255,136,0.04); border: 1px solid rgba(0,255,136,0.2);
+      border-radius: 20px; padding: 2.5rem; margin-top: 3rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;
     }
-
-    .hardship-box h3 {
-      font-size: 1.3rem;
-      color: var(--green);
-      margin-bottom: 1rem;
-    }
-
-    .hardship-box p {
-      color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.7;
-      font-weight: 300;
-    }
+    .hardship-box h3 { font-size: 1.3rem; color: var(--green); margin-bottom: 1rem; }
+    .hardship-box p  { color: var(--muted); font-size: 0.95rem; line-height: 1.7; font-weight: 300; }
+    .hardship-box p + p { margin-top: 1rem; }
+    .hardship-right  { text-align: center; }
+    .hardship-quote  { color: var(--lavender); font-family: 'Cinzel', serif; font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.6; }
 
     @media (max-width: 768px) {
-      .hardship-box { grid-template-columns: 1fr; }
+      .hardship-box        { grid-template-columns: 1fr; }
+      .pricing-card.featured-wide { grid-column: span 1; }
+      .wide-card-inner     { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -157,7 +67,10 @@
 
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="nav-brand">✦ Faery Tech</a>
+    <a href="index.html" class="nav-brand">
+      <img src="faerytech-logo.png" alt="Faery Tech">
+      ✦ Faery Tech
+    </a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="services.html" class="active">Services</a></li>
@@ -171,12 +84,12 @@
 <main>
 
   <!-- ── PAGE HERO ── -->
-  <section style="padding:4rem 0 2rem;">
+  <section class="page-hero">
     <div class="container">
       <p class="section-label">Services & Pricing</p>
-      <h1 class="section-title" style="font-size:clamp(2rem,4vw,3rem);">Transparent pricing.<br>No surprises.</h1>
-      <p class="section-sub" style="max-width:600px;">
-        Every business is different — so every quote is too. But here's a clear starting point so you know what to expect. 
+      <h1 class="section-title section-title--lg">Transparent pricing.<br>No surprises.</h1>
+      <p class="section-sub section-sub--wide">
+        Every business is different — so every quote is too. But here's a clear starting point so you know what to expect.
         Sliding-scale and hardship rates always available. Just ask.
       </p>
     </div>
@@ -186,14 +99,13 @@
   <section id="websites">
     <div class="container">
 
-      <div class="service-section">
+      <div class="service-section service-section--first">
         <p class="section-label">Website Design</p>
         <h2 class="section-title">Your home on the internet</h2>
         <p class="section-sub">Custom-coded, mobile-friendly, and built to last. No templates, no cookie cutters.</p>
 
         <div class="pricing-grid">
 
-          <!-- Starter -->
           <div class="pricing-card">
             <div class="pricing-icon">🌱</div>
             <h3>Starter Site</h3>
@@ -210,7 +122,6 @@
             <a href="https://book.stripe.com/eVq7sN6Zz93a3LR8TygMw00" target="_blank" class="btn-primary">Get Started</a>
           </div>
 
-          <!-- Growth -->
           <div class="pricing-card featured">
             <span class="featured-badge">Most Popular</span>
             <div class="pricing-icon">🚀</div>
@@ -230,7 +141,6 @@
             <a href="https://book.stripe.com/eVq7sN6Zz93a3LR8TygMw00" target="_blank" class="btn-green">Get Started</a>
           </div>
 
-          <!-- Full Business -->
           <div class="pricing-card">
             <div class="pricing-icon">🏢</div>
             <h3>Full Business Package</h3>
@@ -258,21 +168,19 @@
         <h2 class="section-title">Take your business fully digital</h2>
         <p class="section-sub">For businesses ready to modernize completely — from paper and phone calls to a fully automated digital operation.</p>
 
-        <div class="pricing-grid" style="margin-top:3rem;">
-
-          <div class="pricing-card featured" style="grid-column: span 2; display:block;">
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:start;">
+        <div class="pricing-grid">
+          <div class="pricing-card featured featured-wide">
+            <div class="wide-card-inner">
               <div>
                 <span class="featured-badge">Premium Package</span>
-                <div class="pricing-icon" style="margin-top:1rem;">🌐</div>
+                <div class="pricing-icon pricing-icon--mt">🌐</div>
                 <h3>Complete Digital Transformation</h3>
                 <div class="price">$800–1,500+ <span>/ one time + monthly support</span></div>
                 <p class="description">Everything in Full Business Package plus a complete backend system — client portal, online payments, autopay, invoicing, appointment booking, and automated communications.</p>
-                <!-- Custom quote — keep as contact -->
-                <a href="contact.html" class="btn-green" style="margin-top:1rem;">Request a Quote</a>
+                <a href="contact.html" class="btn-green wide-card-cta">Request a Quote</a>
               </div>
               <div>
-                <ul class="feature-list" style="margin-top:0;">
+                <ul class="feature-list">
                   <li>Everything in Full Business Package</li>
                   <li>Custom client portal (clients log in, manage their account)</li>
                   <li>Online payments + autopay setup</li>
@@ -287,7 +195,6 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
 
@@ -297,7 +204,7 @@
         <h2 class="section-title">Ongoing support & growth</h2>
         <p class="section-sub">Add these to any package or as standalone monthly services.</p>
 
-        <div class="pricing-grid" style="margin-top:3rem;">
+        <div class="pricing-grid">
 
           <div class="pricing-card">
             <div class="pricing-icon">🛠️</div>
@@ -368,7 +275,7 @@
         <h2 class="section-title">Look as good as you are</h2>
         <p class="section-sub">Add-on creative services available with any package.</p>
 
-        <div class="pricing-grid" style="margin-top:3rem;">
+        <div class="pricing-grid">
 
           <div class="pricing-card">
             <div class="pricing-icon">✏️</div>
@@ -416,19 +323,17 @@
       <div class="hardship-box">
         <div>
           <h3>🤝 No one gets left behind.</h3>
-          <p style="margin-bottom:1rem;">
-            If you're just getting started, facing hardship, or running a nonprofit or eco-friendly initiative — 
+          <p>
+            If you're just getting started, facing hardship, or running a nonprofit or eco-friendly initiative —
             we want to help regardless of what you can afford.
           </p>
           <p>
-            We offer sliding-scale pricing starting at $50, revenue share arrangements for businesses that 
+            We offer sliding-scale pricing starting at $50, revenue share arrangements for businesses that
             genuinely can't pay upfront, and free services for qualifying nonprofits and community organizations.
           </p>
         </div>
-        <div style="text-align:center;">
-          <p style="color:var(--lavender); font-family:'Cinzel',serif; font-size:1rem; margin-bottom:1.5rem; line-height:1.6;">
-            "A business idea and a dream are enough to get started."
-          </p>
+        <div class="hardship-right">
+          <p class="hardship-quote">"A business idea and a dream are enough to get started."</p>
           <a href="contact.html" class="btn-outline">Let's Talk</a>
         </div>
       </div>
@@ -441,11 +346,13 @@
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <p class="footer-brand">✦ Faery Tech</p>
+      <div class="footer-logo-wrap">
+        <img src="faerytech-logo.png" alt="Faery Tech">
+        <p class="footer-brand">✦ Faery Tech</p>
+      </div>
       <nav class="footer-links">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
-        <a href="portfolio.html">Portfolio</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
       </nav>

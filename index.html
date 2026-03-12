@@ -15,7 +15,10 @@
 
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="nav-brand">✦ Faery Tech</a>
+    <a href="index.html" class="nav-brand">
+      <img src="faerytech-logo.png" alt="Faery Tech">
+      ✦ Faery Tech
+    </a>
     <ul class="nav-links">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="services.html">Services</a></li>
@@ -29,53 +32,48 @@
 <main>
 
   <!-- ── HERO ── -->
-  <section id="hero" style="min-height:calc(100vh - 72px); display:flex; align-items:center; padding:4rem 0; position:relative;">
+  <section id="hero" class="hero">
     <div class="container">
-      <div style="max-width:640px; animation: fadeUp 1s ease both;">
-        <p style="font-size:0.8rem; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:var(--green); margin-bottom:1.2rem;">
-          ✦ Magic in tech — Hattiesburg, MS & beyond
-        </p>
-        <h1 style="font-size:clamp(2rem,5vw,3.6rem); line-height:1.15; margin-bottom:1.5rem; background:linear-gradient(160deg, var(--star-white) 40%, var(--lavender)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">
+      <div class="hero-content">
+        <p class="hero-eyebrow">✦ Magic in tech — Hattiesburg, MS & beyond</p>
+        <h1 class="hero-title">
           The world is moving fast.<br>We make sure you're ready.
         </h1>
-        <p style="font-size:1.15rem; color:var(--muted); line-height:1.75; margin-bottom:2.5rem; font-weight:300;">
-          Faery Tech builds websites, digital systems, and online presence for small businesses — 
-          from brand new startups to businesses ready to go fully digital. 
+        <p class="hero-body">
+          Faery Tech builds websites, digital systems, and online presence for small businesses —
+          from brand new startups to businesses ready to go fully digital.
           No one gets left behind.
         </p>
-        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+        <div class="hero-cta">
           <a href="services.html" class="btn-primary">See Our Services</a>
           <a href="contact.html" class="btn-outline">Get in Touch</a>
           <a href="https://calendly.com/faerytech" class="btn-outline" target="_blank">Book a Call</a>
         </div>
       </div>
-      <!-- Decorative orb -->
-      <div style="position:absolute; right:-5%; top:50%; transform:translateY(-50%); width:420px; height:420px; border-radius:50%; background:radial-gradient(circle at 40% 40%, var(--purple) 0%, transparent 70%); filter:blur(60px); opacity:0.35; pointer-events:none; animation:pulse 6s ease-in-out infinite;"></div>
+      <div class="hero-orb"></div>
     </div>
   </section>
 
   <!-- ── MISSION ── -->
-  <section id="mission" style="background:rgba(123,47,255,0.04); border-top:1px solid var(--card-border); border-bottom:1px solid var(--card-border);">
+  <section id="mission" class="mission-band">
     <div class="container">
-      <div style="max-width:780px; margin:0 auto; text-align:center;">
-        <p class="section-label" style="text-align:center;">Our Mission</p>
-        <h2 class="section-title" style="text-align:center; font-size:clamp(1.4rem,3vw,2rem);">
+      <div class="mission-inner">
+        <p class="section-label text-center">Our Mission</p>
+        <h2 class="section-title mission-title">
           "Technology shouldn't make us lonelier.<br>It can bring community together."
         </h2>
-        <p style="color:var(--muted); font-size:1.05rem; line-height:1.85; margin-top:1.5rem; font-weight:300;">
-          We chose the name Faery Tech because magic isn't fantasy — it's what happens when the right person 
-          shows up at the right moment with the right tools. Growing up chasing fireflies and believing fairies 
-          lived in the mushroom rings, we learned something true: the world is full of hidden wonder, and 
+        <p class="body-text body-text--lg">
+          We chose the name Faery Tech because magic isn't fantasy — it's what happens when the right person
+          shows up at the right moment with the right tools. Growing up chasing fireflies and believing fairies
+          lived in the mushroom rings, we learned something true: the world is full of hidden wonder, and
           sometimes all it takes is someone who can see it to make it real.
         </p>
-        <p style="color:var(--muted); font-size:1.05rem; line-height:1.85; margin-top:1rem; font-weight:300;">
+        <p class="body-text body-text--lg">
           That's what we do for small businesses. We see what they could become — and we build it.
-          Every site we build joins a growing network where local businesses support each other, 
+          Every site we build joins a growing network where local businesses support each other,
           ad revenue funds charitable work, and no one gets priced out of having a digital presence.
         </p>
-        <p style="color:var(--lavender); font-size:1.1rem; font-family:'Cinzel',serif; margin-top:2rem; letter-spacing:0.05em;">
-          Because profit and purpose were never opposites.
-        </p>
+        <p class="tagline-cinzel">Because profit and purpose were never opposites.</p>
       </div>
     </div>
   </section>
@@ -87,53 +85,53 @@
       <h2 class="section-title">Everything your business needs online</h2>
       <p class="section-sub">From a simple starter site to a full digital transformation — we meet you where you are.</p>
 
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:1.5rem; margin-top:3rem;">
+      <div class="services-grid">
 
         <div class="card">
-          <div style="font-size:2rem; margin-bottom:1rem;">🌱</div>
-          <h3 style="font-size:1rem; color:var(--lavender); margin-bottom:0.75rem;">Website Design</h3>
-          <p style="color:var(--muted); font-size:0.9rem; line-height:1.7; font-weight:300;">Custom-coded sites from single-page starters to full multi-page businesses. Starting at $80.</p>
-          <a href="services.html#websites" style="display:inline-block; margin-top:1rem; font-size:0.8rem; color:var(--green); font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">See packages →</a>
+          <div class="card-icon">🌱</div>
+          <h3 class="card-heading">Website Design</h3>
+          <p class="card-body">Custom-coded sites from single-page starters to full multi-page businesses. Starting at $80.</p>
+          <a href="services.html#websites" class="card-link">See packages →</a>
         </div>
 
         <div class="card">
-          <div style="font-size:2rem; margin-bottom:1rem;">⚡</div>
-          <h3 style="font-size:1rem; color:var(--lavender); margin-bottom:0.75rem;">Full Digitization</h3>
-          <p style="color:var(--muted); font-size:0.9rem; line-height:1.7; font-weight:300;">Client portals, online payments, autopay, invoicing, booking systems. Take your business fully digital.</p>
-          <a href="services.html#digitization" style="display:inline-block; margin-top:1rem; font-size:0.8rem; color:var(--green); font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">Learn more →</a>
+          <div class="card-icon">⚡</div>
+          <h3 class="card-heading">Full Digitization</h3>
+          <p class="card-body">Client portals, online payments, autopay, invoicing, booking systems. Take your business fully digital.</p>
+          <a href="services.html#digitization" class="card-link">Learn more →</a>
         </div>
 
         <div class="card">
-          <div style="font-size:2rem; margin-bottom:1rem;">📱</div>
-          <h3 style="font-size:1rem; color:var(--lavender); margin-bottom:0.75rem;">Social Media & Marketing</h3>
-          <p style="color:var(--muted); font-size:0.9rem; line-height:1.7; font-weight:300;">Scheduled posts, automated responses, content creation, SEO, and email marketing. Starting at $100/mo.</p>
-          <a href="services.html#marketing" style="display:inline-block; margin-top:1rem; font-size:0.8rem; color:var(--green); font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">See options →</a>
+          <div class="card-icon">📱</div>
+          <h3 class="card-heading">Social Media & Marketing</h3>
+          <p class="card-body">Scheduled posts, automated responses, content creation, SEO, and email marketing. Starting at $100/mo.</p>
+          <a href="services.html#marketing" class="card-link">See options →</a>
         </div>
 
         <div class="card">
-          <div style="font-size:2rem; margin-bottom:1rem;">🎨</div>
-          <h3 style="font-size:1rem; color:var(--lavender); margin-bottom:0.75rem;">Branding & Design</h3>
-          <p style="color:var(--muted); font-size:0.9rem; line-height:1.7; font-weight:300;">Logo design, brand identity, graphics, and photography. Make your business look as good as it is.</p>
-          <a href="services.html#branding" style="display:inline-block; margin-top:1rem; font-size:0.8rem; color:var(--green); font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">See options →</a>
+          <div class="card-icon">🎨</div>
+          <h3 class="card-heading">Branding & Design</h3>
+          <p class="card-body">Logo design, brand identity, graphics, and photography. Make your business look as good as it is.</p>
+          <a href="services.html#branding" class="card-link">See options →</a>
         </div>
 
         <div class="card">
-          <div style="font-size:2rem; margin-bottom:1rem;">🤝</div>
-          <h3 style="font-size:1rem; color:var(--lavender); margin-bottom:0.75rem;">Hardship & Nonprofit Rate</h3>
-          <p style="color:var(--muted); font-size:0.9rem; line-height:1.7; font-weight:300;">Just getting started? We offer sliding-scale pricing and revenue share options. No one gets left behind.</p>
-          <a href="contact.html" style="display:inline-block; margin-top:1rem; font-size:0.8rem; color:var(--green); font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">Reach out →</a>
+          <div class="card-icon">🤝</div>
+          <h3 class="card-heading">Hardship & Nonprofit Rate</h3>
+          <p class="card-body">Just getting started? We offer sliding-scale pricing and revenue share options. No one gets left behind.</p>
+          <a href="contact.html" class="card-link">Reach out →</a>
         </div>
 
         <div class="card">
-          <div style="font-size:2rem; margin-bottom:1rem;">🌿</div>
-          <h3 style="font-size:1rem; color:var(--lavender); margin-bottom:0.75rem;">Eco & Nonprofit Partners</h3>
-          <p style="color:var(--muted); font-size:0.9rem; line-height:1.7; font-weight:300;">Special rates for eco-friendly businesses, animal shelters, and nonprofits. Our mission is yours too.</p>
-          <a href="contact.html" style="display:inline-block; margin-top:1rem; font-size:0.8rem; color:var(--green); font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">Let's talk →</a>
+          <div class="card-icon">🌿</div>
+          <h3 class="card-heading">Eco & Nonprofit Partners</h3>
+          <p class="card-body">Special rates for eco-friendly businesses, animal shelters, and nonprofits. Our mission is yours too.</p>
+          <a href="contact.html" class="card-link">Let's talk →</a>
         </div>
 
       </div>
 
-      <div style="text-align:center; margin-top:3rem;">
+      <div class="section-cta">
         <a href="services.html" class="btn-primary">View All Services & Pricing</a>
       </div>
     </div>
@@ -143,11 +141,11 @@
   <section id="neighborhood">
     <div class="container">
       <div class="neighborhood-teaser">
-        <p style="font-size:0.75rem; font-weight:600; letter-spacing:0.25em; text-transform:uppercase; color:var(--green); margin-bottom:0.75rem;">Coming Soon</p>
+        <p class="section-label text-center">Coming Soon</p>
         <h3>✦ The Neighborhood</h3>
         <p>
-          A digital ecosystem for local businesses — connecting Hattiesburg and beyond. 
-          Like Nextdoor for your business: find local vendors, get found by local customers, 
+          A digital ecosystem for local businesses — connecting Hattiesburg and beyond.
+          Like Nextdoor for your business: find local vendors, get found by local customers,
           and be part of a network where ethical ads fund real community good.
         </p>
         <a href="about.html#neighborhood" class="btn-outline">Learn More</a>
@@ -160,7 +158,10 @@
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <p class="footer-brand">✦ Faery Tech</p>
+      <div class="footer-logo-wrap">
+        <img src="faerytech-logo.png" alt="Faery Tech">
+        <p class="footer-brand">✦ Faery Tech</p>
+      </div>
       <nav class="footer-links">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
@@ -172,7 +173,6 @@
   </div>
 </footer>
 
-<!-- Chat Widget & Scripts -->
 <script src="chat.js"></script>
 <script src="main.js"></script>
 </body>
