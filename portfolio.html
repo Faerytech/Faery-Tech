@@ -8,72 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <style>
-    /* ── Portfolio page styles ── */
-    .port-hero           { padding: 8rem 0 4rem; text-align: center; }
-    .port-hero h1 {
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      background: linear-gradient(135deg, var(--star-white), var(--lavender));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text; margin-bottom: 1rem;
-    }
-    .port-hero p         { color: var(--muted); font-size: 1rem; font-weight: 300; max-width: 480px; margin: 0 auto; line-height: 1.75; }
-    .port-eyebrow        { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green); margin-bottom: 1rem; }
-
-    .cat-label           { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--green); margin-bottom: 0.6rem; display: block; }
-    .cat-title           { font-family: 'Cinzel', serif; font-size: clamp(1.3rem, 2.5vw, 1.8rem); background: linear-gradient(135deg, var(--star-white), var(--lavender)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 2rem; }
-    .port-section        { padding: 3.5rem 0; border-top: 1px solid var(--card-border); }
-
-    .web-grid            { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-    .web-card            { background: rgba(255,255,255,0.03); border: 1px solid var(--card-border); border-radius: 14px; overflow: hidden; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; text-decoration: none; color: inherit; display: block; }
-    .web-card:hover      { transform: translateY(-6px); border-color: var(--purple-glow); box-shadow: 0 0 36px rgba(123,47,255,0.2); }
-    .web-card--live      { border-color: rgba(0,255,136,0.3); }
-    .web-card--live:hover { border-color: var(--green); box-shadow: 0 0 36px rgba(0,255,136,0.2); }
-    .web-card img        { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; background: rgba(123,47,255,0.1); min-height: 170px; }
-    .web-card-info       { padding: 1.25rem; }
-    .web-card-info h3    { font-family: 'Cinzel', serif; font-size: 0.95rem; color: var(--lavender); margin-bottom: 0.35rem; }
-    .web-card-info p     { color: var(--muted); font-size: 0.82rem; line-height: 1.6; font-weight: 300; }
-    .web-card-tags       { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
-    .tag-pill            { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 50px; border: 1px solid var(--card-border); color: var(--muted); }
-    .tag-pill.green      { border-color: var(--green); color: var(--green); }
-    .tag-pill.purple     { border-color: var(--purple-glow); color: var(--purple-glow); }
-    .tag-pill.live       { border-color: var(--green); color: var(--space); background: var(--green); }
-
-    .link-grid           { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
-    .link-card           { background: rgba(255,255,255,0.03); border: 1px solid var(--card-border); border-radius: 14px; padding: 1.75rem; transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s; text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 0.75rem; }
-    .link-card:hover     { transform: translateY(-5px); border-color: var(--purple-glow); box-shadow: 0 0 28px rgba(123,47,255,0.18); }
-    .link-card .lc-icon  { font-size: 2rem; }
-    .link-card h3        { font-family: 'Cinzel', serif; font-size: 0.95rem; color: var(--lavender); }
-    .link-card p         { color: var(--muted); font-size: 0.83rem; line-height: 1.65; font-weight: 300; }
-    .link-card .lc-arrow { margin-top: auto; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); }
-
-    .coming-soon         { background: rgba(255,255,255,0.02); border: 1px dashed rgba(123,47,255,0.3); border-radius: 14px; padding: 2rem; text-align: center; color: var(--muted); }
-    .coming-soon .cs-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
-    .coming-soon h3      { font-family: 'Cinzel', serif; font-size: 0.92rem; color: rgba(196,181,253,0.5); margin-bottom: 0.4rem; }
-    .coming-soon p       { font-size: 0.78rem; line-height: 1.6; font-weight: 300; color: rgba(136,136,170,0.6); }
-    .coming-soon--left   { text-align: left; padding: 1.75rem; }
-
-    .port-cta            { padding: 3rem 0 5rem; text-align: center; }
-    .port-cta-eyebrow    { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green); margin-bottom: 0.75rem; }
-    .port-cta-title {
-      font-family: 'Cinzel', serif; font-size: clamp(1.5rem, 3vw, 2.2rem);
-      background: linear-gradient(135deg, var(--star-white), var(--lavender));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text; margin-bottom: 1.5rem;
-    }
-
-    /* ── Section divider labels ── */
-    .grid-divider {
-      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--green);
-      margin-bottom: 1rem; margin-top: 2.5rem;
-      display: flex; align-items: center; gap: 1rem;
-    }
-    .grid-divider::after {
-      content: ''; flex: 1; height: 1px;
-      background: rgba(0,255,136,0.2);
-    }
-  </style>
+  <meta name="description" content="Web projects and client sites built by Faery Tech — custom-coded, mobile-friendly sites for small businesses in Hattiesburg, MS.">
 </head>
 <body>
 

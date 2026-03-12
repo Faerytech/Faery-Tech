@@ -8,58 +8,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <style>
-    /* ── Services page styles ── */
-    .pricing-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem; margin-top: 3rem;
-    }
-    .pricing-card {
-      background: var(--card-bg); border: 1px solid var(--card-border);
-      border-radius: 20px; padding: 2rem;
-      display: flex; flex-direction: column;
-      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
-    }
-    .pricing-card:hover       { transform: translateY(-6px); border-color: var(--purple-glow); box-shadow: 0 0 40px rgba(123,47,255,0.2); }
-    .pricing-card.featured    { border-color: var(--green); background: rgba(0,255,136,0.04); box-shadow: 0 0 40px rgba(0,255,136,0.1); }
-    .pricing-card.featured:hover { border-color: var(--green); box-shadow: 0 0 60px rgba(0,255,136,0.2); }
-    .pricing-card.featured-wide { grid-column: span 2; display: block; }
-
-    .featured-badge { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--space); background: var(--green); padding: 0.25rem 0.75rem; border-radius: 50px; margin-bottom: 1rem; }
-    .pricing-icon   { font-size: 2rem; margin-bottom: 1rem; }
-    .pricing-icon--mt { margin-top: 1rem; }
-    .pricing-card h3 { font-size: 1.1rem; color: var(--lavender); margin-bottom: 0.5rem; }
-    .price          { font-family: 'Cinzel', serif; font-size: 2rem; font-weight: 900; color: var(--star-white); margin: 0.75rem 0; }
-    .price span     { font-size: 1rem; color: var(--muted); font-family: 'Nunito', sans-serif; font-weight: 300; }
-    .description    { color: var(--muted); font-size: 0.9rem; line-height: 1.7; font-weight: 300; margin-bottom: 1.5rem; }
-
-    .feature-list   { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2rem; flex: 1; }
-    .feature-list li { font-size: 0.88rem; color: var(--muted); display: flex; align-items: flex-start; gap: 0.6rem; font-weight: 300; }
-    .feature-list li::before { content: '✦'; color: var(--green); font-size: 0.65rem; flex-shrink: 0; margin-top: 0.2rem; }
-
-    .service-section         { padding-top: 4rem; border-top: 1px solid var(--card-border); margin-top: 4rem; }
-    .service-section--first  { border-top: none; margin-top: 0; padding-top: 0; }
-
-    .wide-card-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
-    .wide-card-cta   { margin-top: 1rem; }
-
-    .hardship-box {
-      background: rgba(0,255,136,0.04); border: 1px solid rgba(0,255,136,0.2);
-      border-radius: 20px; padding: 2.5rem; margin-top: 3rem;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;
-    }
-    .hardship-box h3 { font-size: 1.3rem; color: var(--green); margin-bottom: 1rem; }
-    .hardship-box p  { color: var(--muted); font-size: 0.95rem; line-height: 1.7; font-weight: 300; }
-    .hardship-box p + p { margin-top: 1rem; }
-    .hardship-right  { text-align: center; }
-    .hardship-quote  { color: var(--lavender); font-family: 'Cinzel', serif; font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.6; }
-
-    @media (max-width: 768px) {
-      .hardship-box        { grid-template-columns: 1fr; }
-      .pricing-card.featured-wide { grid-column: span 1; }
-      .wide-card-inner     { grid-template-columns: 1fr; }
-    }
-  </style>
+ 
+  <meta name="description" content="Web design, social media, SEO, and digital services for small businesses. Transparent pricing starting at $80. Based in Hattiesburg, MS.">
 </head>
 <body>
 
