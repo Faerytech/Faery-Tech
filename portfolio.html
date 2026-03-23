@@ -7,8 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <meta name="description" content="Web projects and client sites built by Faery Tech — custom-coded, mobile-friendly sites for small businesses in Hattiesburg, MS.">
+  <link rel="stylesheet" href="CSS/styles.css">
+  <meta name="description" content="Web projects and client sites built by Faery Tech — custom-coded, mobile-friendly sites for small businesses.">
 </head>
 <body>
 
@@ -17,17 +17,19 @@
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="nav-brand">
-      <img src="faerytech-logo.png" alt="Faery Tech">
+      <img src="Files/faerytech-logo.png" alt="Faery Tech">
       ✦ Faery Tech
     </a>
-    <ul class="nav-links">
+            <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
       <li><a href="portfolio.html" class="active">Portfolio</a></li>
-      <li><a href="about.html">About</a></li>
+      <li><a href="community.html">The Community</a></li>
+      <li><a href="commission.html">Commission a Site</a></li>
+      <li><a href="faq.html">FAQ</a></li>
       <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://faerytech.org" style="color:var(--green);">Faery Side ✦</a></li>
     </ul>
-    <button class="nav-hamburger" aria-label="Toggle navigation">
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
       <span></span>
       <span></span>
       <span></span>
@@ -56,7 +58,6 @@
       <p class="grid-divider">✦ Live Client Sites</p>
       <div class="web-grid">
 
-        <!-- Bravo Lawn Care -->
         <a href="https://bravolawncare.com" target="_blank" class="web-card web-card--live">
           <img
             src="https://image.thum.io/get/width/600/crop/800/https://faerytech.github.io/Bravo-Lawncare/"
@@ -76,7 +77,6 @@
           </div>
         </a>
 
-        <!-- ChosenOne LLC -->
         <a href="https://chosen-one-llc.com" target="_blank" class="web-card web-card--live">
           <img
             src="https://image.thum.io/get/width/600/crop/800/https://faerytech.github.io/Chosen-One-LLC/"
@@ -173,13 +173,13 @@
 
         <a href="https://mooremadyson.wixsite.com/website" target="_blank" class="web-card">
           <img
-            src="wixsite.png"
+            src="Files/wixsite.png"
             alt="Wix Portfolio Site"
             loading="lazy"
           >
           <div class="web-card-info">
             <h3>Wix Portfolio Site</h3>
-            <p>An older personal site built on Wix — kept as a sample of early work. Information and services listed there are outdated and no longer current.</p>
+            <p>An older personal site built on Wix — kept as a sample of early work. Information and services listed there are outdated.</p>
             <div class="web-card-tags">
               <span class="tag-pill purple">Sample</span>
               <span class="tag-pill">Wix</span>
@@ -199,7 +199,7 @@
 
       <div class="link-grid">
 
-        <a href="https://faerytech.github.io/Faery-Tech/resume.pdf" target="_blank" class="link-card">
+        <a href="Files/resume.pdf" target="_blank" class="link-card">
           <div class="lc-icon">📄</div>
           <h3>Résumé</h3>
           <p>Web developer with 8+ years in tech support, admin, and customer experience. Currently focused on frontend development and small business digital services.</p>
@@ -213,11 +213,12 @@
           <span class="lc-arrow">Visit Itch.io →</span>
         </a>
 
-        <div class="coming-soon coming-soon--left">
-          <div class="cs-icon">🎨</div>
-          <h3>Art & Logo Design</h3>
-          <p>Graphic design samples and logo work added here as the portfolio grows. Coming soon.</p>
-        </div>
+        <a href="https://faerytech.org" class="link-card">
+          <div class="lc-icon">🎨</div>
+          <h3>Art & Design</h3>
+          <p>Original paintings, photography, and digital work. Prints available, commissions open.</p>
+          <span class="lc-arrow">Visit Maddy's Art →</span>
+        </a>
 
       </div>
     </div>
@@ -238,22 +239,24 @@
   <div class="container">
     <div class="footer-inner">
       <div class="footer-logo-wrap">
-        <img src="faerytech-logo.png" alt="Faery Tech">
+        <img src="Files/faerytech-logo.png" alt="Faery Tech">
         <p class="footer-brand">✦ Faery Tech</p>
       </div>
       <nav class="footer-links">
         <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="about.html">About</a>
+        <a href="commission.html">Commission a Site</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="community.html">The Community</a>
+        <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
       </nav>
-      <p class="copyright">© 2026 Faery Tech by Madyson Moore. All rights reserved. | Hattiesburg, MS</p>
+      <p class="copyright">© 2026 Faery Tech by Madyson Moore. All rights reserved. | Living free in the USA 🤍</p>
     </div>
   </div>
 </footer>
 
-<script src="main.js"></script>
-<script src="chat.js"></script>
+<script src="JS/main.js"></script>
+<script src="JS/chat.js"></script>
 
 </body>
 </html>

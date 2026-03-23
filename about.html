@@ -7,8 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <meta name="description" content="Faery Tech is a web design studio run by Madyson Moore in Hattiesburg, MS. Built on the belief that technology should be accessible to everyone.">
+  <link rel="stylesheet" href="CSS/styles.css">
+  <meta name="description" content="Faery Tech is a web design studio run by Madyson Moore. Built on the belief that technology should be accessible to everyone.">
 </head>
 <body>
 
@@ -17,21 +17,22 @@
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="nav-brand">
-      <img src="faerytech-logo.png" alt="Faery Tech">
+      <img src="Images/faerytech-logo.png" alt="Faery Tech">
       ✦ Faery Tech
     </a>
-    <ul class="nav-links">
+                <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
       <li><a href="about.html" class="active">About</a></li>
+      <li><a href="community.html">The Community</a></li>
+      <li><a href="commission.html">Shop</a></li>
+      <li><a href="faq.html">FAQ</a></li>
       <li><a href="contact.html">Contact</a></li>
+      <li><a href="Art/index.html" style="color:var(--green);">Faery Side ✦</a></li>
     </ul>
-    <button class="nav-hamburger" aria-label="Toggle navigation">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
@@ -45,61 +46,35 @@
     </div>
   </section>
 
-  <!-- ── STORY ── -->
+  <!-- ── FOUNDER ── -->
   <section>
     <div class="container">
-      <div class="two-col-grid">
-
-        <div>
-          <p class="section-label">The Story</p>
-          <h2 class="section-title">Where the name comes from</h2>
-          <p class="body-text">
-            Faery Tech started as a gamertag — a little whimsical, a little techy, completely me.
-            But the name carries something real.
-          </p>
-          <p class="body-text">
-            Growing up in Alabama, I chased fireflies in the summer and genuinely believed fairies
-            lived in the mushroom rings at the edge of the yard. I still get excited when I see mushrooms now.
-            That sense of wonder — that the world is full of hidden magic — never left me.
-          </p>
-          <p class="body-text">
-            Fairies remind me of my mom, of childhood, of a time when the world felt full of possibility.
-            And that's exactly what I want to give small business owners: the feeling that anything is possible,
-            that the right tools can transform their situation, that someone showed up and made the hard thing easy.
-          </p>
-          <p class="tagline-cinzel tagline-cinzel--sm">
-            Magic isn't fantasy. It's what happens when the right person shows up at the right moment with the right tools.
-          </p>
-        </div>
-
-        <div>
-          <p class="section-label">The Founder</p>
-          <h2 class="section-title">Madyson Moore</h2>
-          <p class="body-text">
-            I'm a web developer, digital designer, and small business advocate based in Hattiesburg, Mississippi.
-            I'm currently completing my web development education through Code Temple bootcamp, building real
-            client projects, and growing Faery Tech into something that matters.
-          </p>
-          <p class="body-text">
-            My background spans customer service, tech support, construction, farm work, game design,
-            content creation, and administrative roles. I hold a Bachelor's in History and an Associate's
-            in Biology — which means I approach problems from every angle.
-          </p>
-          <p class="body-text">
-            I believe in ethical business, ecological responsibility, and helping people who are often
-            overlooked by the tech industry. If you're a small business owner, a nonprofit, or someone
-            just getting started — I'm here for you.
-          </p>
-
-          <ul class="founder-list">
-            <li><span class="bullet">✦</span> Web development (Code Temple bootcamp)</li>
-            <li><span class="bullet">✦</span> Graphic & digital design</li>
-            <li><span class="bullet">✦</span> Microsoft Office Specialist certified</li>
-            <li><span class="bullet">✦</span> CRM, QuickBooks, remote tech support</li>
-            <li><span class="bullet">✦</span> B.A. History, A.S. Biology</li>
-          </ul>
-        </div>
-
+      <div style="max-width:780px;">
+        <p class="section-label">The Founder</p>
+        <h2 class="section-title">Madyson Moore</h2>
+        <p class="body-text">
+          I'm a web developer, digital designer, and small business advocate. I work with clients
+          remotely across the country, currently completing my web development education through
+          Code Temple bootcamp while building real client projects and growing Faery Tech
+          into something that matters.
+        </p>
+        <p class="body-text">
+          My background spans customer service, tech support, construction, farm work, game design,
+          content creation, and administrative roles. I hold a Bachelor's in History and an Associate's
+          in Biology — which means I approach problems from every angle.
+        </p>
+        <p class="body-text">
+          I believe in ethical business, ecological responsibility, and helping people who are often
+          overlooked by the tech industry. If you're a small business owner, a nonprofit, or someone
+          just getting started — I'm here for you.
+        </p>
+        <ul class="founder-list">
+          <li><span class="bullet">✦</span> Web development (Code Temple bootcamp)</li>
+          <li><span class="bullet">✦</span> Graphic & digital design</li>
+          <li><span class="bullet">✦</span> Microsoft Office Specialist certified</li>
+          <li><span class="bullet">✦</span> CRM, QuickBooks, remote tech support</li>
+          <li><span class="bullet">✦</span> B.A. History, A.S. Biology</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -114,7 +89,7 @@
         <div class="mission-content">
           <p class="body-text body-text--lg">
             Technology shouldn't make us lonelier, more isolated, or obsolete. In the right hands,
-            it's the great equalizer — a tool that can lift a struggling entrepreneur, connect a neighborhood,
+            it's the great equalizer — a tool that can lift a struggling entrepreneur, connect a community,
             and fund a cleaner, kinder world.
           </p>
           <p class="body-text body-text--lg">Faery Tech exists to put those tools in the right hands.</p>
@@ -124,10 +99,9 @@
             and community hardship rates mean that a business idea and a dream are enough to get started.
           </p>
           <p class="body-text body-text--lg">
-            Every site we build joins the Faery Tech network — a growing digital ecosystem where local
-            businesses connect with each other and their communities. Ad revenue across the entire network
-            is reinvested into our charitable mission: supporting animal shelters, eco-friendly initiatives,
-            tree planting programs, and free web services for those who need them most.
+            Every site we build is part of a larger ecosystem. Ad revenue across our network is reinvested
+            into our charitable mission: supporting animal shelters, eco-friendly initiatives, tree planting
+            programs, and free web services for those who need them most.
           </p>
           <p class="body-text body-text--lg">
             We partner only with brands we believe in. We advertise only what we'd recommend to a friend.
@@ -168,32 +142,37 @@
         <div class="card card--center">
           <div class="card-icon">🏘️</div>
           <h3 class="card-heading">Community First</h3>
-          <p class="card-body">We're building a network where local businesses support each other — not just competing, but collaborating.</p>
+          <p class="card-body">We're building toward a network where local businesses support each other — not just competing, but collaborating.</p>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- ── THE NEIGHBORHOOD ── -->
-  <section id="neighborhood" class="neighborhood-band">
+  <!-- ── VISION BAND (replaces The Neighborhood) ── -->
+  <section style="padding: 5rem 0; background: rgba(0,255,136,0.03); border-top: 1px solid rgba(0,255,136,0.12);">
     <div class="container">
-      <div class="neighborhood-inner">
-        <p class="section-label text-center label-green">Coming Soon</p>
-        <h2 class="neighborhood-title">✦ The Neighborhood</h2>
-        <p class="body-text body-text--lg body-text--mb">Faery Tech is building something bigger than a web design studio.</p>
-        <p class="body-text body-text--lg body-text--mb">
-          <strong class="text-highlight">The Neighborhood</strong> is a digital community network —
-          a directory and ecosystem where local businesses connect with each other and their customers,
-          powered by ethical advertising that funds real community good. Like Nextdoor, but for your business.
+      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <p class="section-label text-center">Where We're Headed</p>
+        <h2 class="section-title section-title--lg text-center" style="margin-bottom: 1.5rem;">
+          A digital ecosystem<br>built on doing good.
+        </h2>
+        <p class="body-text body-text--lg" style="text-align: center; max-width: 660px; margin: 0 auto 1.25rem;">
+          Faery Tech is more than a web studio. The long-term vision is a connected network of
+          small businesses, ethical brands, and community organizations — where being online means
+          being part of something bigger than your own bottom line.
         </p>
-        <p class="body-text body-text--lg body-text--mb">
-          Ad revenue across the entire network goes toward animal shelters, eco-friendly initiatives,
-          tree planting, and free web services for people in need. Every business in The Neighborhood
-          is supporting every other — and supporting the mission.
+        <p class="body-text body-text--lg" style="text-align: center; max-width: 660px; margin: 0 auto 1.25rem;">
+          Ad revenue across the network funds animal shelters, tree planting, eco initiatives, and
+          free web services for people in need. Every client who comes to Faery Tech is already
+          part of building that future.
         </p>
-        <p class="body-text body-text--lg body-text--mb">Starting in Hattiesburg, MS — and growing wherever community needs it.</p>
-        <a href="contact.html" class="btn-outline mt-2">Stay in the Loop</a>
+        <p class="tagline-cinzel tagline-cinzel--sm" style="text-align: center; margin-top: 2rem;">
+          We're just getting started.
+        </p>
+        <div style="margin-top: 2rem;">
+          <a href="contact.html" class="btn-outline">Work With Us</a>
+        </div>
       </div>
     </div>
   </section>
@@ -204,21 +183,23 @@
   <div class="container">
     <div class="footer-inner">
       <div class="footer-logo-wrap">
-        <img src="faerytech-logo.png" alt="Faery Tech">
+        <img src="Images/faerytech-logo.png" alt="Faery Tech">
         <p class="footer-brand">✦ Faery Tech</p>
       </div>
       <nav class="footer-links">
         <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="about.html">About</a>
+        <a href="commission.html">Shop</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="about.html" class="active">About</a>
+        <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
       </nav>
-      <p class="copyright">© 2026 Faery Tech by Madyson Moore. All rights reserved. | Hattiesburg, MS</p>
+      <p class="copyright">© 2026 Faery Tech by Madyson Moore. All rights reserved. | Living free in the USA 🤍</p>
     </div>
   </div>
 </footer>
 
-<script src="chat.js"></script>
-<script src="main.js"></script>
+<script src="JS/chat.js"></script>
+<script src="JS/main.js"></script>
 </body>
 </html>

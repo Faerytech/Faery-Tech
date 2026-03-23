@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What's Your Magical Archetype? | Faery Tech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/styles.css">
+  <meta name="description" content="What's your magical archetype? Take the 2-minute Faery Tech quiz — 10 questions, 6 results, and a coupon code for your site at the end.">
+</head>
+<body>
+<canvas id="starfield"></canvas>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand"><img src="Files/faerytech-logo.png" alt="Faery Tech"> ✦ Faery Tech</a>
+            <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="community.html">The Community</a></li>
+      <li><a href="commission.html">Commission a Site</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://faerytech.org" style="color:var(--green);">Faery Side ✦</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<main id="quizMain">
+
+  <!-- INTRO -->
+  <div class="quiz-screen active" id="screen-intro">
+    <div class="quiz-intro-hero">
+      <div class="quiz-intro-content">
+        <p class="section-label">✦ Faery Tech</p>
+        <h1 class="quiz-title">What's Your<br>Magical Archetype?</h1>
+        <p class="quiz-subtitle">10 questions. No right answers. A coupon code at the end.</p>
+        <div class="quiz-meta">
+          <span>✦ 10 questions</span><span>✦ 6 archetypes</span><span>✦ 2 minutes</span><span>✦ everyone wins a coupon</span>
+        </div>
+        <button class="btn-primary quiz-start-btn" onclick="Quiz.start()">Find Out ✦</button>
+        <p class="quiz-skip">Already know what you need? <a href="commission.html">Commission your site →</a></p>
+        <p class="quiz-skip">Prefer all questions at once? <a href="quiz-full.html">Full page version →</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q1: Free Saturday (PICTURES) -->
+  <div class="quiz-screen" id="screen-q1">
+    <div class="container">
+      <div class="quiz-progress-wrap"><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:10%"></div></div><span class="quiz-progress-label">1 of 10</span></div>
+      <h2 class="quiz-q">You have an unexpected free Saturday. What do you do?</h2>
+      <div class="quiz-grid-2">
+        <label class="qcard"><input type="radio" name="q1" value="angel">
+          <img src="https://images.pexels.com/photos/1005417/pexels-photo-1005417.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Walk outside" loading="lazy">
+          <span class="qcard-label">Go outside, no plan, just wander</span></label>
+        <label class="qcard"><input type="radio" name="q1" value="griffin">
+          <img src="https://images.pexels.com/photos/4107108/pexels-photo-4107108.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Clean and organize" loading="lazy">
+          <span class="qcard-label">Clean everything and reorganize</span></label>
+        <label class="qcard"><input type="radio" name="q1" value="dragon">
+          <img src="https://images.pexels.com/photos/1575932/pexels-photo-1575932.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Invite everyone over" loading="lazy">
+          <span class="qcard-label">Invite everyone over, make it a whole thing</span></label>
+        <label class="qcard"><input type="radio" name="q1" value="wizard">
+          <img src="https://images.pexels.com/photos/1765033/pexels-photo-1765033.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Cozy reading" loading="lazy">
+          <span class="qcard-label">Disappear into a show or book and tell no one</span></label>
+      </div>
+      <div class="quiz-nav"><button class="btn-outline quiz-back-btn" onclick="Quiz.back()">← Back</button></div>
+    </div>
+  </div>
+
+  <!-- Q2: Pick a drink (PICTURES) -->
+  <div class="quiz-screen" id="screen-q2">
+    <div class="container">
+      <div class="quiz-progress-wrap"><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:20%"></div></div><span class="quiz-progress-label">2 of 10</span></div>
+      <h2 class="quiz-q">Pick a drink.</h2>
+      <div class="quiz-grid-2">
+        <label class="qcard"><input type="radio" name="q2" value="fairy">
+          <img src="https://images.pexels.com/photos/2109099/pexels-photo-2109099.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Lavender lemonade" loading="lazy">
+          <span class="qcard-label">Lavender lemonade</span></label>
+        <label class="qcard"><input type="radio" name="q2" value="wizard">
+          <img src="https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Black coffee" loading="lazy">
+          <span class="qcard-label">Black coffee, no nonsense</span></label>
+        <label class="qcard"><input type="radio" name="q2" value="mermaid">
+          <img src="https://images.pexels.com/photos/3407777/pexels-photo-3407777.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Mysterious cocktail" loading="lazy">
+          <span class="qcard-label">A mysterious cocktail with something floating in it</span></label>
+        <label class="qcard"><input type="radio" name="q2" value="angel">
+          <img src="https://images.pexels.com/photos/3734195/pexels-photo-3734195.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Hot chocolate" loading="lazy">
+          <span class="qcard-label">Hot chocolate with a ridiculous amount of marshmallows</span></label>
+      </div>
+      <div class="quiz-nav"><button class="btn-outline quiz-back-btn" onclick="Quiz.back()">← Back</button></div>
+    </div>
+  </div>
+
+  <!-- Q3: Someone moving (TEXT) -->
+  <div class="quiz-screen" id="screen-q3">
+    <div class="container">
+      <div class="quiz-progress-wrap"><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:30%"></div></div><span class="quiz-progress-label">3 of 10</span></div>
+      <h2 class="quiz-q">Someone's moving. You show up with...</h2>
+      <div class="quiz-list">
+        <label class="qchoice"><input type="radio" name="q3" value="angel"><span>🍲&nbsp; A home-cooked meal</span></label>
+        <label class="qchoice"><input type="radio" name="q3" value="griffin"><span>📦&nbsp; Perfectly labeled boxes and a whole system</span></label>
+        <label class="qchoice"><input type="radio" name="q3" value="dragon"><span>💪&nbsp; Your most chaotic helpful energy</span></label>
+        <label class="qchoice"><input type="radio" name="q3" value="mermaid"><span>🎵&nbsp; A playlist and emotional support</span></label>
+      </div>
+      <div class="quiz-nav"><button class="btn-outline quiz-back-btn" onclick="Quiz.back()">← Back</button></div>
+    </div>
+  </div>
+
+  <!-- Q4: Candle scent (PICTURES) -->
+  <div class="quiz-screen" id="screen-q4">
+    <div class="container">
+      <div class="quiz-progress-wrap"><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:40%"></div></div><span class="quiz-progress-label">4 of 10</span></div>
+      <h2 class="quiz-q">Pick a candle scent.</h2>
+      <div class="quiz-grid-2">
+        <label class="qcard"><input type="radio" name="q4" value="wizard">
+          <img src="https://images.pexels.com/photos/3270223/pexels-photo-3270223.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Dark candle" loading="lazy">
+          <span class="qcard-label">Espresso and smoke</span></label>
+        <label class="qcard"><input type="radio" name="q4" value="fairy">
+          <img src="https://images.pexels.com/photos/6208086/pexels-photo-6208086.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Birthday cake candle" loading="lazy">
+          <span class="qcard-label">Vanilla birthday cake</span></label>
+        <label class="qcard"><input type="radio" name="q4" value="mermaid">
+          <img src="https://images.pexels.com/photos/3059609/pexels-photo-3059609.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Ocean candle" loading="lazy">
+          <span class="qcard-label">Ocean and salt</span></label>
+        <label class="qcard"><input type="radio" name="q4" value="dragon">
+          <img src="https://images.pexels.com/photos/4202325/pexels-photo-4202325.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Forest candle" loading="lazy">
+          <span class="qcard-label">Cedar and campfire</span></label>
+      </div>
+      <div class="quiz-nav"><button class="btn-outline quiz-back-btn" onclick="Quiz.back()">← Back</button></div>
+    </div>
+  </div>
+
+  <!-- Q5: Workspace (PICTURES) -->
+  <div class="quiz-screen" id="screen-q5">
+    <div class="container">
+      <div class="quiz-progress-wrap"><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:50%"></div></div><span class="quiz-progress-label">5 of 10</span></div>
+      <h2 class="quiz-q">Your ideal workspace.</h2>
+      <div class="quiz-grid-2">
+        <label class="qcard"><input type="radio" name="q5" value="griffin">
+          <img src="https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Minimal desk" loading="lazy">
+          <span class="qcard-label">Sleek and minimal — nothing out of place</span></label>
+        <label class="qcard"><input type="radio" name="q5" value="fairy">
+          <img src="https://images.pexels.com/photos/1090638/pexels-photo-1090638.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Fairy lights cozy" loading="lazy">
+          <span class="qcard-label">A cozy dim corner with fairy lights</span></label>
+        <label class="qcard"><input type="radio" name="q5" value="mermaid">
+          <img src="https://images.pexels.com/photos/1287075/pexels-photo-1287075.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Ocean view" loading="lazy">
+          <span class="qcard-label">Somewhere near water with a view</span></label>
+        <label class="qcard"><input type="radio" name="q5" value="wizard">
+          <img src="https://images.pexels.com/photos/2041627/pexels-photo-2041627.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Library" loading="lazy">
+          <span class="qcard-label">A cluttered dimly lit room full of interesting things</span></label>
+      </div>
+      <div class="quiz-nav"><button class="btn-outline quiz-back-btn" onclick="Quiz.back()">← Back</button></div>
+    </div>
+  </div>
+
+  <!-- Q6: Bag (TEXT) -->
+  <div class="quiz-screen" id="screen-q6">
+    <div class="container">
+      <div class="quiz-progress-wrap"><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:60%"></div></div><span class="quiz-progress-label">6 of 10</span></div>
+      <h2 class="quiz-q">What's in your bag?</h2>
+      <div class="quiz-list">
+        <label class="qchoice"><input type="radio" name="q6" value="angel"><span>🎒&nbsp; Everything anyone could ever need, somehow</span></label>
+        <label class="qchoice"><input type="radio" name="q6" value="griffin"><span>🔑&nbsp; Just my phone and keys — I am not carrying things</span></label>
+        <label class="qchoice"><input type="radio" name="q6" value="fairy"><span>📓&nbsp; Snacks, a journal, and three things I forgot I had</span></label>
+        <label class="qchoice"><input type="radio" name="q6" value="mermaid"><span>💨&nbsp; No bag. I am untethered.</span></label>
+      </div>
+      <div class="quiz-nav"><button class="btn-outline quiz-back-btn" onclick="Quiz.back()">← Back</button></div>
+    </div>
+  </div>
+
+  <!-- Q7: Late (TEXT) -->
+  <div class="quiz-screen" id="screen-q7">
+    <div class="container">
+      <div class="quiz-progress-wrap"><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:70%"></div></div><span class="quiz-progress-label">7 of 10</span></div>
+      <h2 class="quiz-q">You're late to something important. You...</h2>
+      <div class="quiz-list">
+        <label class="qchoice"><input type="radio" name="q7" value="angel"><span>💌&nbsp; Text ahead and apologize sincerely</span></label>
+        <label class="qchoice"><input type="radio" name="q7" value="griffin"><span>😎&nbsp; Walk in like you meant to arrive exactly then</span></label>
+        <label class="qchoice"><input type="radio" name="q7" value="dragon"><span>🎉&nbsp; Show up with such good energy nobody cares</span></label>
+        <label class="qchoice"><input type="radio" name="q7" value="fairy"><span>🤔&nbsp; Genuinely did not know there was a thing</span></label>
+      </div>
+      <div class="quiz-nav"><button class="btn-outline quiz-back-btn" onclick="Quiz.back()">← Back</button></div>
+    </div>
+  </div>
+
+  <!-- Q8: Weather (PICTURES) -->
+  <div class="quiz-screen" id="screen-q8">
+    <div class="container">
+      <div class="quiz-progress-wrap"><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:80%"></div></div><span class="quiz-progress-label">8 of 10</span></div>
+      <h2 class="quiz-q">Pick a weather.</h2>
+      <div class="quiz-grid-2">
+        <label class="qcard"><input type="radio" name="q8" value="angel">
+          <img src="https://images.pexels.com/photos/1624496/pexels-photo-1624496.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Golden autumn" loading="lazy">
+          <span class="qcard-label">Golden autumn afternoon</span></label>
+        <label class="qcard"><input type="radio" name="q8" value="wizard">
+          <img src="https://images.pexels.com/photos/1162251/pexels-photo-1162251.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Thunderstorm" loading="lazy">
+          <span class="qcard-label">Thunderstorm at night</span></label>
+        <label class="qcard"><input type="radio" name="q8" value="mermaid">
+          <img src="https://images.pexels.com/photos/1287075/pexels-photo-1287075.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Foggy morning" loading="lazy">
+          <span class="qcard-label">Foggy misty morning</span></label>
+        <label class="qcard"><input type="radio" name="q8" value="dragon">
+          <img src="https://images.pexels.com/photos/1125850/pexels-photo-1125850.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Summer storm" loading="lazy">
+          <span class="qcard-label">Bright chaotic summer storm</span></label>
+      </div>
+      <div class="quiz-nav"><button class="btn-outline quiz-back-btn" onclick="Quiz.back()">← Back</button></div>
+    </div>
+  </div>
+
+  <!-- Q9: Friends (TEXT) -->
+  <div class="quiz-screen" id="screen-q9">
+    <div class="container">
+      <div class="quiz-progress-wrap"><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:90%"></div></div><span class="quiz-progress-label">9 of 10</span></div>
+      <h2 class="quiz-q">Your friends would describe you as...</h2>
+      <div class="quiz-list">
+        <label class="qchoice"><input type="radio" name="q9" value="dragon"><span>🎲&nbsp; The one nobody can predict but everyone loves</span></label>
+        <label class="qchoice"><input type="radio" name="q9" value="griffin"><span>✨&nbsp; The one who makes everything look effortless</span></label>
+        <label class="qchoice"><input type="radio" name="q9" value="wizard"><span>📚&nbsp; The one who quietly knows everything</span></label>
+        <label class="qchoice"><input type="radio" name="q9" value="fairy"><span>🌟&nbsp; The one who makes ordinary moments feel like an adventure</span></label>
+      </div>
+      <div class="quiz-nav"><button class="btn-outline quiz-back-btn" onclick="Quiz.back()">← Back</button></div>
+    </div>
+  </div>
+
+  <!-- Q10: $20 (TEXT) -->
+  <div class="quiz-screen" id="screen-q10">
+    <div class="container">
+      <div class="quiz-progress-wrap"><div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:100%"></div></div><span class="quiz-progress-label">10 of 10</span></div>
+      <h2 class="quiz-q">You find $20 in an old coat. You...</h2>
+      <div class="quiz-list">
+        <label class="qchoice"><input type="radio" name="q10" value="fairy"><span>🕯️&nbsp; Spend it on something small and whimsical</span></label>
+        <label class="qchoice"><input type="radio" name="q10" value="griffin"><span>🏦&nbsp; Save it immediately</span></label>
+        <label class="qchoice"><input type="radio" name="q10" value="dragon"><span>🍕&nbsp; Buy snacks for everyone right now</span></label>
+        <label class="qchoice"><input type="radio" name="q10" value="mermaid"><span>💸&nbsp; Lose it again within the hour</span></label>
+      </div>
+      <div class="quiz-nav"><button class="btn-outline quiz-back-btn" onclick="Quiz.back()">← Back</button></div>
+    </div>
+  </div>
+
+  <!-- RESULT -->
+  <div class="quiz-screen" id="screen-result">
+    <div class="container">
+      <div class="result-wrap" id="resultWrap"></div>
+      <div class="result-email-wrap">
+        <h3 class="result-email-head">Ready to build your site?</h3>
+        <p class="result-email-sub">Drop your email and I'll send you a link to your personalized project brief — archetype and coupon already filled in.</p>
+        <form class="result-email-form" id="resultEmailForm" onsubmit="Quiz.submitEmail(event)">
+          <input type="email" id="resultEmail" placeholder="your@email.com" required>
+          <button type="submit" class="btn-green">Let's Go ✦</button>
+        </form>
+        <p class="result-email-skip"><a href="commission.html" id="skipToCommission">Skip — go straight to the commission form →</a></p>
+      </div>
+      <div class="result-share">
+        <p class="result-share-label">Share your archetype ✦</p>
+        <div class="result-share-btns">
+          <button class="btn-primary btn-sm" onclick="Quiz.share('native')">📤 Share</button>
+          <button class="btn-outline btn-sm" onclick="Quiz.share('sms')">💬 Text</button>
+          <button class="btn-outline btn-sm" onclick="Quiz.share('facebook')">Facebook</button>
+          <button class="btn-outline btn-sm" onclick="Quiz.share('twitter')">Twitter / X</button>
+          <button class="btn-outline btn-sm" onclick="Quiz.share('email')">Email</button>
+          <button class="btn-outline btn-sm" onclick="Quiz.copy()">Copy Link</button>
+        </div>
+        <p class="result-share-note">📱 On mobile, Share opens your full menu — Instagram, Nextdoor, WhatsApp &amp; more.</p>
+      </div>
+      <div class="result-retake">
+        <button class="btn-outline" onclick="Quiz.retake()">← Retake the Quiz</button>
+        <a href="all-results.html" class="btn-outline" id="allResultsLink">Browse All Archetypes</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo-wrap">
+        <img src="Files/faerytech-logo.png" alt="Faery Tech">
+        <p class="footer-brand">✦ Faery Tech</p>
+      </div>
+      <nav class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="community.html">The Community</a>
+        <a href="commission.html">Commission a Site</a>
+        <a href="all-results.html">All Archetypes</a>
+        <a href="quiz-full.html">Full Page Quiz</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="copyright">© 2026 Faery Tech by Madyson Moore. | Living free in the USA 🤍</p>
+    </div>
+  </div>
+</footer>
+
+<script src="JS/main.js"></script>
+<script src="JS/quiz.js"></script>
+</body>
+</html>

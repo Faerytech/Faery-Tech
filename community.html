@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Community | Faery Tech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="CSS/styles.css">
+  <meta name="description" content="Discover magical businesses in your backyard — a community of Faery Tech clients near you.">
+  <style>
+    /* ── Page-specific styles ── */
+
+    .backyard-hero {
+      padding: 5rem 0 3rem;
+      text-align: center;
+    }
+
+    .backyard-hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      background: linear-gradient(160deg, var(--star-white), var(--lavender));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+    }
+
+    .backyard-hero .section-sub {
+      margin: 0 auto 2rem;
+      text-align: center;
+    }
+
+    /* ── Map container ── */
+    .map-section {
+      padding: 0 0 2rem;
+    }
+
+    #backyard-map {
+      width: 100%;
+      height: 500px;
+      border-radius: 16px;
+      border: 1px solid var(--card-border);
+      overflow: hidden;
+      /* Invert the map tiles to match dark theme */
+      filter: brightness(0.85) saturate(0.9);
+    }
+
+    .map-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 0.75rem;
+      font-weight: 400;
+    }
+
+    /* ── Member grid (below map) ── */
+    .members-section {
+      padding: 3rem 0;
+      border-top: 1px solid var(--card-border);
+    }
+
+    .members-section h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.1rem;
+      color: var(--green);
+      letter-spacing: 0.12em;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .member-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 1.4rem;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .member-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--purple-glow);
+      box-shadow: 0 0 24px rgba(123,47,255,0.15);
+      color: inherit;
+    }
+
+    .member-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .member-name {
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      color: var(--lavender);
+      font-weight: 600;
+    }
+
+    .member-badge {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* Archetype badge colors */
+    .badge-angel   { background: #90caf9; box-shadow: 0 0 6px rgba(144,202,249,0.6); }
+    .badge-fairy   { background: #f48fb1; box-shadow: 0 0 6px rgba(244,143,177,0.6); }
+    .badge-dragon  { background: #ff6b35; box-shadow: 0 0 6px rgba(255,107,53,0.6); }
+    .badge-griffin { background: #ffd54f; box-shadow: 0 0 6px rgba(255,213,79,0.6); }
+    .badge-mermaid { background: #4dd0e1; box-shadow: 0 0 6px rgba(77,208,225,0.6); }
+    .badge-wizard  { background: #c4b5fd; box-shadow: 0 0 6px rgba(196,181,253,0.6); }
+    .badge-none    { background: var(--card-border); }
+
+    .member-type {
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 400;
+    }
+
+    .member-location {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 400;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    .member-link-arrow {
+      font-size: 0.72rem;
+      color: var(--green);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: auto;
+      padding-top: 0.5rem;
+    }
+
+    /* ── Join CTA ── */
+    .backyard-join {
+      background: rgba(123,47,255,0.05);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 3rem;
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .backyard-join h2 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      background: linear-gradient(135deg, var(--star-white), var(--lavender));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+    }
+
+    .backyard-join p {
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 1.75rem;
+      line-height: 1.75;
+      font-size: 0.95rem;
+      font-weight: 400;
+    }
+
+    /* ── Manifesto band ── */
+    .backyard-manifesto {
+      background: rgba(0,255,136,0.03);
+      border-top: 1px solid rgba(0,255,136,0.12);
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .backyard-manifesto .mission-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .backyard-manifesto h2 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      background: linear-gradient(135deg, var(--green), var(--lavender));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+    }
+
+    .backyard-manifesto p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.85;
+      margin-bottom: 1.1rem;
+      font-weight: 400;
+    }
+
+    /* ── Leaflet popup override ── */
+    .leaflet-popup-content-wrapper {
+      background: #0d0d2b;
+      border: 1px solid rgba(123,47,255,0.3);
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(123,47,255,0.2);
+      color: #f0f0ff;
+    }
+
+    .leaflet-popup-tip { background: #0d0d2b; }
+
+    .leaflet-popup-content {
+      margin: 0;
+      padding: 0;
+    }
+
+    .map-popup {
+      padding: 1rem 1.1rem;
+      min-width: 180px;
+    }
+
+    .map-popup-name {
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      color: #c4b5fd;
+      margin-bottom: 0.2rem;
+    }
+
+    .map-popup-type {
+      font-size: 0.75rem;
+      color: rgba(184,184,204,0.7);
+      margin-bottom: 0.6rem;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    .map-popup a {
+      font-size: 0.75rem;
+      color: #00ff88;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .leaflet-popup-close-button {
+      color: #8888aa !important;
+    }
+
+    @media (max-width: 768px) {
+      #backyard-map { height: 380px; }
+      .backyard-join { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="starfield"></canvas>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <img src="Files/faerytech-logo.png" alt="Faery Tech">
+      ✦ Faery Tech
+    </a>
+            <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="community.html" class="active">The Community</a></li>
+      <li><a href="commission.html">Commission a Site</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://faerytech.org" style="color:var(--green);">Faery Side ✦</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ── HERO ── -->
+  <section class="backyard-hero">
+    <div class="container">
+      <p class="section-label">✦ The Magical Community</p>
+      <h1>The Community</h1>
+      <p class="section-sub section-sub--wide">
+        There's magic right outside your door. These are local businesses built and supported by Faery Tech —
+        your neighbors in the community network. Click any dot to meet them.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── MAP ── -->
+  <section class="map-section">
+    <div class="container">
+      <div id="backyard-map"></div>
+      <p class="map-note">
+        Map data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener" style="color:var(--muted)">OpenStreetMap</a> contributors.
+        Tiles by <a href="https://carto.com" target="_blank" rel="noopener" style="color:var(--muted)">CartoDB</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── MEMBER GRID ── -->
+  <section class="members-section">
+    <div class="container">
+      <h2 class="section-label">✦ Community Members</h2>
+      <div class="members-grid" id="membersGrid">
+        <!-- Injected by JS from MEMBERS array below -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MANIFESTO ── -->
+  <section class="backyard-manifesto">
+    <div class="container">
+      <div class="mission-inner">
+        <p class="section-label text-center">What this is</p>
+        <h2>There's magic in your neighborhood.</h2>
+        <p>
+          This isn't Angie's List. It isn't a directory or a paid listing service.
+          It's a growing community of real local businesses — each one built with care,
+          each one committed to doing good work and being a good neighbor.
+        </p>
+        <p>
+          When you join the Faery Tech network you're not just getting a website.
+          You're getting a spot in something bigger — a shared story about what happens
+          when small businesses support each other instead of just competing.
+        </p>
+        <p>
+          The community is free to join when you commission a site through Faery Tech.
+          Ethical advertising across the network funds animal shelters, eco initiatives,
+          and free web services for people who need them most.
+        </p>
+        <p class="tagline-cinzel tagline-cinzel--sm" style="margin-top:1.5rem;">
+          Building a better world, one backyard at a time.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── JOIN CTA ── -->
+  <section>
+    <div class="container">
+      <div class="backyard-join">
+        <p class="section-label text-center">Claim your spot</p>
+        <h2>Ready to be part of the neighborhood?</h2>
+        <p>
+          Commission your site through Faery Tech and opt into the community network.
+          You'll get a listing here, a local partner widget on your site, and a connection
+          to every other magical business in your area.
+        </p>
+        <div class="btn-group" style="justify-content:center;">
+          <a href="commission.html" class="btn-primary">Commission My Site ✦</a>
+          <a href="quiz.html" class="btn-outline">Take the Archetype Quiz First</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo-wrap">
+        <img src="Files/faerytech-logo.png" alt="Faery Tech">
+        <p class="footer-brand">✦ Faery Tech</p>
+      </div>
+      <nav class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="commission.html">Commission a Site</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="copyright">© 2026 Faery Tech by Madyson Moore. | Living free in the USA 🤍</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="JS/main.js"></script>
+<script>
+
+/* ══════════════════════════════════════════════════════
+   BACKYARD MEMBER DATA
+   To add a new member: copy one object, fill it in.
+   archetype: angel | fairy | dragon | griffin | mermaid | wizard | null
+   ══════════════════════════════════════════════════════ */
+const MEMBERS = [
+  {
+    name:      'Bravo Lawn Care LLC',
+    type:      'Lawn & landscaping',
+    location:  'Hattiesburg, MS',
+    url:       'https://bravolawncare.com',
+    lat:       31.3271,
+    lng:       -89.2903,
+    archetype: null,
+  },
+  {
+    name:      'ChosenOne LLC Cleaning',
+    type:      'Residential & commercial cleaning',
+    location:  'Hattiesburg, MS',
+    url:       'https://chosen-one-llc.com',
+    lat:       31.3070,
+    lng:       -89.2957,
+    archetype: null,
+  },
+];
+
+/* Archetype badge colors for map markers */
+const ARCHETYPE_COLORS = {
+  angel:   '#90caf9',
+  fairy:   '#f48fb1',
+  dragon:  '#ff6b35',
+  griffin: '#ffd54f',
+  mermaid: '#4dd0e1',
+  wizard:  '#c4b5fd',
+  null:    '#a259ff',
+};
+
+/* ── Init hamburger ── */
+document.addEventListener('DOMContentLoaded', function () {
+
+  const hb = document.getElementById('hamburger');
+  const nl = document.getElementById('navLinks');
+  if (hb && nl) hb.addEventListener('click', () => { nl.classList.toggle('open'); hb.classList.toggle('open'); });
+
+  initMap();
+  buildMemberGrid();
+});
+
+/* ── Build Leaflet map ── */
+function initMap() {
+  /* Center on Hattiesburg for now — auto-fits to markers if we have them */
+  const map = L.map('backyard-map', {
+    center: [31.3270, -89.2903],
+    zoom: 13,
+    zoomControl: true,
+    scrollWheelZoom: false,
+  });
+
+  /* CartoDB Voyager tiles — warm, readable, not generic Google Maps */
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+    subdomains: 'abcd',
+    maxZoom: 19,
+  }).addTo(map);
+
+  /* Add marker for each member */
+  MEMBERS.forEach(function (m) {
+    const color = ARCHETYPE_COLORS[m.archetype] || ARCHETYPE_COLORS['null'];
+
+    /* Custom SVG dot marker */
+    const icon = L.divIcon({
+      className: '',
+      html: `<div style="
+        width:16px; height:16px; border-radius:50%;
+        background:${color};
+        border: 2px solid rgba(255,255,255,0.8);
+        box-shadow: 0 0 12px 3px ${color}88;
+        cursor: pointer;
+      "></div>`,
+      iconSize: [16, 16],
+      iconAnchor: [8, 8],
+      popupAnchor: [0, -12],
+    });
+
+    const popup = `
+      <div class="map-popup">
+        <p class="map-popup-name">${m.name}</p>
+        <p class="map-popup-type">${m.type} · ${m.location}</p>
+        <a href="${m.url}" target="_blank" rel="noopener">Visit site →</a>
+      </div>
+    `;
+
+    L.marker([m.lat, m.lng], { icon })
+      .addTo(map)
+      .bindPopup(popup);
+  });
+
+  /* Fit map to show all markers if multiple */
+  if (MEMBERS.length > 1) {
+    const bounds = L.latLngBounds(MEMBERS.map(m => [m.lat, m.lng]));
+    map.fitBounds(bounds, { padding: [60, 60] });
+  }
+}
+
+/* ── Build member card grid ── */
+function buildMemberGrid() {
+  const grid = document.getElementById('membersGrid');
+  if (!grid) return;
+
+  MEMBERS.forEach(function (m) {
+    const badgeClass = m.archetype ? `badge-${m.archetype}` : 'badge-none';
+    const card = document.createElement('a');
+    card.className = 'member-card';
+    card.href = m.url;
+    card.target = '_blank';
+    card.rel = 'noopener';
+    card.innerHTML = `
+      <div class="member-card-top">
+        <span class="member-name">${m.name}</span>
+        <span class="member-badge ${badgeClass}" title="${m.archetype ? 'Archetype: ' + m.archetype : 'Member'}"></span>
+      </div>
+      <span class="member-type">${m.type}</span>
+      <span class="member-location">📍 ${m.location}</span>
+      <span class="member-link-arrow">Visit site →</span>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+</script>
+</body>
+</html>

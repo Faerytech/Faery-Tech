@@ -1,0 +1,836 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Commission a Site – Faery Tech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/styles.css">
+  <meta name="description" content="Build your custom website quote with Faery Tech. Pick exactly what you need, see live pricing, and submit a complete brief — no phone call required.">
+</head>
+<body>
+
+<canvas id="starfield"></canvas>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <img src="Files/faerytech-logo.png" alt="Faery Tech">
+      ✦ Faery Tech
+    </a>
+            <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="community.html">The Community</a></li>
+      <li><a href="commission.html" class="active">Commission a Site</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://faerytech.org" style="color:var(--green);">Faery Side ✦</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ══════════ HERO ══════════ -->
+  <section class="comm-hero">
+    <div class="container">
+      <p class="section-label">✦ Commission a Site</p>
+      <h1 class="hero-title">Build your site,<br>your way.</h1>
+      <p class="hero-body">Pick exactly what you want, see the price update live, and submit a complete project brief — no phone call required. Takes about 5 minutes.</p>
+      <div class="comm-badges">
+        <span class="comm-badge">📋 Itemized live pricing</span>
+        <span class="comm-badge">🚀 No phone call required</span>
+        <span class="comm-badge">✨ Everyone gets a coupon</span>
+      </div>
+      <p style="margin-top:1.5rem; font-size:0.88rem; color:var(--muted);">
+        Not sure what you want? <a href="quiz.html" style="color:var(--green); text-decoration:underline; text-underline-offset:3px;">Take the archetype quiz first →</a> It takes 2 minutes and comes with a discount code.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════ STEP PROGRESS ══════════ -->
+  <div class="comm-progress">
+    <div class="container">
+      <div class="comm-steps-bar">
+        <div class="comm-step-dot active" data-step="1">
+          <span class="step-num">1</span>
+          <span class="step-label">Your Business</span>
+        </div>
+        <div class="comm-step-line"></div>
+        <div class="comm-step-dot" data-step="2">
+          <span class="step-num">2</span>
+          <span class="step-label">Build It</span>
+        </div>
+        <div class="comm-step-line"></div>
+        <div class="comm-step-dot" data-step="3">
+          <span class="step-num">3</span>
+          <span class="step-label">Finish Up</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════
+       STEP 2 — BUSINESS INFO
+  ════════════════════════════════════════ -->
+  <section class="comm-panel active" id="comm-step-1">
+    <div class="container">
+      <p class="section-label">Step 1 of 3</p>
+      <h2 class="section-title">Now tell me about your business.</h2>
+      <p class="section-sub">The more you share here, the less back-and-forth we'll need later.</p>
+
+      <div class="form-wrap">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="biz-name">Business Name *</label>
+            <input type="text" id="biz-name" name="business_name" placeholder="Joe's Plumbing" required>
+          </div>
+          <div class="form-group">
+            <label for="contact-name">Your Name *</label>
+            <input type="text" id="contact-name" name="contact_name" placeholder="Joe Smith" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="contact-email">Email Address *</label>
+            <input type="email" id="contact-email" name="email" placeholder="joe@joesplumbing.com" required>
+          </div>
+          <div class="form-group">
+            <label for="contact-phone">Phone (optional)</label>
+            <input type="tel" id="contact-phone" name="phone" placeholder="(601) 555-0100">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="biz-desc">What does your business do? *</label>
+          <textarea id="biz-desc" name="business_description" placeholder="Tell me what you do, who your customers are, and what makes you different. A few sentences is totally fine." required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="existing-url">Do you have an existing website?</label>
+          <input type="url" id="existing-url" name="existing_site" placeholder="https://your-current-site.com (leave blank if none)">
+        </div>
+
+        <div class="form-group">
+          <label for="existing-notes">What would you like to keep or change about it?</label>
+          <textarea id="existing-notes" name="existing_notes" placeholder="Love the photos but hate the layout... or starting completely fresh... or I hate everything except the logo..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="hate-colors">Any colors you absolutely can't stand on websites?</label>
+          <input type="text" id="hate-colors" name="hate_colors" placeholder="Neon green, that one specific orange from 2010...">
+        </div>
+
+        <!-- File upload -->
+        <div class="form-group">
+          <label>Upload anything helpful</label>
+          <div class="file-drop-zone" id="fileDropZone">
+            <p class="file-drop-icon">📁</p>
+            <p class="file-drop-text">Drag &amp; drop files here, or click to browse</p>
+            <p class="file-drop-sub">Logos, brand colors, inspiration images — anything that helps me understand your brand</p>
+            <input type="file" id="fileInput" name="files" multiple accept="image/*,.pdf,.svg,.ai,.eps,.zip" class="file-input-hidden">
+            <div class="file-list" id="fileList"></div>
+          </div>
+          <p class="form-hint">Can't upload right now? Just share a Google Drive or Dropbox link in any notes field — totally fine.</p>
+        </div>
+
+      </div>
+
+      <div class="comm-nav">
+        <button class="btn-outline" disabled style="opacity:0.3;">← Back</button>
+        <button class="btn-primary" onclick="CommissionApp.goToStep(2)">Next: Build Your Site →</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+       STEP 3 — CONFIGURATOR
+  ════════════════════════════════════════ -->
+  <section class="comm-panel" id="comm-step-2">
+    <div class="container">
+      <p class="section-label">Step 2 of 3</p>
+      <h2 class="section-title">Build your site, piece by piece.</h2>
+      <p class="section-sub">Check what you want. The price updates live. Add notes to any item — the more you describe, the better your result.</p>
+
+      <!-- Floating price bar (sticky below navbar) -->
+      <div class="price-float" id="priceFloat">
+        <div class="price-float-inner">
+          <div class="price-float-lines" id="priceLineItems">
+            <!-- injected by JS -->
+          </div>
+          <div class="price-float-total">
+            <span>Estimate</span>
+            <strong id="priceTotalDisplay">$35</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Always included -->
+      <div class="config-section">
+        <h3 class="config-section-head">✓ Always included — no extra charge</h3>
+        <div class="included-grid">
+          <span class="included-pill">📱 Mobile responsive</span>
+          <span class="included-pill">🔍 Basic SEO</span>
+          <span class="included-pill">🤖 AI chat — first year</span>
+          <span class="included-pill">🔄 1 revision round</span>
+          <span class="included-pill">📥 Your site files</span>
+          <span class="included-pill">🌐 Free hosting (GitHub Pages)</span>
+          <span class="included-pill">🔒 SSL / HTTPS</span>
+          <span class="included-pill">📖 Hosting instructions</span>
+        </div>
+      </div>
+
+      <!-- ── PAGES ── -->
+      <div class="config-section">
+        <h3 class="config-section-head">Pages</h3>
+        <p class="config-section-note">Your home page comes with every site. Add whatever else your business needs.</p>
+
+        <!-- Home: always included, no checkbox -->
+        <div class="config-row always-on">
+          <div class="config-row-main">
+            <span class="check-forced">✦</span>
+            <div class="config-info">
+              <span class="config-name">Home page</span>
+              <span class="config-desc">Your main landing page — always included</span>
+            </div>
+          </div>
+          <span class="config-tag-included">included</span>
+        </div>
+
+        <!-- Each additional page: checkbox + describe panel -->
+        <div class="config-row" id="row-page-about">
+          <div class="config-row-main">
+            <input type="checkbox" id="page-about" class="config-check" data-price="20" data-key="page-about" data-label="About page">
+            <label class="config-info" for="page-about">
+              <span class="config-name">About page</span>
+              <span class="config-desc">Your story, team, mission, values</span>
+            </label>
+          </div>
+          <span class="config-price">+$20</span>
+        </div>
+        <div class="config-describe hidden" id="desc-page-about"><textarea placeholder="What should this page cover? Team bios? Your origin story? Company values? Any photos?"></textarea></div>
+
+        <div class="config-row" id="row-page-services">
+          <div class="config-row-main">
+            <input type="checkbox" id="page-services" class="config-check" data-price="20" data-key="page-services" data-label="Services / Menu page">
+            <label class="config-info" for="page-services">
+              <span class="config-name">Services / Menu page</span>
+              <span class="config-desc">What you offer, with descriptions and pricing</span>
+            </label>
+          </div>
+          <span class="config-price">+$20</span>
+        </div>
+        <div class="config-describe hidden" id="desc-page-services"><textarea placeholder="List your services or menu items. How many? Do you want prices shown? Any categories or tiers?"></textarea></div>
+
+        <div class="config-row" id="row-page-contact">
+          <div class="config-row-main">
+            <input type="checkbox" id="page-contact" class="config-check" data-price="20" data-key="page-contact" data-label="Contact page">
+            <label class="config-info" for="page-contact">
+              <span class="config-name">Contact page</span>
+              <span class="config-desc">Contact form, address, phone, map — the form is included</span>
+            </label>
+          </div>
+          <span class="config-price">+$20</span>
+        </div>
+        <div class="config-describe hidden" id="desc-page-contact"><textarea placeholder="What info should people be able to send you? Should it include a map? Multiple locations?"></textarea></div>
+
+        <div class="config-row" id="row-page-gallery">
+          <div class="config-row-main">
+            <input type="checkbox" id="page-gallery" class="config-check" data-price="30" data-key="page-gallery" data-label="Gallery / Portfolio page">
+            <label class="config-info" for="page-gallery">
+              <span class="config-name">Gallery / Portfolio page</span>
+              <span class="config-desc">Photo grid or project showcase, filterable by category</span>
+            </label>
+          </div>
+          <span class="config-price">+$30</span>
+        </div>
+        <div class="config-describe hidden" id="desc-page-gallery"><textarea placeholder="Products, past work, before/afters? Do you want category filters? Roughly how many images?"></textarea></div>
+
+        <div class="config-row" id="row-page-blog">
+          <div class="config-row-main">
+            <input type="checkbox" id="page-blog" class="config-check" data-price="40" data-key="page-blog" data-label="Blog">
+            <label class="config-info" for="page-blog">
+              <span class="config-name">Blog</span>
+              <span class="config-desc">Post listing + article template — write and publish your own content</span>
+            </label>
+          </div>
+          <span class="config-price">+$40</span>
+        </div>
+        <div class="config-describe hidden" id="desc-page-blog"><textarea placeholder="What will you write about? How often? Do you need categories or tags?"></textarea></div>
+
+        <div class="config-row" id="row-page-booking">
+          <div class="config-row-main">
+            <input type="checkbox" id="page-booking" class="config-check" data-price="40" data-key="page-booking" data-label="Booking / Appointments page">
+            <label class="config-info" for="page-booking">
+              <span class="config-name">Booking / Appointments page</span>
+              <span class="config-desc">Calendar integration so customers can schedule directly online</span>
+            </label>
+          </div>
+          <span class="config-price">+$40</span>
+        </div>
+        <div class="config-describe hidden" id="desc-page-booking"><textarea placeholder="What types of appointments? Do you already use a booking tool (Calendly, Acuity, etc.)?"></textarea></div>
+
+        <div class="config-row" id="row-page-team">
+          <div class="config-row-main">
+            <input type="checkbox" id="page-team" class="config-check" data-price="20" data-key="page-team" data-label="Team / Staff page">
+            <label class="config-info" for="page-team">
+              <span class="config-name">Team / Staff page</span>
+              <span class="config-desc">Bios, photos, and roles for your team members</span>
+            </label>
+          </div>
+          <span class="config-price">+$20</span>
+        </div>
+        <div class="config-describe hidden" id="desc-page-team"><textarea placeholder="How many team members? Will you provide photos and bios, or do you need help writing them?"></textarea></div>
+
+        <div class="config-row" id="row-page-testimonials">
+          <div class="config-row-main">
+            <input type="checkbox" id="page-testimonials" class="config-check" data-price="20" data-key="page-testimonials" data-label="Testimonials page">
+            <label class="config-info" for="page-testimonials">
+              <span class="config-name">Testimonials page</span>
+              <span class="config-desc">Reviews, quotes, and star ratings from your customers</span>
+            </label>
+          </div>
+          <span class="config-price">+$20</span>
+        </div>
+        <div class="config-describe hidden" id="desc-page-testimonials"><textarea placeholder="Do you have reviews already collected? From Google, Yelp, Facebook? How many to feature?"></textarea></div>
+
+        <div class="config-row" id="row-page-faq">
+          <div class="config-row-main">
+            <input type="checkbox" id="page-faq" class="config-check" data-price="25" data-key="page-faq" data-label="FAQ page">
+            <label class="config-info" for="page-faq">
+              <span class="config-name">FAQ page</span>
+              <span class="config-desc">Accordion-style answers to your most common customer questions</span>
+            </label>
+          </div>
+          <span class="config-price">+$25</span>
+        </div>
+        <div class="config-describe hidden" id="desc-page-faq"><textarea placeholder="List your most common questions if you have them. Or just describe what customers usually ask and I'll draft them."></textarea></div>
+
+        <div class="config-row" id="row-page-menu">
+          <div class="config-row-main">
+            <input type="checkbox" id="page-menu" class="config-check" data-price="25" data-key="page-menu" data-label="Menu / Price list page">
+            <label class="config-info" for="page-menu">
+              <span class="config-name">Menu / Price list page</span>
+              <span class="config-desc">For restaurants, salons, contractors — a clean, scannable price list</span>
+            </label>
+          </div>
+          <span class="config-price">+$25</span>
+        </div>
+        <div class="config-describe hidden" id="desc-page-menu"><textarea placeholder="How many items or categories? Will you update it often? Photos with items?"></textarea></div>
+
+        <div class="config-row" id="row-page-custom">
+          <div class="config-row-main">
+            <input type="checkbox" id="page-custom" class="config-check" data-price="40" data-key="page-custom" data-label="Custom page">
+            <label class="config-info" for="page-custom">
+              <span class="config-name">Custom page</span>
+              <span class="config-desc">Something not on this list — describe it and I'll tell you if the price changes</span>
+            </label>
+          </div>
+          <span class="config-price">~+$40</span>
+        </div>
+        <div class="config-describe hidden" id="desc-page-custom"><textarea placeholder="What's on it? What does it do? Who uses it?"></textarea></div>
+      </div>
+
+      <!-- ── FEATURES ── -->
+      <div class="config-section">
+        <h3 class="config-section-head">Features &amp; Widgets</h3>
+        <p class="config-section-note">Add functionality to any page. Mix and match.</p>
+
+        <div class="config-row">
+          <div class="config-row-main">
+            <input type="checkbox" id="feat-form" class="config-check" data-price="15" data-key="feat-form" data-label="Contact form (standalone)">
+            <label class="config-info" for="feat-form">
+              <span class="config-name">Contact form (standalone)</span>
+              <span class="config-desc">Add a form to the home page or an existing page — not a full contact page</span>
+            </label>
+          </div>
+          <span class="config-price">+$15</span>
+        </div>
+        <div class="config-describe hidden" id="desc-feat-form"><textarea placeholder="What info should it collect? Name, email, message? Quote request fields? Service selector?"></textarea></div>
+
+        <div class="config-row">
+          <div class="config-row-main">
+            <input type="checkbox" id="feat-booking" class="config-check" data-price="40" data-key="feat-booking" data-label="Booking calendar widget">
+            <label class="config-info" for="feat-booking">
+              <span class="config-name">Booking calendar widget</span>
+              <span class="config-desc">Embed a scheduler on any page — customers book without calling</span>
+            </label>
+          </div>
+          <span class="config-price">+$40</span>
+        </div>
+        <div class="config-describe hidden" id="desc-feat-booking"><textarea placeholder="Do you already use a booking tool? How many service types need scheduling?"></textarea></div>
+
+        <div class="config-row">
+          <div class="config-row-main">
+            <input type="checkbox" id="feat-payment" class="config-check" data-price="60" data-key="feat-payment" data-label="Payment integration">
+            <label class="config-info" for="feat-payment">
+              <span class="config-name">Payment integration</span>
+              <span class="config-desc">Stripe checkout, pay buttons, or invoice links — accept money online</span>
+            </label>
+          </div>
+          <span class="config-price">+$60</span>
+        </div>
+        <div class="config-describe hidden" id="desc-feat-payment"><textarea placeholder="What are you selling? Fixed prices, variable services, deposits? Do you already have a Stripe account?"></textarea></div>
+
+        <div class="config-row">
+          <div class="config-row-main">
+            <input type="checkbox" id="feat-carousel" class="config-check" data-price="20" data-key="feat-carousel" data-label="Photo carousel / slider">
+            <label class="config-info" for="feat-carousel">
+              <span class="config-name">Photo carousel / slider</span>
+              <span class="config-desc">Auto-advancing image slideshow for showcasing work or products</span>
+            </label>
+          </div>
+          <span class="config-price">+$20</span>
+        </div>
+        <div class="config-describe hidden" id="desc-feat-carousel"><textarea placeholder="How many images? Work samples, team photos, products? Auto-advance or click-through?"></textarea></div>
+
+        <div class="config-row">
+          <div class="config-row-main">
+            <input type="checkbox" id="feat-social" class="config-check" data-price="30" data-key="feat-social" data-label="Social media feed">
+            <label class="config-info" for="feat-social">
+              <span class="config-name">Social media feed</span>
+              <span class="config-desc">Live Instagram or Facebook posts embedded on your site</span>
+            </label>
+          </div>
+          <span class="config-price">+$30</span>
+        </div>
+        <div class="config-describe hidden" id="desc-feat-social"><textarea placeholder="Which platform — Instagram, Facebook, or both? Where on the site should it appear?"></textarea></div>
+
+        <div class="config-row">
+          <div class="config-row-main">
+            <input type="checkbox" id="feat-maps" class="config-check" data-price="15" data-key="feat-maps" data-label="Google Maps embed">
+            <label class="config-info" for="feat-maps">
+              <span class="config-name">Google Maps embed</span>
+              <span class="config-desc">Interactive map — customers can get directions right from your site</span>
+            </label>
+          </div>
+          <span class="config-price">+$15</span>
+        </div>
+        <div class="config-describe hidden" id="desc-feat-maps"><textarea placeholder="One location or multiple? Any specific service area to show?"></textarea></div>
+
+        <div class="config-row">
+          <div class="config-row-main">
+            <input type="checkbox" id="feat-newsletter" class="config-check" data-price="25" data-key="feat-newsletter" data-label="Newsletter signup">
+            <label class="config-info" for="feat-newsletter">
+              <span class="config-name">Newsletter signup</span>
+              <span class="config-desc">Mailchimp or similar — collect emails and build your audience</span>
+            </label>
+          </div>
+          <span class="config-price">+$25</span>
+        </div>
+        <div class="config-describe hidden" id="desc-feat-newsletter"><textarea placeholder="Do you already have a Mailchimp account? What will you send — promotions, updates, tips?"></textarea></div>
+
+        <div class="config-row">
+          <div class="config-row-main">
+            <input type="checkbox" id="feat-portal" class="config-check" data-price="150" data-key="feat-portal" data-label="Client login portal">
+            <label class="config-info" for="feat-portal">
+              <span class="config-name">Client login portal</span>
+              <span class="config-desc">Secure area for existing customers — view services, manage billing, download files</span>
+            </label>
+          </div>
+          <span class="config-price">+$150</span>
+        </div>
+        <div class="config-describe hidden" id="desc-feat-portal"><textarea placeholder="What should clients see when logged in? Invoices? Files? Service status? Payment management?"></textarea></div>
+
+        <div class="config-row">
+          <div class="config-row-main">
+            <input type="checkbox" id="feat-autopay" class="config-check" data-price="80" data-key="feat-autopay" data-label="Autopay / recurring billing">
+            <label class="config-info" for="feat-autopay">
+              <span class="config-name">Autopay / recurring billing</span>
+              <span class="config-desc">Set-and-forget subscriptions — customers enter their card once, charged automatically</span>
+            </label>
+          </div>
+          <span class="config-price">+$80</span>
+        </div>
+        <div class="config-describe hidden" id="desc-feat-autopay"><textarea placeholder="What recurring services are you charging for? Monthly, yearly, or both? Any free trial periods?"></textarea></div>
+
+        <div class="config-row">
+          <div class="config-row-main">
+            <input type="checkbox" id="feat-custom" class="config-check" data-price="0" data-key="feat-custom" data-label="Custom feature (to be quoted)">
+            <label class="config-info" for="feat-custom">
+              <span class="config-name">Custom feature</span>
+              <span class="config-desc">Something specific to your business — I'll quote it after reviewing your brief</span>
+            </label>
+          </div>
+          <span class="config-price">quote</span>
+        </div>
+        <div class="config-describe hidden" id="desc-feat-custom"><textarea placeholder="Describe what it does, who uses it, and if you've seen something similar anywhere online."></textarea></div>
+      </div>
+
+      <!-- ── BRANDING ── -->
+      <div class="config-section">
+        <h3 class="config-section-head">Branding</h3>
+        <p class="config-section-note">Make it look and feel like you. Mix and match — or get the full kit.</p>
+
+        <div class="config-row">
+          <div class="config-row-main">
+            <input type="checkbox" id="brand-logo" class="config-check" data-price="75" data-key="brand-logo" data-label="Logo design">
+            <label class="config-info" for="brand-logo">
+              <span class="config-name">Logo design</span>
+              <span class="config-desc">2–3 concepts, 2 revision rounds, all formats (PNG, SVG, PDF)</span>
+            </label>
+          </div>
+          <span class="config-price">+$75</span>
+        </div>
+        <div class="config-describe hidden" id="desc-brand-logo"><textarea placeholder="Any logos you love or hate? Colors you use? Words or symbols that represent you?"></textarea></div>
+
+        <div class="config-row">
+          <div class="config-row-main">
+            <input type="checkbox" id="brand-palette" class="config-check" data-price="30" data-key="brand-palette" data-label="Brand color palette">
+            <label class="config-info" for="brand-palette">
+              <span class="config-name">Brand color palette</span>
+              <span class="config-desc">5-color palette with usage guide — primary, secondary, accent, neutral, dark</span>
+            </label>
+          </div>
+          <span class="config-price">+$30</span>
+        </div>
+        <div class="config-describe hidden" id="desc-brand-palette"><textarea placeholder="Any colors you already associate with your brand? Industry norms you want to lean into or stand out from?"></textarea></div>
+
+        <div class="config-row">
+          <div class="config-row-main">
+            <input type="checkbox" id="brand-fonts" class="config-check" data-price="20" data-key="brand-fonts" data-label="Custom font pairing">
+            <label class="config-info" for="brand-fonts">
+              <span class="config-name">Custom font pairing</span>
+              <span class="config-desc">Heading + body font selected for your brand personality</span>
+            </label>
+          </div>
+          <span class="config-price">+$20</span>
+        </div>
+        <div class="config-describe hidden" id="desc-brand-fonts"><textarea placeholder="Modern and minimal? Elegant and editorial? Bold and fun? Any fonts you already love?"></textarea></div>
+
+        <div class="config-row">
+          <div class="config-row-main">
+            <input type="checkbox" id="brand-guide" class="config-check" data-price="80" data-key="brand-guide" data-label="Full brand style guide">
+            <label class="config-info" for="brand-guide">
+              <span class="config-name">Full brand style guide</span>
+              <span class="config-desc">Colors, fonts, logo rules, voice/tone guide — a reference doc for everything brand</span>
+            </label>
+          </div>
+          <span class="config-price">+$80</span>
+        </div>
+        <div class="config-describe hidden" id="desc-brand-guide"><textarea placeholder="Do you have employees or contractors who need consistency guidelines? Will you hire designers or marketers?"></textarea></div>
+      </div>
+
+      <!-- ── CONTENT ── -->
+      <div class="config-section">
+        <h3 class="config-section-head">Content</h3>
+        <p class="config-section-note">You can provide your own content, or let me write it for you.</p>
+
+        <!-- Copywriting: checkbox + page counter -->
+        <div class="config-row" id="row-content-copy">
+          <div class="config-row-main">
+            <input type="checkbox" id="content-copy" class="config-check" data-price="0" data-key="content-copy" data-label="Copywriting">
+            <label class="config-info" for="content-copy">
+              <span class="config-name">Copywriting</span>
+              <span class="config-desc">SEO-optimized website copy written for you, matched to your brand voice</span>
+            </label>
+          </div>
+          <div class="copy-counter hidden" id="copy-counter">
+            <label for="copy-pages">Pages:</label>
+            <input type="number" id="copy-pages" min="1" max="20" value="1">
+            <span id="copy-price-live">+$50</span>
+          </div>
+          <span class="config-price" id="copy-price-static">$50/page</span>
+        </div>
+        <div class="config-describe hidden" id="desc-content-copy"><textarea placeholder="Which pages need copy? Any important keywords? Tone — formal, friendly, authoritative?"></textarea></div>
+
+        <div class="config-row">
+          <div class="config-row-main">
+            <input type="checkbox" id="content-stock" class="config-check" data-price="25" data-key="content-stock" data-label="Stock photo sourcing">
+            <label class="config-info" for="content-stock">
+              <span class="config-name">Stock photo sourcing</span>
+              <span class="config-desc">Licensed, on-brand images selected for your site — no random generic stuff</span>
+            </label>
+          </div>
+          <span class="config-price">+$25</span>
+        </div>
+        <div class="config-describe hidden" id="desc-content-stock"><textarea placeholder="What vibe are you going for? Any subject matter that must or must not appear?"></textarea></div>
+
+        <div class="config-row">
+          <div class="config-row-main">
+            <input type="checkbox" id="content-photo" class="config-check" data-price="100" data-key="content-photo" data-label="On-location photography">
+            <label class="config-info" for="content-photo">
+              <span class="config-name">On-location photography</span>
+              <span class="config-desc">Products, storefront, team — available in select areas; travel fee may apply for distant locations</span>
+            </label>
+          </div>
+          <span class="config-price">+$100</span>
+        </div>
+        <div class="config-describe hidden" id="desc-content-photo"><textarea placeholder="What's your location? What needs photographing? Products, space, team? Do you have a target date?"></textarea></div>
+
+        <div class="config-row">
+          <div class="config-row-main">
+            <input type="checkbox" id="content-photodir" class="config-check" data-price="40" data-key="content-photodir" data-label="Remote photo direction">
+            <label class="config-info" for="content-photodir">
+              <span class="config-name">Remote photo direction</span>
+              <span class="config-desc">You shoot on your phone, I direct and edit — great results, no travel fee</span>
+            </label>
+          </div>
+          <span class="config-price">+$40</span>
+        </div>
+        <div class="config-describe hidden" id="desc-content-photodir"><textarea placeholder="What do you need photos of? Are you comfortable following detailed shot-by-shot directions?"></textarea></div>
+
+        <!-- Art photography redirect -->
+        <div class="config-row art-row">
+          <div class="config-row-main">
+            <input type="checkbox" id="content-art" class="config-check" data-price="0" data-key="content-art" data-label="Artistic / nature photography (see Maddy's Art)">
+            <label class="config-info" for="content-art">
+              <span class="config-name art-name">Artistic / nature photography ✦</span>
+              <span class="config-desc">Original fine art photography — note this in your brief and I'll connect you through Maddy's Art &amp; Design</span>
+            </label>
+          </div>
+          <span class="config-price art-redirect-price">art site →</span>
+        </div>
+      </div>
+
+      <div class="comm-nav">
+        <button class="btn-outline" onclick="CommissionApp.goToStep(1)">← Back</button>
+        <button class="btn-primary" onclick="CommissionApp.goToStep(3)">Next: Almost Done →</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+       STEP 4 — FINISH UP
+  ════════════════════════════════════════ -->
+  <section class="comm-panel" id="comm-step-3">
+    <div class="container">
+      <p class="section-label">Step 3 of 3</p>
+      <h2 class="section-title">Almost done.</h2>
+      <p class="section-sub">A few final options, then you're submitting a complete project brief. I'll review it and follow up within 24 hours.</p>
+
+      <!-- Domain -->
+      <div class="config-section">
+        <h3 class="config-section-head">Domain name</h3>
+        <p class="config-section-note">Your site needs an address. Get one through Faery Tech or connect your own — either way is fine.</p>
+
+        <div class="config-row">
+          <div class="config-row-main">
+            <input type="checkbox" id="addon-domain" class="config-check" data-price="15" data-key="addon-domain" data-label="Domain registration (1 year)">
+            <label class="config-info" for="addon-domain">
+              <span class="config-name">Register my domain — $15/year</span>
+              <span class="config-desc">I'll register yourbusiness.com — yours to keep or transfer anytime, no lock-in ever</span>
+            </label>
+          </div>
+          <span class="config-price">+$15</span>
+        </div>
+        <div class="config-describe hidden" id="desc-addon-domain"><input type="text" placeholder="What domain name do you want? (e.g. joesplumbing.com) — I'll check availability"></div>
+
+        <div class="config-row">
+          <div class="config-row-main">
+            <input type="checkbox" id="addon-owndomain" class="config-check" data-price="0" data-key="addon-owndomain" data-label="I already have a domain">
+            <label class="config-info" for="addon-owndomain">
+              <span class="config-name">I already have a domain</span>
+              <span class="config-desc">I'll connect your existing domain — just share it below</span>
+            </label>
+          </div>
+          <span class="config-price free-price">free</span>
+        </div>
+        <div class="config-describe hidden" id="desc-addon-owndomain"><input type="text" placeholder="What's your existing domain? (e.g. joesplumbing.com)"></div>
+      </div>
+
+      <!-- Timeline / Rush -->
+      <div class="config-section">
+        <h3 class="config-section-head">Timeline</h3>
+        <p class="config-section-note">Standard is 3–4 weeks. Rush fees apply for faster turnaround.</p>
+        <div class="timeline-options">
+          <label class="timeline-opt">
+            <input type="radio" name="timeline" value="standard" checked data-price="0" data-label="Standard (3–4 weeks)">
+            <div class="timeline-card">
+              <span class="timeline-name">Standard</span>
+              <span class="timeline-time">3–4 weeks</span>
+              <span class="timeline-fee timeline-fee-free">no rush fee</span>
+            </div>
+          </label>
+          <label class="timeline-opt">
+            <input type="radio" name="timeline" value="fast" data-price="40" data-label="Fast (2 weeks, +$40)">
+            <div class="timeline-card">
+              <span class="timeline-name">Fast</span>
+              <span class="timeline-time">2 weeks</span>
+              <span class="timeline-fee">+$40</span>
+            </div>
+          </label>
+          <label class="timeline-opt">
+            <input type="radio" name="timeline" value="rush" data-price="100" data-label="Rush (1 week, +$100)">
+            <div class="timeline-card">
+              <span class="timeline-name">Rush</span>
+              <span class="timeline-time">1 week</span>
+              <span class="timeline-fee">+$100</span>
+            </div>
+          </label>
+          <label class="timeline-opt">
+            <input type="radio" name="timeline" value="emergency" data-price="200" data-label="Emergency (3 days, +$200)">
+            <div class="timeline-card">
+              <span class="timeline-name">Emergency</span>
+              <span class="timeline-time">3 days</span>
+              <span class="timeline-fee">+$200</span>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Community discounts -->
+      <div class="config-section">
+        <h3 class="config-section-head">Community discounts</h3>
+        <p class="config-section-note">These are real discounts for real reasons. Check either or both.</p>
+
+        <div class="config-row discount-row">
+          <div class="config-row-main">
+            <input type="checkbox" id="disc-footer" class="config-check" data-price="-10" data-key="disc-footer" data-label="Faery Tech footer credit (−$10)">
+            <label class="config-info" for="disc-footer">
+              <span class="config-name">Faery Tech footer credit</span>
+              <span class="config-desc">A small "Site by Faery Tech" link in your footer. Helps me find more clients like you.</span>
+            </label>
+          </div>
+          <span class="config-price discount-price">−$10</span>
+        </div>
+
+        <div class="config-row discount-row">
+          <div class="config-row-main">
+            <input type="checkbox" id="disc-community" class="config-check" data-price="-5" data-key="disc-community" data-label="Join The Community (−$5)">
+            <label class="config-info" for="disc-community">
+              <span class="config-name">Join The Community</span>
+              <span class="config-desc">Your business appears on the community map and on neighboring Faery Tech sites. You support them, they support you.</span>
+            </label>
+          </div>
+          <span class="config-price discount-price">−$5</span>
+        </div>
+
+        <!-- Sister sites preview widget -->
+        <div class="sister-preview">
+          <p class="sister-label">✦ What the local partner widget looks like on your site:</p>
+          <div class="sister-widget">
+            <p class="sister-widget-head">Local Businesses</p>
+            <div class="sister-widget-item">
+              <span class="sister-dot"></span>
+              <div><strong>Bravo Lawn Care</strong><em>Lawn &amp; landscaping</em></div>
+            </div>
+            <div class="sister-widget-item">
+              <span class="sister-dot"></span>
+              <div><strong>ChosenOne Cleaning</strong><em>Residential &amp; commercial</em></div>
+            </div>
+            <div class="sister-widget-item sister-you">
+              <span class="sister-dot sister-dot-you"></span>
+              <div><strong>Your Business</strong><em>Listed here</em></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hardship -->
+      <div class="config-section">
+        <h3 class="config-section-head">Hardship &amp; special rates</h3>
+        <div class="hardship-block">
+          <p>Nonprofit, eco org, animal shelter, or just genuinely can't afford standard pricing right now? Check the box and tell me your situation. I'll work something out. No judgment, no hoops.</p>
+          <label class="qchoice">
+            <input type="checkbox" id="hardship-flag" name="hardship">
+            <span>I'd like to discuss a hardship or special rate</span>
+          </label>
+          <div class="config-describe hidden" id="desc-hardship">
+            <textarea placeholder="Tell me your situation. I'm not going to make this weird."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coupon code -->
+      <div class="config-section">
+        <h3 class="config-section-head">Coupon code</h3>
+        <p class="config-section-note">Got a code from the archetype quiz? Enter it here.</p>
+        <div class="form-group" style="max-width:340px;">
+          <input type="text" id="coupon-input" placeholder="e.g. FAIRY10" style="background:rgba(255,255,255,0.05); border:1px solid var(--card-border); border-radius:10px; padding:0.85rem 1rem; color:var(--star-white); font-family:'Nunito',sans-serif; font-size:0.95rem; width:100%; outline:none; text-transform:uppercase; letter-spacing:0.1em;">
+        </div>
+        <p id="coupon-status" style="font-size:0.82rem; margin-top:-0.5rem; font-family:'Nunito',sans-serif; display:none;"></p>
+        <p style="font-size:0.78rem; color:var(--muted); margin-top:0.4rem;">Don't have one? <a href="quiz.html" style="color:var(--green); text-decoration:underline; text-underline-offset:3px;">Take the quiz and get one →</a></p>
+      </div>
+
+
+
+      <!-- Price summary -->
+      <div class="price-summary" id="priceSummary">
+        <h3 class="price-summary-head">Your estimate</h3>
+        <div class="price-summary-lines" id="summaryLines">
+          <!-- injected by JS -->
+        </div>
+        <div class="price-summary-total">
+          <span>Total estimate</span>
+          <strong id="summaryTotal">$35</strong>
+        </div>
+        <p class="price-summary-note">This is an estimate. I'll confirm the final price after reviewing your brief — anything flagged as "quote" or with unusual scope may adjust. You won't be charged anything until we agree.</p>
+      </div>
+
+      <!-- Final form + submit -->
+      <div class="comm-submit-wrap">
+        <form id="commissionForm" action="https://formspree.io/f/xwvrregv" method="POST">
+
+          <!-- All selections compiled into hidden fields by JS on submit -->
+          <input type="hidden" name="_subject" value="New Commission Brief — Faery Tech">
+          <input type="hidden" id="hid-quiz" name="quiz_results">
+          <input type="hidden" id="hid-selections" name="selected_items">
+          <input type="hidden" id="hid-estimate" name="price_estimate">
+          <input type="hidden" id="hid-timeline" name="timeline">
+          <input type="hidden" id="hid-coupon" name="coupon_code">
+          <input type="hidden" id="hid-backyard" name="join_backyard">
+          <input type="hidden" id="hid-biz-name" name="business_name">
+          <input type="hidden" id="hid-contact" name="contact_name">
+          <input type="hidden" id="hid-email" name="email">
+          <input type="hidden" id="hid-phone" name="phone">
+          <input type="hidden" id="hid-biz-desc" name="business_description">
+          <input type="hidden" id="hid-existing-url" name="existing_site">
+          <input type="hidden" id="hid-existing-notes" name="existing_notes">
+          <input type="hidden" id="hid-hate-colors" name="hate_colors">
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+          <div class="form-group">
+            <label for="final-notes">Anything else I should know?</label>
+            <textarea id="final-notes" name="additional_notes" placeholder="Questions, specific requests, hard deadlines, things you forgot to mention..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-green form-submit comm-submit-btn">Submit My Brief ✦</button>
+          <p class="comm-submit-note">I'll review your brief and follow up within 24 hours. Nothing gets charged until we agree on scope and price.</p>
+        </form>
+      </div>
+
+      <div class="comm-nav">
+        <button class="btn-outline" onclick="CommissionApp.goToStep(2)">← Back &amp; Edit</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo-wrap">
+        <img src="Files/faerytech-logo.png" alt="Faery Tech">
+        <p class="footer-brand">✦ Faery Tech</p>
+      </div>
+      <nav class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="commission.html">Commission a Site</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="copyright">© 2026 Faery Tech by Madyson Moore. All rights reserved. | Living free in the USA 🤍</p>
+    </div>
+  </div>
+</footer>
+
+<script src="JS/chat.js"></script>
+<script src="JS/main.js"></script>
+<script src="JS/commission.js"></script>
+</body>
+</html>

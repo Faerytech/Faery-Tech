@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What's Your Magical Archetype? (Full Page) | Faery Tech</title>
+  <meta name="description" content="All 10 questions at once — take the Faery Tech archetype quiz at your own pace and find out which magical archetype you are.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/styles.css">
+  <style>
+    .full-quiz-hero { padding: 4rem 0 2rem; text-align: center; }
+    .full-quiz-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); background: linear-gradient(160deg, var(--star-white) 30%, var(--lavender)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.75rem; }
+    .full-quiz-hero p { color: var(--muted); font-size: 0.92rem; max-width: 500px; margin: 0 auto 0.75rem; line-height: 1.7; font-weight: 400; }
+    .full-quiz-hero .switch-link { font-size: 0.82rem; color: var(--muted); }
+    .full-quiz-hero .switch-link a { color: var(--green); text-decoration: underline; text-underline-offset: 3px; }
+
+    .fq-block { margin-bottom: 3rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--card-border); scroll-margin-top: 110px; }
+    .fq-block:last-of-type { border-bottom: none; }
+    .fq-num { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple-glow); font-family: 'Nunito', sans-serif; font-weight: 600; margin-bottom: 0.35rem; }
+    .fq-block.answered .fq-num::after { content: ' ✦ answered'; color: var(--green); }
+    .fq-block.unanswered .quiz-q { color: #ff8080; }
+
+    .fq-progress { position: sticky; top: 95px; z-index: 49; background: rgba(6,6,26,0.95); border-bottom: 1px solid var(--card-border); padding: 0.75rem 0; backdrop-filter: blur(12px); }
+    .fq-progress-inner { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .fq-count { font-size: 0.82rem; color: var(--muted); font-family: 'Nunito', sans-serif; }
+    .fq-count strong { color: var(--green); }
+    .fq-dots { display: flex; gap: 5px; flex-wrap: wrap; }
+    .fq-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--card-border); border: 1px solid rgba(255,255,255,0.1); cursor: pointer; transition: background 0.2s, transform 0.2s; }
+    .fq-dot.done { background: var(--green); border-color: var(--green); }
+    .fq-dot:hover { transform: scale(1.3); }
+
+    .fq-submit-area { padding: 3rem 0 5rem; text-align: center; }
+    .fq-submit-note { font-size: 0.82rem; color: var(--muted); margin-top: 0.75rem; font-weight: 400; }
+    .fq-error { color: #ff8080; font-size: 0.88rem; margin-bottom: 1rem; display: none; }
+
+    .fq-result { display: none; max-width: 700px; margin: 0 auto; text-align: center; padding: 3rem 0 5rem; animation: fadeUp 0.5s ease both; }
+    .fq-result.visible { display: block; }
+
+    @media (max-width: 600px) { .quiz-grid-2 { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<canvas id="starfield"></canvas>
+
+<!-- Sticky progress bar -->
+<div class="fq-progress" id="fqProgress" style="display:none;">
+  <div class="fq-progress-inner">
+    <span class="fq-count"><strong id="fqAnswered">0</strong> / 10 answered</span>
+    <div class="fq-dots" id="fqDots"></div>
+  </div>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <img src="Files/faerytech-logo.png" alt="Faery Tech">
+      ✦ Faery Tech
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="community.html">The Community</a></li>
+      <li><a href="commission.html">Commission a Site</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://faerytech.org" style="color:var(--green);">Faery Side ✦</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main>
+
+  <div class="full-quiz-hero">
+    <div class="container">
+      <p class="section-label">✦ Full Page Version</p>
+      <h1>What's Your Magical Archetype?</h1>
+      <p>All 10 questions at once — answer at your own pace, scroll back and change anything, then hit submit when you're ready.</p>
+      <p class="switch-link">Prefer one question at a time? <a href="quiz.html">Try the step-by-step version →</a></p>
+    </div>
+  </div>
+
+  <div class="container" id="fqQuestions">
+
+    <!-- Q1 -->
+    <div class="fq-block" id="fq-1">
+      <p class="fq-num">Question 1</p>
+      <h2 class="quiz-q">You have an unexpected free Saturday. What do you do?</h2>
+      <div class="quiz-grid-2">
+        <label class="qcard"><input type="radio" name="fq1" value="angel">
+          <img src="https://images.pexels.com/photos/1005417/pexels-photo-1005417.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Walk outside" loading="lazy">
+          <span class="qcard-label">Go outside, no plan, just wander</span></label>
+        <label class="qcard"><input type="radio" name="fq1" value="griffin">
+          <img src="https://images.pexels.com/photos/4107108/pexels-photo-4107108.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Clean and organize" loading="lazy">
+          <span class="qcard-label">Clean everything and reorganize</span></label>
+        <label class="qcard"><input type="radio" name="fq1" value="dragon">
+          <img src="https://images.pexels.com/photos/1575932/pexels-photo-1575932.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Invite everyone over" loading="lazy">
+          <span class="qcard-label">Invite everyone over, make it a whole thing</span></label>
+        <label class="qcard"><input type="radio" name="fq1" value="wizard">
+          <img src="https://images.pexels.com/photos/1765033/pexels-photo-1765033.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Cozy reading" loading="lazy">
+          <span class="qcard-label">Disappear into a show or book and tell no one</span></label>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="fq-block" id="fq-2">
+      <p class="fq-num">Question 2</p>
+      <h2 class="quiz-q">Pick a drink.</h2>
+      <div class="quiz-grid-2">
+        <label class="qcard"><input type="radio" name="fq2" value="fairy">
+          <img src="https://images.pexels.com/photos/2109099/pexels-photo-2109099.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Lavender lemonade" loading="lazy">
+          <span class="qcard-label">Lavender lemonade</span></label>
+        <label class="qcard"><input type="radio" name="fq2" value="wizard">
+          <img src="https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Black coffee" loading="lazy">
+          <span class="qcard-label">Black coffee, no nonsense</span></label>
+        <label class="qcard"><input type="radio" name="fq2" value="mermaid">
+          <img src="https://images.pexels.com/photos/3407777/pexels-photo-3407777.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Mysterious cocktail" loading="lazy">
+          <span class="qcard-label">A mysterious cocktail with something floating in it</span></label>
+        <label class="qcard"><input type="radio" name="fq2" value="angel">
+          <img src="https://images.pexels.com/photos/3734195/pexels-photo-3734195.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Hot chocolate" loading="lazy">
+          <span class="qcard-label">Hot chocolate with a ridiculous amount of marshmallows</span></label>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="fq-block" id="fq-3">
+      <p class="fq-num">Question 3</p>
+      <h2 class="quiz-q">Someone's moving. You show up with...</h2>
+      <div class="quiz-list">
+        <label class="qchoice"><input type="radio" name="fq3" value="angel"><span>🍲&nbsp; A home-cooked meal</span></label>
+        <label class="qchoice"><input type="radio" name="fq3" value="griffin"><span>📦&nbsp; Perfectly labeled boxes and a whole system</span></label>
+        <label class="qchoice"><input type="radio" name="fq3" value="dragon"><span>💪&nbsp; Your most chaotic helpful energy</span></label>
+        <label class="qchoice"><input type="radio" name="fq3" value="mermaid"><span>🎵&nbsp; A playlist and emotional support</span></label>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="fq-block" id="fq-4">
+      <p class="fq-num">Question 4</p>
+      <h2 class="quiz-q">Pick a candle scent.</h2>
+      <div class="quiz-grid-2">
+        <label class="qcard"><input type="radio" name="fq4" value="wizard">
+          <img src="https://images.pexels.com/photos/3270223/pexels-photo-3270223.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Dark candle" loading="lazy">
+          <span class="qcard-label">Espresso and smoke</span></label>
+        <label class="qcard"><input type="radio" name="fq4" value="fairy">
+          <img src="https://images.pexels.com/photos/6208086/pexels-photo-6208086.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Vanilla candle" loading="lazy">
+          <span class="qcard-label">Vanilla birthday cake</span></label>
+        <label class="qcard"><input type="radio" name="fq4" value="mermaid">
+          <img src="https://images.pexels.com/photos/3059609/pexels-photo-3059609.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Ocean candle" loading="lazy">
+          <span class="qcard-label">Ocean and salt</span></label>
+        <label class="qcard"><input type="radio" name="fq4" value="dragon">
+          <img src="https://images.pexels.com/photos/4202325/pexels-photo-4202325.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Pine candle" loading="lazy">
+          <span class="qcard-label">Pine and cedar</span></label>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="fq-block" id="fq-5">
+      <p class="fq-num">Question 5</p>
+      <h2 class="quiz-q">Your ideal workspace.</h2>
+      <div class="quiz-grid-2">
+        <label class="qcard"><input type="radio" name="fq5" value="griffin">
+          <img src="https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Minimal desk" loading="lazy">
+          <span class="qcard-label">A sleek minimal desk — nothing out of place</span></label>
+        <label class="qcard"><input type="radio" name="fq5" value="fairy">
+          <img src="https://images.pexels.com/photos/1090638/pexels-photo-1090638.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Fairy lights workspace" loading="lazy">
+          <span class="qcard-label">A cozy dim corner with fairy lights</span></label>
+        <label class="qcard"><input type="radio" name="fq5" value="mermaid">
+          <img src="https://images.pexels.com/photos/1287075/pexels-photo-1287075.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Foggy window workspace" loading="lazy">
+          <span class="qcard-label">Near water — a window, a lake, anything moving</span></label>
+        <label class="qcard"><input type="radio" name="fq5" value="wizard">
+          <img src="https://images.pexels.com/photos/1765033/pexels-photo-1765033.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Dark library" loading="lazy">
+          <span class="qcard-label">A dark room stacked with books and a good lamp</span></label>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="fq-block" id="fq-6">
+      <p class="fq-num">Question 6</p>
+      <h2 class="quiz-q">What's in your bag?</h2>
+      <div class="quiz-list">
+        <label class="qchoice"><input type="radio" name="fq6" value="angel"><span>🎒&nbsp; Everything anyone could ever need, somehow</span></label>
+        <label class="qchoice"><input type="radio" name="fq6" value="griffin"><span>🔑&nbsp; Just my phone and keys — I am not carrying things</span></label>
+        <label class="qchoice"><input type="radio" name="fq6" value="fairy"><span>📓&nbsp; Snacks, a journal, and three things I forgot I had</span></label>
+        <label class="qchoice"><input type="radio" name="fq6" value="mermaid"><span>💨&nbsp; No bag. I am untethered.</span></label>
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="fq-block" id="fq-7">
+      <p class="fq-num">Question 7</p>
+      <h2 class="quiz-q">You're late to something important. You...</h2>
+      <div class="quiz-list">
+        <label class="qchoice"><input type="radio" name="fq7" value="angel"><span>💌&nbsp; Text ahead and apologize sincerely</span></label>
+        <label class="qchoice"><input type="radio" name="fq7" value="griffin"><span>😎&nbsp; Walk in like you meant to arrive exactly then</span></label>
+        <label class="qchoice"><input type="radio" name="fq7" value="dragon"><span>🎉&nbsp; Show up with such good energy nobody cares</span></label>
+        <label class="qchoice"><input type="radio" name="fq7" value="fairy"><span>🤔&nbsp; Genuinely did not know there was a thing</span></label>
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="fq-block" id="fq-8">
+      <p class="fq-num">Question 8</p>
+      <h2 class="quiz-q">Pick a weather.</h2>
+      <div class="quiz-grid-2">
+        <label class="qcard"><input type="radio" name="fq8" value="angel">
+          <img src="https://images.pexels.com/photos/1624496/pexels-photo-1624496.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Golden autumn" loading="lazy">
+          <span class="qcard-label">Golden autumn afternoon</span></label>
+        <label class="qcard"><input type="radio" name="fq8" value="wizard">
+          <img src="https://images.pexels.com/photos/1162251/pexels-photo-1162251.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Thunderstorm" loading="lazy">
+          <span class="qcard-label">Thunderstorm at night</span></label>
+        <label class="qcard"><input type="radio" name="fq8" value="mermaid">
+          <img src="https://images.pexels.com/photos/1287075/pexels-photo-1287075.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Foggy morning" loading="lazy">
+          <span class="qcard-label">Foggy misty morning</span></label>
+        <label class="qcard"><input type="radio" name="fq8" value="dragon">
+          <img src="https://images.pexels.com/photos/1125850/pexels-photo-1125850.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Summer storm" loading="lazy">
+          <span class="qcard-label">Bright chaotic summer storm</span></label>
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="fq-block" id="fq-9">
+      <p class="fq-num">Question 9</p>
+      <h2 class="quiz-q">Your friends would describe you as...</h2>
+      <div class="quiz-list">
+        <label class="qchoice"><input type="radio" name="fq9" value="dragon"><span>🎲&nbsp; The one nobody can predict but everyone loves</span></label>
+        <label class="qchoice"><input type="radio" name="fq9" value="griffin"><span>✨&nbsp; The one who makes everything look effortless</span></label>
+        <label class="qchoice"><input type="radio" name="fq9" value="wizard"><span>📚&nbsp; The one who quietly knows everything</span></label>
+        <label class="qchoice"><input type="radio" name="fq9" value="fairy"><span>🌟&nbsp; The one who makes ordinary moments feel like an adventure</span></label>
+      </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="fq-block" id="fq-10">
+      <p class="fq-num">Question 10</p>
+      <h2 class="quiz-q">You find $20 in an old coat. You...</h2>
+      <div class="quiz-list">
+        <label class="qchoice"><input type="radio" name="fq10" value="fairy"><span>🕯️&nbsp; Spend it on something small and whimsical</span></label>
+        <label class="qchoice"><input type="radio" name="fq10" value="griffin"><span>🏦&nbsp; Save it immediately</span></label>
+        <label class="qchoice"><input type="radio" name="fq10" value="dragon"><span>🍕&nbsp; Buy snacks for everyone right now</span></label>
+        <label class="qchoice"><input type="radio" name="fq10" value="mermaid"><span>💸&nbsp; Lose it again within the hour</span></label>
+      </div>
+    </div>
+
+    <!-- Submit -->
+    <div class="fq-submit-area">
+      <p class="fq-error" id="fqError">Please answer all 10 questions before submitting. Unanswered questions are highlighted above.</p>
+      <button class="btn-primary" style="font-size:1.05rem; padding:1rem 2.5rem;" onclick="FullQuiz.submit()">
+        Reveal My Archetype ✦
+      </button>
+      <p class="fq-submit-note">You can scroll back up and change any answer before submitting.</p>
+    </div>
+
+    <!-- Inline result -->
+    <div class="fq-result" id="fqResult">
+      <span id="fqResultEmoji" style="font-size:3.5rem; display:block; margin-bottom:0.5rem;"></span>
+      <p style="font-size:0.75rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--green); font-family:'Nunito',sans-serif; font-weight:600; margin-bottom:0.3rem;">Your magical archetype is...</p>
+      <h2 id="fqResultName" style="font-family:'Cinzel',serif; font-size:clamp(2rem,5vw,3rem); font-weight:900; margin-bottom:0.75rem;"></h2>
+      <div id="fqResultCoupon" style="background:rgba(0,255,136,0.06); border:1px solid rgba(0,255,136,0.25); border-radius:14px; padding:1rem 1.5rem; display:inline-block; margin-bottom:1.5rem;">
+        <p style="font-size:0.7rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--green); font-family:'Nunito',sans-serif; font-weight:600; margin-bottom:0.4rem;">✦ Your archetype discount</p>
+        <p id="fqResultCouponCode" style="font-family:'Cinzel',serif; font-size:1.4rem; font-weight:900; color:var(--star-white); letter-spacing:0.12em;"></p>
+      </div>
+      <p id="fqResultDesc" style="color:var(--muted); font-size:1rem; line-height:1.8; max-width:540px; margin:0 auto 1rem; font-weight:400;"></p>
+      <p id="fqResultPitch" style="font-family:'Cinzel',serif; font-size:0.95rem; color:var(--lavender); font-style:italic; max-width:500px; margin:0 auto 2rem;"></p>
+      <div style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; margin-bottom:1.5rem;">
+        <a id="fqCommissionBtn" href="commission.html" class="btn-primary">Build My Site ✦</a>
+        <a href="all-results.html" class="btn-outline">Browse All Archetypes</a>
+        <button class="btn-outline" onclick="FullQuiz.reset()">Retake Quiz</button>
+      </div>
+      <div class="result-share">
+        <p class="result-share-label">Share your archetype ✦</p>
+        <div class="result-share-btns">
+          <button class="btn-primary btn-sm" onclick="FullQuiz.share('native')">📤 Share</button>
+          <button class="btn-outline btn-sm" onclick="FullQuiz.share('sms')">💬 Text</button>
+          <button class="btn-outline btn-sm" onclick="FullQuiz.share('facebook')">Facebook</button>
+          <button class="btn-outline btn-sm" onclick="FullQuiz.share('twitter')">Twitter / X</button>
+          <button class="btn-outline btn-sm" onclick="FullQuiz.copy()">Copy Link</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo-wrap">
+        <img src="Files/faerytech-logo.png" alt="Faery Tech">
+        <p class="footer-brand">✦ Faery Tech</p>
+      </div>
+      <nav class="footer-links">
+        <a href="quiz.html">Step-by-step Quiz</a>
+        <a href="all-results.html">All Archetypes</a>
+        <a href="commission.html">Commission a Site</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="copyright">© 2026 Faery Tech by Madyson Moore. All rights reserved. | Living free in the USA 🤍</p>
+    </div>
+  </div>
+</footer>
+
+<script src="JS/main.js"></script>
+<script>
+const FullQuiz = (function () {
+
+  /* 6 current archetypes — matches quiz.js exactly */
+  const RESULTS = {
+    angel:   { emoji:'👼', name:'The Angel',   coupon:'ANGEL15',  desc:"You show up. Quietly, consistently, without being asked. You remember what matters to people and you act on it. The world works better when you're in it and most people haven't even stopped to notice how much you do.", pitch:'Your site should feel like being welcomed home — warm, trustworthy, and genuinely good.', nameGrad:'linear-gradient(135deg,#90caf9,#e3f2fd)' },
+    wizard:  { emoji:'🧙', name:'The Wizard',  coupon:'WIZARD10', desc:"Wise, methodical, and quietly formidable. You've seen enough to know what matters and you don't waste time on what doesn't. People come to you with their hardest problems and you usually already knew they were coming.", pitch:'Your site should feel knowledgeable and intentional — every element there for a reason, nothing wasted.', nameGrad:'linear-gradient(135deg,#c4b5fd,#818cf8)' },
+    fairy:   { emoji:'🧚', name:'The Fairy',   coupon:'FAIRY10',  desc:"There is something genuinely enchanting about you that has nothing to do with trying. You find wonder in the ordinary. You bring lightness into heavy rooms. People feel better after talking to you and they're not quite sure why.", pitch:'Your site should feel like stumbling onto something magical — delightful, clever, and impossible to forget.', nameGrad:'linear-gradient(135deg,#f48fb1,#ffd54f)' },
+    dragon:  { emoji:'🐉', name:'The Dragon',  coupon:'DRAGON5',  desc:"Fierce, loyal, and impossible to ignore. You don't do anything halfway. People underestimate you exactly once. You protect what you love with everything you have and you expect the same in return.", pitch:'Your site should have power and presence — the kind that makes people sit up and pay attention.', nameGrad:'linear-gradient(135deg,#ff6b35,#ffd166)' },
+    griffin: { emoji:'🦁', name:'The Griffin', coupon:'GRIFFIN5', desc:"Noble, principled, half-wild. You have standards and you hold them quietly without making a big deal of it. You're equally at home in a boardroom and the wilderness. People trust you instinctively and they're right to.", pitch:'Your site should feel authoritative and alive — polished but never cold, structured but never stiff.', nameGrad:'linear-gradient(135deg,#ffd54f,#ff8f00)' },
+    mermaid: { emoji:'🧜', name:'The Mermaid', coupon:'MERMAID5', desc:"Deep, magnetic, layered. You pull people toward you without trying and they find themselves coming back without knowing why. There's more to you than most people get to see and you're completely fine with that.", pitch:'Your site should have depth and draw — the kind that makes people explore slowly and stay longer than they planned.', nameGrad:'linear-gradient(135deg,#4dd0e1,#1565c0)' },
+  };
+
+  let resultKey = null;
+
+  function init() {
+    const hb = document.getElementById('hamburger');
+    const nl = document.getElementById('navLinks');
+    if (hb && nl) hb.addEventListener('click', () => { nl.classList.toggle('open'); hb.classList.toggle('open'); });
+
+    /* Build progress dots */
+    const dotsEl = document.getElementById('fqDots');
+    if (dotsEl) {
+      for (let i = 1; i <= 10; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'fq-dot'; dot.id = `dot-${i}`; dot.title = `Question ${i}`;
+        dot.addEventListener('click', () => document.getElementById(`fq-${i}`)?.scrollIntoView({ behavior:'smooth', block:'start' }));
+        dotsEl.appendChild(dot);
+      }
+    }
+
+    document.querySelectorAll('input[type="radio"]').forEach(r => {
+      r.addEventListener('change', () => updateProgress(parseInt(r.name.replace('fq', ''))));
+    });
+  }
+
+  function updateProgress(num) {
+    document.getElementById(`fq-${num}`)?.classList.add('answered');
+    document.getElementById(`dot-${num}`)?.classList.add('done');
+    document.getElementById('fqProgress').style.display = 'block';
+    let count = 0;
+    for (let i = 1; i <= 10; i++) { if (document.querySelector(`input[name="fq${i}"]:checked`)) count++; }
+    const countEl = document.getElementById('fqAnswered');
+    if (countEl) countEl.textContent = count;
+  }
+
+  function submit() {
+    const unanswered = [];
+    for (let i = 1; i <= 10; i++) {
+      const block = document.getElementById(`fq-${i}`);
+      if (!document.querySelector(`input[name="fq${i}"]:checked`)) { unanswered.push(i); block?.classList.add('unanswered'); }
+      else block?.classList.remove('unanswered');
+    }
+    const errEl = document.getElementById('fqError');
+    if (unanswered.length > 0) {
+      if (errEl) errEl.style.display = 'block';
+      document.getElementById(`fq-${unanswered[0]}`)?.scrollIntoView({ behavior:'smooth', block:'start' });
+      return;
+    }
+    if (errEl) errEl.style.display = 'none';
+
+    const tally = {};
+    for (let i = 1; i <= 10; i++) {
+      const val = document.querySelector(`input[name="fq${i}"]:checked`)?.value;
+      if (val) tally[val] = (tally[val] || 0) + 1;
+    }
+
+    let topKey = 'fairy', topCount = 0;
+    Object.entries(tally).forEach(([k, c]) => { if (c > topCount) { topCount = c; topKey = k; } });
+
+    const tied = Object.entries(tally).filter(([,c]) => c === topCount).map(([k]) => k);
+    if (tied.length > 1) {
+      const q7 = document.querySelector('input[name="fq7"]:checked')?.value;
+      if (q7 && tied.includes(q7)) topKey = q7;
+      else {
+        const q9 = document.querySelector('input[name="fq9"]:checked')?.value;
+        if (q9 && tied.includes(q9)) topKey = q9;
+      }
+    }
+
+    resultKey = topKey;
+    showResult();
+  }
+
+  function showResult() {
+    const r = RESULTS[resultKey];
+    if (!r) return;
+    history.replaceState(null, '', `#${resultKey}`);
+
+    const nameEl = document.getElementById('fqResultName');
+    nameEl.textContent = r.name;
+    nameEl.style.background = r.nameGrad;
+    nameEl.style.webkitBackgroundClip = 'text';
+    nameEl.style.webkitTextFillColor = 'transparent';
+    nameEl.style.backgroundClip = 'text';
+
+    document.getElementById('fqResultEmoji').textContent = r.emoji;
+    document.getElementById('fqResultDesc').textContent  = r.desc;
+    document.getElementById('fqResultPitch').textContent = r.pitch;
+    document.getElementById('fqResultCouponCode').textContent = r.coupon;
+
+    const btn = document.getElementById('fqCommissionBtn');
+    if (btn) btn.href = `commission.html?fairy=${resultKey}&fairyname=${encodeURIComponent(r.name)}&fairydesc=${encodeURIComponent(r.pitch)}&coupon=${r.coupon}`;
+
+    const resultEl = document.getElementById('fqResult');
+    resultEl.classList.add('visible');
+    resultEl.scrollIntoView({ behavior:'smooth', block:'start' });
+  }
+
+  function reset() {
+    document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+    document.querySelectorAll('.fq-block').forEach(b => b.classList.remove('answered','unanswered'));
+    document.querySelectorAll('.fq-dot').forEach(d => d.classList.remove('done'));
+    const countEl = document.getElementById('fqAnswered');
+    if (countEl) countEl.textContent = '0';
+    document.getElementById('fqResult')?.classList.remove('visible');
+    history.replaceState(null, '', window.location.pathname);
+    resultKey = null;
+    window.scrollTo({ top:0, behavior:'smooth' });
+  }
+
+  function share(platform) {
+    const r = RESULTS[resultKey];
+    if (!r) return;
+    const pageUrl = window.location.href;
+    const rawText = `I just found out I'm ${r.name}! Take the Faery Tech archetype quiz and find out what you are ✦`;
+    const enc = encodeURIComponent(rawText);
+    const encUrl = encodeURIComponent(pageUrl);
+    if (platform === 'native') {
+      if (navigator.share) navigator.share({ title:`I'm ${r.name}!`, text:rawText, url:pageUrl }).catch(()=>{});
+      else copy();
+      return;
+    }
+    const links = {
+      facebook: `https://www.facebook.com/sharer/sharer.php?u=${encUrl}`,
+      twitter:  `https://twitter.com/intent/tweet?text=${enc}&url=${encUrl}`,
+      sms:      `sms:?body=${encodeURIComponent(rawText+' '+pageUrl)}`,
+    };
+    if (links[platform]) {
+      if (platform === 'sms') window.location.href = links[platform];
+      else window.open(links[platform], '_blank', 'width=600,height=500,noopener');
+    }
+  }
+
+  function copy() {
+    navigator.clipboard?.writeText(window.location.href).then(() => {
+      document.querySelectorAll('.result-share-btns button').forEach(b => {
+        if (b.textContent.includes('Copy')) { b.textContent='Copied! ✦'; setTimeout(()=>{ b.textContent='Copy Link'; },2200); }
+      });
+    });
+  }
+
+  return { init, submit, reset, share, copy };
+})();
+
+document.addEventListener('DOMContentLoaded', FullQuiz.init);
+</script>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ | Faery Tech</title>
+    <meta
+      name="description"
+      content="Answers to common questions about Faery Tech web design services — pricing, process, hosting, and more."
+    />
+    <!-- Same fonts as every other Faery Tech page -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Nunito:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- NO Bootstrap — uses shared styles.css just like every other page -->
+    <link rel="stylesheet" href="CSS/styles.css" />
+  </head>
+  <body>
+
+    <!-- Starfield canvas (same as every other page) -->
+    <canvas id="starfield"></canvas>
+
+    <!-- ===================== NAVBAR ===================== -->
+    <nav>
+      <div class="nav-inner">
+        <a href="index.html" class="nav-brand">
+          <img src="Files/faerytech-logo.png" alt="Faery Tech">
+          ✦ Faery Tech
+        </a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="community.html">The Community</a></li>
+          <li><a href="commission.html">Commission a Site</a></li>
+          <li><a href="faq.html" class="active">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="https://faerytech.org" style="color:var(--green);">Faery Side ✦</a></li>
+        </ul>
+        <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <main>
+
+      <!-- ===================== HERO ===================== -->
+      <section class="page-hero" style="padding: 5rem 0 3rem; text-align: center;">
+        <div class="container">
+          <p class="section-label">Got questions?</p>
+          <h1 class="section-title section-title--lg" style="margin: 0 auto 1rem;">
+            Frequently Asked Questions
+          </h1>
+          <p class="section-sub" style="margin: 0 auto;">
+            Everything you need to know before we get started.
+            Don't see your answer? <a href="contact.html" style="color: var(--green); text-decoration: underline; text-underline-offset: 3px;">Just ask.</a>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== FAQ BODY ===================== -->
+      <section style="padding: 1rem 0 6rem;">
+        <div class="container">
+          <div class="faq-col">
+
+            <!-- ── Getting Started ── -->
+            <h2 class="faq-category">✦ Getting Started</h2>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                How does the process work?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  It starts with a quick conversation — by form, text, or call — so I can understand
+                  what you need. From there I'll send you a proposal with pricing and a timeline.
+                  Once you give the go-ahead and put down a deposit, I get to work. Most sites are
+                  ready for your review within a week or two. You give feedback, I make adjustments,
+                  and we launch. Simple as that.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                Do I need to know anything about tech or websites?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Not even a little. That's what I'm here for. You bring the business — the story,
+                  the services, the vibe — and I handle everything technical. I'll explain anything
+                  you want to understand, or I can just take care of it and keep you updated along
+                  the way. Either way works.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                How do I get in touch to start?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Head to the <a href="contact.html" style="color: var(--green); text-decoration: underline; text-underline-offset: 3px;">Contact page</a> and fill out the form — it takes about
+                  two minutes. You can also text or call directly if that's easier. I try to respond
+                  within 24 hours, usually faster.
+                </p>
+              </div>
+            </div>
+
+            <!-- ── Pricing & Payment ── -->
+            <h2 class="faq-category">✦ Pricing &amp; Payment</h2>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                How much does a website cost?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>It depends on what you need, but here's the honest range:</p>
+                <ul>
+                  <li><strong>Starter Site</strong> — $80–100 (single page, contact form, hosting)</li>
+                  <li><strong>Growth Package</strong> — $200–300 (up to 5 pages, SEO, booking calendar)</li>
+                  <li><strong>Full Business Package</strong> — $400–600 (logo, branding, email marketing, Google Business)</li>
+                  <li><strong>Complete Digital Transformation</strong> — $800–1,500+ (everything, custom quote)</li>
+                </ul>
+                <p>
+                  Sliding scale and hardship rates are available starting at $50 — just ask.
+                  I'd rather work something out than see a good business go without a website.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                What are your payment terms?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  I typically ask for a deposit upfront to hold your spot, with the remainder due
+                  when the site is ready to launch. For larger projects we can work out a payment
+                  plan. I accept payment via Stripe (card), Zelle, or Cash App.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                Are there ongoing costs after the site launches?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  The main recurring cost is your domain name — usually around $10–15/year. Hosting
+                  on GitHub Pages is free. If you want me to continue managing the site, updating
+                  content, or handling SEO, I offer monthly maintenance retainers starting at
+                  $40–60/month. Totally optional — some clients handle their own updates just fine.
+                </p>
+              </div>
+            </div>
+
+            <!-- ── The Website ── -->
+            <h2 class="faq-category">✦ The Website</h2>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                Will my site work on phones?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Yes — every site I build is fully mobile responsive. That means it looks good and
+                  works correctly on phones, tablets, and desktops. Since most people browse on their
+                  phones these days, this isn't optional — it's standard.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                Will people be able to find me on Google?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Every site I build includes basic SEO — proper title tags, meta descriptions,
+                  heading structure, and alt text on images. I also offer Google Business Profile
+                  setup so you show up in local searches. Getting to the top of Google takes time,
+                  but you'll be set up correctly from day one. Monthly SEO retainers are available
+                  if you want to actively grow your search rankings.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                Can I update the site myself after it's done?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Yes. I'll walk you through how to make basic edits if you want to learn. If you'd
+                  rather just send me a message whenever something needs to change, I'm happy to
+                  handle it — that's what the maintenance retainer covers. No judgment either way;
+                  some clients love learning, others just want it handled.
+                </p>
+              </div>
+            </div>
+
+            <!-- ── Working Together ── -->
+            <h2 class="faq-category">✦ Working Together</h2>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                Do you work with businesses outside your area?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Absolutely. Everything except photography can be done remotely. I work with clients
+                  across the country — we communicate by email, text, or video call, and I share
+                  previews via link so you can see exactly how the site looks before anything goes live.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                How long does it take to build a site?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Most sites are ready for review within 1–2 weeks of receiving your deposit and
+                  content (photos, text, logo, etc.). Larger or more complex projects may take 3–4
+                  weeks. The main thing that affects the timeline is how quickly we can get content
+                  together — the faster you send me your info, the faster we can launch.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                What if I'm not happy with how something looks?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Every package includes revision rounds — you'll always have a chance to give
+                  feedback before the site goes live. I want you to love it. If something isn't
+                  right, tell me specifically what to change and I'll fix it. I don't take feedback
+                  personally; this is your business and it needs to represent you well.
+                </p>
+              </div>
+            </div>
+
+            <!-- ── About Faery Tech ── -->
+            <h2 class="faq-category">✦ About Faery Tech</h2>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                Who is behind Faery Tech?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Faery Tech is run by Madyson Moore — a web developer, digital designer, and small
+                  business advocate currently working remotely across the country. My background spans
+                  customer service, tech support, game design, content creation, and administrative roles.
+                  I hold a Bachelor's in History and an Associate's in Biology, which means I approach
+                  problems from every angle.
+                </p>
+                <p style="margin-top:0.75rem;">
+                  I'm currently completing my web development education through Code Temple bootcamp
+                  while building real client projects. Faery Tech started as a gamertag — fairies
+                  connect me to my mom, my childhood in Alabama, mushroom rings and fireflies and
+                  wonder. That's still what it's about.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                What makes Faery Tech different?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Every site is custom-coded — no templates, no drag-and-drop builders, no cookie-cutter
+                  results. I work with clients who are often overlooked by bigger agencies: small
+                  businesses, nonprofits, first-timers, people who have a great idea but not a big budget.
+                </p>
+                <p style="margin-top:0.75rem;">
+                  I also believe in ethical business. I partner only with brands I believe in. I advertise
+                  only what I'd recommend to a friend. And ad revenue across the Faery Tech network gets
+                  reinvested into animal shelters, eco initiatives, and free web services for people who
+                  need them. Profit and purpose were never opposites.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                What do you care about beyond just building websites?
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>A few things I take seriously in how I run this business:</p>
+                <ul style="margin-top:0.6rem; padding-left:1.2rem; color:var(--muted); line-height:1.9; font-weight:400;">
+                  <li><strong style="color:var(--lavender);">Ecological responsibility</strong> — I partner with eco-friendly brands and direct a portion of revenue toward environmental initiatives.</li>
+                  <li><strong style="color:var(--lavender);">Animal welfare</strong> — Special rates for rescue organizations and animal shelters, always.</li>
+                  <li><strong style="color:var(--lavender);">Economic equality</strong> — Sliding-scale pricing means a business idea and a dream are enough to get started. No one gets left behind.</li>
+                  <li><strong style="color:var(--lavender);">Community first</strong> — The long-term goal is a network where local businesses support each other, not just compete.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="faq-cta">
+              <p class="faq-cta-text">Still have questions?</p>
+              <a href="contact.html" class="btn-primary">Let's Talk ✦</a>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer>
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-logo-wrap">
+            <a class="footer-brand" href="index.html">
+              <img src="Files/faerytech-logo.png" alt="Faery Tech" />
+              Faery Tech
+            </a>
+          </div>
+          <nav class="footer-links" aria-label="Footer navigation">
+            <a href="index.html">Home</a>
+            <a href="commission.html">Commission a Site</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+          <p class="copyright">&copy; <span id="year"></span> Faery Tech &mdash; Living free in the USA 🤍</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="JS/main.js"></script>
+    <script src="JS/faq.js"></script>
+  </body>
+</html>

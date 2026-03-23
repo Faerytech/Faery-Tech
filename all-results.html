@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>All Magical Archetypes | Faery Tech</title>
+  <meta name="description" content="Browse all six magical archetypes — Angel, Wizard, Fairy, Dragon, Griffin, and Mermaid. Find yourself and start building your site.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/styles.css">
+  <style>
+    .all-results-hero { padding: 4rem 0 2.5rem; text-align: center; }
+    .all-results-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      background: linear-gradient(160deg, var(--star-white) 30%, var(--lavender));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 0.75rem;
+    }
+    .all-results-hero p { color: var(--muted); font-size: 0.95rem; max-width: 540px; margin: 0 auto; line-height: 1.7; font-weight: 400; }
+
+    .results-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem 0 5rem; }
+
+    .result-card {
+      background: var(--card-bg); border: 2px solid var(--card-border);
+      border-radius: 16px; overflow: hidden; cursor: pointer;
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; position: relative;
+    }
+    .result-card:hover { transform: translateY(-5px); border-color: rgba(162,89,255,0.5); box-shadow: 0 0 30px rgba(123,47,255,0.15); }
+    .result-card.selected { border-color: var(--green); box-shadow: 0 0 30px rgba(0,255,136,0.2); }
+
+    .result-card-img { width: 100%; height: 180px; object-fit: cover; display: block; }
+    .result-card-body { padding: 1.25rem; }
+    .result-card-emoji { font-size: 1.75rem; display: block; margin-bottom: 0.3rem; }
+    .result-card-eyebrow { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green); font-family: 'Nunito', sans-serif; font-weight: 600; margin-bottom: 0.2rem; }
+    .result-card-name { font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 900; margin-bottom: 0.65rem; line-height: 1.2; }
+    .result-card-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.65; font-weight: 400; margin-bottom: 0.85rem; }
+    .result-card-coupon { font-size: 0.78rem; color: var(--green); font-family: 'Nunito', sans-serif; font-weight: 700; letter-spacing: 0.08em; border-top: 1px solid var(--card-border); padding-top: 0.65rem; }
+    .result-card-pitch { font-size: 0.8rem; color: var(--lavender); font-style: italic; line-height: 1.5; border-top: 1px solid var(--card-border); padding-top: 0.75rem; margin-top: 0.5rem; }
+
+    .result-card-check { display: none; position: absolute; top: 0.75rem; right: 0.75rem; width: 30px; height: 30px; background: var(--green); border-radius: 50%; align-items: center; justify-content: center; font-size: 0.85rem; color: var(--space); font-weight: 700; }
+    .result-card.selected .result-card-check { display: flex; }
+
+    /* Per-archetype name gradients */
+    .r-angel   .result-card-name { background: linear-gradient(135deg,#90caf9,#e3f2fd); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .r-wizard  .result-card-name { background: linear-gradient(135deg,#c4b5fd,#818cf8); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .r-fairy   .result-card-name { background: linear-gradient(135deg,#f48fb1,#ffd54f); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .r-dragon  .result-card-name { background: linear-gradient(135deg,#ff6b35,#ffd166); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .r-griffin .result-card-name { background: linear-gradient(135deg,#ffd54f,#ff8f00); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .r-mermaid .result-card-name { background: linear-gradient(135deg,#4dd0e1,#1565c0); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+
+    /* Sticky CTA bar */
+    .pick-cta-bar { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(6,6,26,0.97); border-top: 1px solid var(--card-border); padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; z-index: 200; backdrop-filter: blur(12px); transform: translateY(100%); transition: transform 0.3s ease; }
+    .pick-cta-bar.visible { transform: translateY(0); }
+    .pick-cta-selected { font-family: 'Cinzel', serif; font-size: 0.95rem; color: var(--green); }
+    .pick-cta-selected span { color: var(--muted); font-size: 0.75rem; font-family: 'Nunito', sans-serif; display: block; margin-bottom: 0.1rem; }
+    .pick-cta-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+    .admin-swap-link { text-align: center; padding: 1rem 0 3rem; }
+    .admin-swap-link button { background: none; border: none; color: rgba(184,184,204,0.3); font-size: 0.72rem; cursor: pointer; font-family: 'Nunito', sans-serif; transition: color 0.2s; }
+    .admin-swap-link button:hover { color: var(--muted); }
+
+    @media (max-width: 600px) {
+      .results-grid { grid-template-columns: 1fr; }
+      .pick-cta-bar { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="starfield"></canvas>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <img src="Files/faerytech-logo.png" alt="Faery Tech">
+      ✦ Faery Tech
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="community.html">The Community</a></li>
+      <li><a href="commission.html">Commission a Site</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://faerytech.org" style="color:var(--green);">Faery Side ✦</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main>
+
+  <div class="all-results-hero">
+    <div class="container">
+      <p class="section-label">✦ All Magical Archetypes</p>
+      <h1>Which one is you?</h1>
+      <p>Browse all six archetypes. Click one that feels right — or go back and take the quiz. When you find your match, click "This is me" to start building your site.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="results-grid" id="resultsGrid">
+
+      <!-- ANGEL -->
+      <div class="result-card r-angel" data-key="angel" onclick="AllResults.select(this)">
+        <div class="result-card-check">✦</div>
+        <img class="result-card-img" id="img-angel"
+          src="https://images.pexels.com/photos/3734195/pexels-photo-3734195.jpeg?auto=compress&cs=tinysrgb&w=500"
+          alt="The Angel">
+        <div class="result-card-body">
+          <span class="result-card-emoji">👼</span>
+          <p class="result-card-eyebrow">You are...</p>
+          <h2 class="result-card-name">The Angel</h2>
+          <p class="result-card-desc">You show up. Quietly, consistently, without being asked. You remember what matters to people and you act on it. The world works better when you're in it.</p>
+          <p class="result-card-coupon">✦ Coupon: ANGEL15 — $15 off your site</p>
+          <p class="result-card-pitch">Your site should feel like being welcomed home — warm, trustworthy, and genuinely good.</p>
+        </div>
+      </div>
+
+      <!-- WIZARD -->
+      <div class="result-card r-wizard" data-key="wizard" onclick="AllResults.select(this)">
+        <div class="result-card-check">✦</div>
+        <img class="result-card-img" id="img-wizard"
+          src="https://images.pexels.com/photos/1162251/pexels-photo-1162251.jpeg?auto=compress&cs=tinysrgb&w=500"
+          alt="The Wizard">
+        <div class="result-card-body">
+          <span class="result-card-emoji">🧙</span>
+          <p class="result-card-eyebrow">You are...</p>
+          <h2 class="result-card-name">The Wizard</h2>
+          <p class="result-card-desc">Wise, methodical, and quietly formidable. You've seen enough to know what matters and you don't waste time on what doesn't. People come to you with their hardest problems.</p>
+          <p class="result-card-coupon">✦ Coupon: WIZARD10 — $10 off your site</p>
+          <p class="result-card-pitch">Your site should feel knowledgeable and intentional — every element there for a reason, nothing wasted.</p>
+        </div>
+      </div>
+
+      <!-- FAIRY -->
+      <div class="result-card r-fairy" data-key="fairy" onclick="AllResults.select(this)">
+        <div class="result-card-check">✦</div>
+        <img class="result-card-img" id="img-fairy"
+          src="https://images.pexels.com/photos/1310847/pexels-photo-1310847.jpeg?auto=compress&cs=tinysrgb&w=500"
+          alt="The Fairy">
+        <div class="result-card-body">
+          <span class="result-card-emoji">🧚</span>
+          <p class="result-card-eyebrow">You are...</p>
+          <h2 class="result-card-name">The Fairy</h2>
+          <p class="result-card-desc">There is something genuinely enchanting about you that has nothing to do with trying. You find wonder in the ordinary. You bring lightness into heavy rooms.</p>
+          <p class="result-card-coupon">✦ Coupon: FAIRY10 — $10 off your site</p>
+          <p class="result-card-pitch">Your site should feel like stumbling onto something magical — delightful, clever, and impossible to forget.</p>
+        </div>
+      </div>
+
+      <!-- DRAGON -->
+      <div class="result-card r-dragon" data-key="dragon" onclick="AllResults.select(this)">
+        <div class="result-card-check">✦</div>
+        <img class="result-card-img" id="img-dragon"
+          src="https://images.pexels.com/photos/1416530/pexels-photo-1416530.jpeg?auto=compress&cs=tinysrgb&w=500"
+          alt="The Dragon">
+        <div class="result-card-body">
+          <span class="result-card-emoji">🐉</span>
+          <p class="result-card-eyebrow">You are...</p>
+          <h2 class="result-card-name">The Dragon</h2>
+          <p class="result-card-desc">Fierce, loyal, and impossible to ignore. You don't do anything halfway. People underestimate you exactly once. You protect what you love with everything you have.</p>
+          <p class="result-card-coupon">✦ Coupon: DRAGON5 — $5 off your site</p>
+          <p class="result-card-pitch">Your site should have power and presence — the kind that makes people sit up and pay attention.</p>
+        </div>
+      </div>
+
+      <!-- GRIFFIN -->
+      <div class="result-card r-griffin" data-key="griffin" onclick="AllResults.select(this)">
+        <div class="result-card-check">✦</div>
+        <img class="result-card-img" id="img-griffin"
+          src="https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=500"
+          alt="The Griffin">
+        <div class="result-card-body">
+          <span class="result-card-emoji">🦁</span>
+          <p class="result-card-eyebrow">You are...</p>
+          <h2 class="result-card-name">The Griffin</h2>
+          <p class="result-card-desc">Noble, principled, half-wild. You have standards and you hold them quietly without making a big deal of it. People trust you instinctively and they're right to.</p>
+          <p class="result-card-coupon">✦ Coupon: GRIFFIN5 — $5 off your site</p>
+          <p class="result-card-pitch">Your site should feel authoritative and alive — polished but never cold, structured but never stiff.</p>
+        </div>
+      </div>
+
+      <!-- MERMAID -->
+      <div class="result-card r-mermaid" data-key="mermaid" onclick="AllResults.select(this)">
+        <div class="result-card-check">✦</div>
+        <img class="result-card-img" id="img-mermaid"
+          src="https://images.pexels.com/photos/1072179/pexels-photo-1072179.jpeg?auto=compress&cs=tinysrgb&w=500"
+          alt="The Mermaid">
+        <div class="result-card-body">
+          <span class="result-card-emoji">🧜</span>
+          <p class="result-card-eyebrow">You are...</p>
+          <h2 class="result-card-name">The Mermaid</h2>
+          <p class="result-card-desc">Deep, magnetic, layered. You pull people toward you without trying and they find themselves coming back without knowing why. There's more to you than most people get to see.</p>
+          <p class="result-card-coupon">✦ Coupon: MERMAID5 — $5 off your site</p>
+          <p class="result-card-pitch">Your site should have depth and draw — the kind that makes people explore slowly and stay longer than they planned.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="admin-swap-link">
+      <button onclick="AllResults.openSwap()" title="Manage images">✦ manage images</button>
+    </div>
+  </div>
+
+</main>
+
+<!-- STICKY PICK CTA BAR -->
+<div class="pick-cta-bar" id="pickCtaBar">
+  <div class="pick-cta-selected">
+    <span>Your selection</span>
+    <span id="pickCtaName">—</span>
+  </div>
+  <div class="pick-cta-btns">
+    <button class="btn-outline" onclick="AllResults.goToQuiz()">← Retake Quiz</button>
+    <button class="btn-primary" onclick="AllResults.goToCommission()">This is me — Build my site ✦</button>
+  </div>
+</div>
+
+<!-- IMAGE SWAP PANEL (admin) -->
+<div id="swapPanel" style="display:none; position:fixed; inset:0; z-index:300; background:rgba(0,0,0,0.75); padding:2rem 1rem; overflow-y:auto; backdrop-filter:blur(4px);">
+  <div style="background:var(--deep); border:1px solid var(--card-border); border-radius:20px; max-width:700px; margin:0 auto; padding:2rem;">
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1.5rem;">
+      <h3 style="font-family:'Cinzel',serif; font-size:1.1rem; color:var(--star-white);">✦ Swap a Result Image</h3>
+      <button onclick="AllResults.closeSwap()" style="background:none; border:none; color:var(--muted); font-size:1.4rem; cursor:pointer;">×</button>
+    </div>
+    <div style="margin-bottom:1.25rem;">
+      <label style="display:block; font-size:0.78rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--lavender); margin-bottom:0.4rem; font-family:'Nunito',sans-serif;">Which archetype?</label>
+      <select id="swapTarget" onchange="AllResults.previewSwap()" style="width:100%; background:rgba(255,255,255,0.05); border:1px solid var(--card-border); border-radius:8px; padding:0.7rem 1rem; color:var(--star-white); font-family:'Nunito',sans-serif; font-size:0.93rem; outline:none;">
+        <option value="">— Select an archetype —</option>
+        <option value="angel">👼 The Angel</option>
+        <option value="wizard">🧙 The Wizard</option>
+        <option value="fairy">🧚 The Fairy</option>
+        <option value="dragon">🐉 The Dragon</option>
+        <option value="griffin">🦁 The Griffin</option>
+        <option value="mermaid">🧜 The Mermaid</option>
+      </select>
+    </div>
+    <div style="margin-bottom:1.25rem;">
+      <label style="display:block; font-size:0.78rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--lavender); margin-bottom:0.4rem; font-family:'Nunito',sans-serif;">Pexels image URL</label>
+      <input type="url" id="swapUrl" placeholder="https://images.pexels.com/photos/..." oninput="AllResults.previewSwap()" style="width:100%; background:rgba(255,255,255,0.05); border:1px solid var(--card-border); border-radius:8px; padding:0.7rem 1rem; color:var(--star-white); font-family:'Nunito',sans-serif; font-size:0.93rem; outline:none;">
+      <img id="swapPreview" style="width:100%; height:160px; object-fit:cover; border-radius:10px; margin-top:0.75rem; display:none;" alt="Preview">
+    </div>
+    <div style="display:flex; gap:0.75rem; margin-top:1.25rem; flex-wrap:wrap;">
+      <button class="btn-primary" onclick="AllResults.applySwap()">Apply on This Page</button>
+      <button class="btn-outline" onclick="AllResults.copySwapCode()">Copy Update Code</button>
+    </div>
+    <p style="font-size:0.78rem; color:var(--muted); margin-top:1rem; line-height:1.6; font-weight:400;">"Apply" swaps live so you can see how it looks. "Copy Update Code" gives you the line to paste into <code style="background:rgba(255,255,255,0.08); padding:0.1rem 0.4rem; border-radius:4px; font-size:0.75rem;">all-results.html</code> to make it permanent.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo-wrap">
+        <img src="Files/faerytech-logo.png" alt="Faery Tech">
+        <p class="footer-brand">✦ Faery Tech</p>
+      </div>
+      <nav class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="quiz.html">Take the Quiz</a>
+        <a href="commission.html">Commission a Site</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="copyright">© 2026 Faery Tech by Madyson Moore. All rights reserved. | Living free in the USA 🤍</p>
+    </div>
+  </div>
+</footer>
+
+<script src="JS/main.js"></script>
+<script>
+/* all-results.js — inline */
+const AllResults = (function () {
+
+  const IMAGES = {
+    angel:   'https://images.pexels.com/photos/3734195/pexels-photo-3734195.jpeg?auto=compress&cs=tinysrgb&w=500',
+    wizard:  'https://images.pexels.com/photos/1162251/pexels-photo-1162251.jpeg?auto=compress&cs=tinysrgb&w=500',
+    fairy:   'https://images.pexels.com/photos/1310847/pexels-photo-1310847.jpeg?auto=compress&cs=tinysrgb&w=500',
+    dragon:  'https://images.pexels.com/photos/1416530/pexels-photo-1416530.jpeg?auto=compress&cs=tinysrgb&w=500',
+    griffin: 'https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=500',
+    mermaid: 'https://images.pexels.com/photos/1072179/pexels-photo-1072179.jpeg?auto=compress&cs=tinysrgb&w=500',
+  };
+
+  const NAMES = {
+    angel:   'The Angel',
+    wizard:  'The Wizard',
+    fairy:   'The Fairy',
+    dragon:  'The Dragon',
+    griffin: 'The Griffin',
+    mermaid: 'The Mermaid',
+  };
+
+  const PITCHES = {
+    angel:   'Your site should feel like being welcomed home — warm, trustworthy, and genuinely good.',
+    wizard:  'Your site should feel knowledgeable and intentional — every element there for a reason, nothing wasted.',
+    fairy:   'Your site should feel like stumbling onto something magical — delightful, clever, and impossible to forget.',
+    dragon:  'Your site should have power and presence — the kind that makes people sit up and pay attention.',
+    griffin: 'Your site should feel authoritative and alive — polished but never cold, structured but never stiff.',
+    mermaid: 'Your site should have depth and draw — the kind that makes people explore slowly and stay longer than they planned.',
+  };
+
+  const COUPONS = {
+    angel: 'ANGEL15', wizard: 'WIZARD10', fairy: 'FAIRY10',
+    dragon: 'DRAGON5', griffin: 'GRIFFIN5', mermaid: 'MERMAID5',
+  };
+
+  let selectedKey = null;
+
+  function init() {
+    const hb = document.getElementById('hamburger');
+    const nl = document.getElementById('navLinks');
+    if (hb && nl) hb.addEventListener('click', () => { nl.classList.toggle('open'); hb.classList.toggle('open'); });
+
+    /* Pre-select from URL hash */
+    const hash = window.location.hash.replace('#', '');
+    if (hash && IMAGES[hash]) {
+      const card = document.querySelector(`.result-card[data-key="${hash}"]`);
+      if (card) select(card);
+    }
+  }
+
+  function select(card) {
+    document.querySelectorAll('.result-card').forEach(c => c.classList.remove('selected'));
+    card.classList.add('selected');
+    selectedKey = card.dataset.key;
+    const bar = document.getElementById('pickCtaBar');
+    const nameEl = document.getElementById('pickCtaName');
+    if (bar) bar.classList.add('visible');
+    if (nameEl) nameEl.textContent = NAMES[selectedKey] || selectedKey;
+  }
+
+  function goToQuiz() { window.location.href = 'quiz.html'; }
+
+  function goToCommission() {
+    if (!selectedKey) return;
+    const params = new URLSearchParams({
+      fairy:     selectedKey,
+      fairyname: NAMES[selectedKey] || '',
+      fairydesc: PITCHES[selectedKey] || '',
+      coupon:    COUPONS[selectedKey] || '',
+    });
+    window.location.href = `commission.html?${params.toString()}`;
+  }
+
+  function openSwap() { document.getElementById('swapPanel').style.display = 'block'; }
+  function closeSwap() {
+    document.getElementById('swapPanel').style.display = 'none';
+    document.getElementById('swapPreview').style.display = 'none';
+  }
+  function previewSwap() {
+    const url = document.getElementById('swapUrl').value.trim();
+    const preview = document.getElementById('swapPreview');
+    if (url) { preview.src = url; preview.style.display = 'block'; }
+    else preview.style.display = 'none';
+  }
+  function applySwap() {
+    const key = document.getElementById('swapTarget').value;
+    const url = document.getElementById('swapUrl').value.trim();
+    if (!key || !url) return alert('Pick an archetype and enter a URL first.');
+    const img = document.getElementById(`img-${key}`);
+    if (img) img.src = url;
+    IMAGES[key] = url;
+    alert(`✦ Applied! Click "Copy Update Code" to make it permanent.`);
+    closeSwap();
+  }
+  function copySwapCode() {
+    const key = document.getElementById('swapTarget').value;
+    const url = document.getElementById('swapUrl').value.trim();
+    if (!key || !url) return alert('Pick an archetype and enter a URL first.');
+    const code = `/* all-results.html IMAGES object */\n${key}: '${url}',\n\n/* all-results.html img tag */\n<img ... id="img-${key}" src="${url}" ...>`;
+    navigator.clipboard?.writeText(code).then(() => alert('✦ Copied to clipboard!')).catch(() => prompt('Copy this:', code));
+  }
+
+  return { init, select, goToQuiz, goToCommission, openSwap, closeSwap, previewSwap, applySwap, copySwapCode };
+})();
+
+document.addEventListener('DOMContentLoaded', AllResults.init);
+</script>
+</body>
+</html>
